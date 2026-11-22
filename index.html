@@ -1,52 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<!-- Firebase SDK -->
-<script>
-// Firebase compatibility wrapper for the existing app code
-const dbProxy = {
-  collection: (name) => ({
-    doc: (id) => ({
-      set: (data) => window.setDoc(window.doc(window.db, name, id), data),
-      update: (data) => window.updateDoc(window.doc(window.db, name, id), data),
-      delete: () => window.deleteDoc(window.doc(window.db, name, id))
-    }),
-    get: async () => {
-      const snap = await window.getDocs(window.collection(window.db, name));
-      return { docs: snap.docs.map(d => ({ id: d.id, data: () => d.data() })) };
-    },
-    onSnapshot: (callback) => {
-      return window.onSnapshot(window.collection(window.db, name), (snap) => {
-        callback({ docs: snap.docs.map(d => ({ id: d.id, data: () => d.data() })) });
-      });
-    }
-  })
-};
-window.db = dbProxy;
-</script>
-
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, collection, doc, setDoc, getDocs, deleteDoc, updateDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
-
-  const firebaseConfig = {"apiKey":"AIzaSyARlayReEmgwX-eMXI9izDaShp3LUMCoMU","authDomain":"my-expenses-app-aadda.firebaseapp.com","projectId":"my-expenses-app-aadda","storageBucket":"my-expenses-app-aadda.appspot.com","messagingSenderId":"1008807211737","appId":"1:1008807211737:web:960b38215a859b1f1f04c8","measurementId":"G-4WKE8RS3YB"};
-  const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
-  const analytics = getAnalytics(app);
-
-  // Make db globally accessible for the app
-  window.db = db;
-  window.collection = collection;
-  window.doc = doc;
-  window.setDoc = setDoc;
-  window.getDocs = getDocs;
-  window.deleteDoc = deleteDoc;
-  window.updateDoc = updateDoc;
-  window.onSnapshot = onSnapshot;
-</script>
-
 <meta charset="UTF-8">
 <title>My Expenses</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -107,6 +61,8 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
 .txn.t-out{border-left-color:var(--danger);} .txn.t-in{border-left-color:var(--good);} .txn.t-move{border-left-color:#4a7fb5;}
 .tone-out{color:var(--danger);} .tone-in{color:var(--good);} .tone-other{color:var(--sub);} .tone-move{color:#4a7fb5;}
 .txn.grp{background:var(--card);}
+.items-panel{margin:0 0 8px 12px;padding:8px 10px;background:var(--card);border-radius:10px;font-size:.85rem;}
+.items-panel .row{margin-bottom:3px;}
 .grp-body{margin:0 0 6px 10px;padding-left:8px;border-left:2px dashed var(--line);}
 .del{background:none;border:none;color:var(--danger);font-size:.75rem;margin-left:10px;padding:4px 6px;border-radius:6px;transition:background .15s;}
 .del.confirming{background:var(--danger);color:#fff;font-weight:600;}
@@ -261,6 +217,14 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
         <label>Amount</label>
         <input type="number" id="f-amt" step="0.01" placeholder="0.00">
       </div>
+      <div id="itemsWrap">
+        <label style="display:flex;gap:8px;align-items:center;margin-top:10px;font-weight:400"><input type="checkbox" id="f-useitems" style="width:auto"> Add items to this bill <span class="sub" style="margin:0">(optional)</span></label>
+        <div id="f-itemsBox" style="display:none;margin-top:6px">
+          <div id="f-itemRows"></div>
+          <button class="btn-sm" type="button" id="f-addItem">+ Add item</button>
+          <div class="sub" id="f-itemsTotal" style="margin:6px 0 0"></div>
+        </div>
+      </div>
       <div id="curField">
         <label>Currency</label>
         <select id="f-cur"><option value="AED">AED</option><option value="USD">USD</option></select>
@@ -276,6 +240,11 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
         <select id="f-cat"></select>
         <label>Account</label>
         <select id="f-acct"></select>
+      </div>
+      <div id="paidByWrap">
+        <label>Paid by</label>
+        <select id="f-paidby"></select>
+        <div class="sub" id="paidByHint" style="margin:4px 0 0"></div>
       </div>
       <div id="planBlock" style="display:none">
         <div class="sub" id="limitHint" style="margin:8px 0 0"></div>
@@ -304,6 +273,9 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
         <select id="sp-cat"></select>
         <label>Account</label>
         <select id="sp-acct"></select>
+        <label>Paid by</label>
+        <select id="sp-paidby"></select>
+        <div class="sub" id="spPaidHint" style="margin:4px 0 0"></div>
         <div class="sub" style="margin:10px 0 0">Add a bill photo below and the items are read for you.</div>
         <label>Add a friend</label>
         <div class="inline-edit"><input type="text" id="newFriendSplit" placeholder="New friend's name"><button class="btn-sm" type="button" onclick="addFriend('newFriendSplit')">Add friend</button></div>
@@ -375,6 +347,9 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
         <label style="margin-top:0">Tabby card account</label>
         <select id="iAcct"></select>
         <div class="filters" style="margin-top:8px"><input type="number" id="iDay" min="1" max="31" inputmode="numeric" placeholder="Statement closes on day"><input type="number" id="iGrace" min="0" max="60" inputmode="numeric" placeholder="Days to pay"></div>
+        <label style="margin-top:8px">Or: payment due on day of the month</label>
+        <input type="number" id="iDueDay" min="1" max="31" inputmode="numeric" placeholder="e.g. 6 (leave empty to use days to pay)">
+        <div class="sub" style="margin:4px 0 0">If the statement closes on 12 and the payment is due on 6, a statement that closed on 12 Oct is paid by 6 Nov. Anything after the closing day goes on the next statement.</div>
         <label>Credit limit (AED)</label>
         <input type="number" id="iLimit" step="0.01" inputmode="decimal" placeholder="e.g. 8000">
         <label style="display:flex;gap:8px;align-items:center;margin-top:12px"><input type="checkbox" id="iPlus" style="width:auto"> I have Tabby Plus</label>
@@ -555,10 +530,6 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
       <input type="file" id="restoreFile" accept=".json,application/json">
       <div class="sub" id="restoreInfo" style="margin:8px 0 0"></div>
       <button class="btn-sm" id="restoreBtn" type="button" style="display:none;width:100%;margin-top:8px">Restore this backup</button>
-      <label>Import from a CSV export</label>
-      <input type="file" id="csvFile" accept=".csv,text/csv">
-      <div class="sub" id="csvInfo" style="margin:8px 0 0"></div>
-      <button class="btn-sm" id="csvImportBtn" type="button" style="display:none;width:100%;margin-top:8px">Import this CSV</button>
     </div>
     <div class="card">
       <div class="section-title" style="margin-top:0">Trash</div>
@@ -608,6 +579,19 @@ button{cursor:pointer;font-size:.95rem;font-family:inherit;}
   <div id="recItems" style="margin-top:8px"></div>
   <div class="sub" id="recSummary" style="margin:8px 0 0"></div>
   <button class="btn-primary" id="recSave" type="button" style="margin-top:12px">Record payment</button>
+</div></div>
+<div class="sheet" id="repSheet"><div class="card">
+  <div class="row"><strong id="repTitle">Pay back</strong><button class="btn-sm" id="repClose" type="button">✕</button></div>
+  <div class="sub" style="margin:6px 0 0">Money leaves the account you choose and what you owe him goes down.</div>
+  <label>Amount</label><input type="number" id="repAmt" step="0.01" inputmode="decimal">
+  <div class="filters"><select id="repAcct"></select><input type="date" id="repDate"></div>
+  <button class="btn-primary" id="repSave" type="button" style="margin-top:12px">Record payment</button>
+</div></div>
+<div class="sheet" id="acctDelSheet"><div class="card">
+  <div class="row"><strong id="adTitle">Delete account</strong><button class="btn-sm" id="adClose" type="button">✕</button></div>
+  <div class="sub" id="adBody" style="margin:8px 0 0"></div>
+  <div id="adMoveWrap" style="display:none"><label>Move everything in it to</label><select id="adMoveTo"></select></div>
+  <button class="btn-primary" id="adConfirm" type="button" style="margin-top:12px;background:var(--danger)">Delete account</button>
 </div></div>
 <div class="lightbox" id="lightbox" onclick="this.style.display='none'"><img id="lightboxImg" alt="Bill photo"></div>
 <div class="lock" id="lockScreen"><div class="lock-box">
@@ -788,8 +772,6 @@ function init(){
   document.getElementById('backupBtn').onclick = exportBackup;
   document.getElementById('csvBtn').onclick = exportCsv;
   document.getElementById('restoreFile').onchange = handleRestoreFile;
-  document.getElementById('csvFile').onchange = handleCsvFile;
-  document.getElementById('csvImportBtn').onclick = (ev)=>armConfirm(ev.currentTarget, 'Import?', doCsvImport);
   document.getElementById('restoreBtn').onclick = (ev)=>armConfirm(ev.currentTarget, 'Sure? Tap again', doRestore);
   document.getElementById('openReportBtn').onclick = openReport;
   document.getElementById('closeReportBtn').onclick = ()=>document.querySelector('.tab-btn[data-view="dash"]').click();
@@ -819,6 +801,16 @@ function init(){
   ['pTotal','pCount','pFee','pEach','pPaid'].forEach(id=>{ document.getElementById(id).oninput = updatePlanFormHint; });
   document.getElementById('f-plan').onchange = planFieldsToggle;
   document.getElementById('f-for').onchange = updatePlanHint;
+  document.getElementById('f-useitems').onchange = toggleItemsUI;
+  document.getElementById('f-addItem').onclick = addFormItem;
+  document.getElementById('f-paidby').onchange = ()=>{ updatePaidByUI(); onAddAccountChange(); };
+  document.getElementById('sp-paidby').onchange = updateSplitPaidHint;
+  document.getElementById('adClose').onclick = closeAcctDel;
+  document.getElementById('adConfirm').onclick = confirmAcctDel;
+  document.getElementById('acctDelSheet').onclick = (ev)=>{ if(ev.target.id==='acctDelSheet') closeAcctDel(); };
+  document.getElementById('repClose').onclick = closeRepay;
+  document.getElementById('repSave').onclick = saveRepay;
+  document.getElementById('repSheet').onclick = (ev)=>{ if(ev.target.id==='repSheet') closeRepay(); };
   document.getElementById('f-pn').oninput = updatePlanHint;
   document.getElementById('f-pint').onchange = updatePlanHint;
   document.getElementById('f-pfee').oninput = updatePlanHint;
@@ -841,48 +833,10 @@ function init(){
   connectDb();
 }
 
-
-window.PRELOADED_BACKUP = {"app":"expense-tracker","version":1,"exportedAt":"2026-10-29T17:53:33.137Z","collections":{"expenses":[{"id":"import_1","date":"2026-10-29","desc":"توست","amount":4.25,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_3","date":"2026-10-28","desc":"توست وكروسان","amount":7.66,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_5","date":"2026-10-27","desc":"توست وكروسان","amount":8.16,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_6","date":"2026-10-27","desc":"الخال","amount":40.25,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413135},{"id":"import_9","date":"2026-10-26","desc":"كارفور خبز بندورة جبن زبدة","amount":37.51,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_10","date":"2026-10-26","desc":"بانكيك نوتيلا الخال","amount":10.5,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413135},{"id":"import_11","date":"2026-10-25","desc":"Keeta Food","amount":37.1,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_12","date":"2026-10-25","desc":"باص العين","amount":30,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_13","date":"2026-10-25","desc":"مي جوز الهند وكروسان","amount":9,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_17","date":"2026-10-24","desc":"فلافل الرابية محمرة وقشقوان","amount":16.5,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_18","date":"2026-10-24","desc":"باص العين","amount":30,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413135},{"id":"import_19","date":"2026-10-24","desc":"تكسي","amount":12,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_20","date":"2026-10-24","desc":"Eco Mini Mart Bus Station","amount":14.2,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_21","date":"2026-10-24","desc":"بوظة","amount":5,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_22","date":"2026-10-24","desc":"بيتزا","amount":54.9,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_23","date":"2026-10-24","desc":"بسكوتة وبيبسي","amount":6.5,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_26","date":"2026-10-23","desc":"فطاير","amount":15.5,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_27","date":"2026-10-23","desc":"كارفور أندومي بطيخ","amount":20.56,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_28","date":"2026-10-23","desc":"Keeta Mango Lab","amount":27.5,"currency":"AED","category":"Jazz","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_30","date":"2026-10-22","desc":"خبز","amount":1.17,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_31","date":"2026-10-22","desc":"كارفور مربى وموز","amount":15.29,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_32","date":"2026-10-22","desc":"شاورما","amount":31.5,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_33","date":"2026-10-22","desc":"Tabby Plus Subscription","amount":59,"currency":"AED","category":"Financial","account":"Bank Account","createdAt":1793296413136},{"id":"import_39","date":"2026-10-21","desc":"Carrefour","amount":11.84,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_40","date":"2026-10-21","desc":"كارفور عرنوس بندورة","amount":26.96,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_41","date":"2026-10-21","desc":"فيتا","amount":2.77,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_42","date":"2026-10-21","desc":"شاورما Operation Falafel","amount":27.2,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_51","date":"2026-10-20","desc":"رز وخضار","amount":25,"currency":"AED","category":"Food & Dining","account":"Cash","createdAt":1793296413136},{"id":"import_52","date":"2026-10-20","desc":"مي","amount":5.33,"currency":"AED","category":"Groceries","account":"Cash","createdAt":1793296413136},{"id":"import_53","date":"2026-10-20","desc":"كارفور خبز موز بطيخ","amount":16.14,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_54","date":"2026-10-20","desc":"خبز","amount":1.16,"currency":"AED","category":"Groceries","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_60","date":"2026-10-19","desc":"باص العين","amount":30,"currency":"AED","category":"Transportation","account":"Bank Account","createdAt":1793296413136},{"id":"import_61","date":"2026-10-19","desc":"سيفيتسوي","amount":2.88,"currency":"AED","category":"Jazz","account":"Bank Account","createdAt":1793296413136},{"id":"import_62","date":"2026-10-19","desc":"حجز أوتيل","amount":89.03,"currency":"AED","category":"Jazz","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_63","date":"2026-10-19","desc":"ماكدونالدز","amount":23.5,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_64","date":"2026-10-19","desc":"تاكسي","amount":6,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_65","date":"2026-10-19","desc":"مطعم سبوت لايت","amount":57.5,"currency":"AED","category":"Food & Dining","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_66","date":"2026-10-19","desc":"تكسي","amount":6,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_67","date":"2026-10-19","desc":"Nol Card","amount":20,"currency":"AED","category":"Transportation","account":"Tabby Credit Card","createdAt":1793296413136},{"id":"import_78","date":"2026-10-18","desc":"ماكدونالدز","amount":64,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137},{"id":"import_79","date":"2026-10-18","desc":"فطور الواحة","amount":74.31,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137},{"id":"import_80","date":"2026-10-18","desc":"Tabby Statement September","amount":782.15,"currency":"AED","category":"Miscellaneous","account":"Bank Account","createdAt":1793296413137},{"id":"import_89","date":"2026-10-17","desc":"برغر هاف باف","amount":63.9,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137},{"id":"import_90","date":"2026-10-17","desc":"خبز جبن","amount":6,"currency":"AED","category":"Groceries","account":"Bank Account","createdAt":1793296413137},{"id":"import_91","date":"2026-10-16","desc":"Taxi","amount":12,"currency":"AED","category":"Transportation","account":"Bank Account","createdAt":1793296413137},{"id":"import_92","date":"2026-10-16","desc":"Fish Snacks","amount":33.25,"currency":"AED","category":"Jazz","account":"Bank Account","createdAt":1793296413137},{"id":"import_93","date":"2026-10-16","desc":"Taxi","amount":21,"currency":"AED","category":"Transportation","account":"Bank Account","createdAt":1793296413137},{"id":"import_94","date":"2026-10-16","desc":"Taxi","amount":12,"currency":"AED","category":"Transportation","account":"Bank Account","createdAt":1793296413137},{"id":"import_95","date":"2026-10-16","desc":"Bus","amount":30,"currency":"AED","category":"Transportation","account":"Bank Account","createdAt":1793296413137},{"id":"import_96","date":"2026-10-16","desc":"كروسان وبوظة","amount":7,"currency":"AED","category":"Groceries","account":"Bank Account","createdAt":1793296413137},{"id":"import_100","date":"2026-10-15","desc":"كارفور موز شيبس","amount":12.97,"currency":"AED","category":"Groceries","account":"Credit Card","createdAt":1793296413137},{"id":"import_101","date":"2026-10-15","desc":"كيك","amount":56.4,"currency":"AED","category":"Jazz","account":"Credit Card","createdAt":1793296413137},{"id":"import_102","date":"2026-10-15","desc":"رصيد","amount":1,"currency":"AED","category":"Bills & Utilities","account":"Credit Card","createdAt":1793296413137},{"id":"import_103","date":"2026-10-15","desc":"شيش برك وكريب","amount":30.5,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137},{"id":"import_107","date":"2026-10-13","desc":"محارم خبز","amount":4.58,"currency":"AED","category":"Groceries","account":"Credit Card","createdAt":1793296413137},{"id":"import_108","date":"2026-10-13","desc":"رصيد","amount":15,"currency":"AED","category":"Jazz","account":"Credit Card","createdAt":1793296413137},{"id":"import_109","date":"2026-10-13","desc":"Carrefour بندورة وكوكاكولا","amount":11.33,"currency":"AED","category":"Groceries","account":"Credit Card","createdAt":1793296413137},{"id":"import_110","date":"2026-10-13","desc":"شاورما","amount":27.8,"currency":"AED","category":"Food & Dining","account":"Credit Card","createdAt":1793296413137},{"id":"import_119","date":"2026-10-12","desc":"فطاير الرابية","amount":14.5,"currency":"AED","category":"Food & Dining","account":"Credit Card","createdAt":1793296413137},{"id":"import_122","date":"2026-10-11","desc":"شاكرية","amount":20.5,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137},{"id":"import_125","date":"2026-10-10","desc":"Housing","amount":1333.5,"currency":"AED","category":"Housing & Living","account":"Bank Account","createdAt":1793296413137},{"id":"import_126","date":"2026-10-10","desc":"ملوخية","amount":30.5,"currency":"AED","category":"Food & Dining","account":"Bank Account","createdAt":1793296413137}],"income":[{"id":"import_43","date":"2026-10-21","desc":"بشير","amount":1000,"currency":"AED","category":"Debit","account":"Bank Account","createdAt":1793296413136},{"id":"import_81","date":"2026-10-18","desc":"Jazz September Statement 1","amount":1859.32,"currency":"AED","category":"Debit","account":"Bank Account","createdAt":1793296413137},{"id":"import_111","date":"2026-10-13","desc":"حيان دين","amount":6.2,"currency":"AED","category":"Debit","account":"Bank Account","createdAt":1793296413137},{"id":"import_120","date":"2026-10-12","desc":"Transportation Allowance","amount":500,"currency":"AED","category":"Allowance","account":"Bank Account","createdAt":1793296413137},{"id":"import_123","date":"2026-10-11","desc":"Jazz Debit","amount":2199.5,"currency":"AED","category":"Debit","account":"Bank Account","createdAt":1793296413137},{"id":"import_124","date":"2026-10-11","desc":"Haian Gold","amount":177,"currency":"AED","category":"Debit","account":"Bank Account","createdAt":1793296413137}],"transfers":[{"id":"import_2","date":"2026-10-29","desc":"Ear Buds (2/4)","amount":25.5,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413135},{"id":"import_34","date":"2026-10-22","desc":"Amazon Jazz (3/6)","amount":46.01,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413136},{"id":"import_35","date":"2026-10-22","desc":"Jazz Noon Minutes (3/7)","amount":25.49,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413136},{"id":"import_55","date":"2026-10-20","desc":"تحويل للمي والأكل","amount":100,"currency":"AED","from":"Bank Account","to":"Cash","createdAt":1793296413136},{"id":"import_82","date":"2026-10-18","desc":"Hair Coloring (1/4)","amount":341.25,"currency":"AED","from":"Bank Account","to":"Tabby Credit Card","createdAt":1793296413137},{"id":"import_83","date":"2026-10-18","desc":"Primark Clothes (1/4)","amount":195.25,"currency":"AED","from":"Bank Account","to":"Tabby Credit Card","createdAt":1793296413137},{"id":"import_84","date":"2026-10-18","desc":"Udrive Jazz (1/6)","amount":64.91,"currency":"AED","from":"Bank Account","to":"Tabby Credit Card","createdAt":1793296413137},{"id":"import_85","date":"2026-10-18","desc":"Laptop (2/8)","amount":377.86,"currency":"AED","from":"Bank Account","to":"Tabby Credit Card","createdAt":1793296413137},{"id":"import_112","date":"2026-10-13","desc":"Jazz Shoes (3/8)","amount":140.68,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413137},{"id":"import_113","date":"2026-10-13","desc":"Haian Flight Ticket (4/4)","amount":287.23,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413137},{"id":"import_114","date":"2026-10-13","desc":"Haian Dentist (6/8)","amount":393.57,"currency":"AED","from":"Bank Account","to":"Tabby App","createdAt":1793296413137}],"friendTxns":[{"id":"import_4","friendId":"f_jazz","friendName":"Jazz","amount":55,"direction":"owed_to_me","desc":"Etisalat","date":"2026-10-28","account":"Bank Account","currency":"AED","createdAt":1793296413135},{"id":"import_7","friendId":"f_jazz","friendName":"Jazz","amount":100.5,"direction":"owed_to_me","desc":"Debt","date":"2026-10-27","account":"Bank Account","currency":"AED","createdAt":1793296413135},{"id":"import_8","friendId":"f_haian","friendName":"Haian","amount":20.25,"direction":"owed_to_me","desc":"الخال (split)","date":"2026-10-27","account":"Bank Account","currency":"AED","createdAt":1793296413135},{"id":"import_14","friendId":"f_jazz","friendName":"Jazz","amount":126,"direction":"owed_to_me","desc":"Involuntary Loss Of Employment","date":"2026-10-25","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413135},{"id":"import_15","friendId":"f_jazz","friendName":"Jazz","amount":37.1,"direction":"owed_to_me","desc":"Keeta Food (split)","date":"2026-10-25","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413135},{"id":"import_16","friendId":"f_jazz","friendName":"Jazz","amount":27.5,"direction":"owed_to_me","desc":"Keeta Mango Lab","date":"2026-10-25","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413135},{"id":"import_24","friendId":"f_jazz","friendName":"Jazz","amount":122,"direction":"owed_to_me","desc":"Le Cheval Cafe","date":"2026-10-24","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_25","friendId":"f_jazz","friendName":"Jazz","amount":20.25,"direction":"owed_to_me","desc":"Taxi","date":"2026-10-24","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_29","friendId":"f_bilal","friendName":"Bilal","amount":18.5,"direction":"owed_to_me","desc":"فطاير (split)","date":"2026-10-23","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_36","friendId":"f_bachir","friendName":"Bachir","amount":1.16,"direction":"owed_to_me","desc":"خبز (split)","date":"2026-10-22","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_37","friendId":"f_haian","friendName":"Haian","amount":1.16,"direction":"owed_to_me","desc":"خبز (split)","date":"2026-10-22","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_38","friendId":"f_jazz","friendName":"Jazz","amount":29.55,"direction":"owed_to_me","desc":"Noon Minutes","date":"2026-10-22","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_44","friendId":"f_jazz","friendName":"Jazz","amount":46.01,"direction":"owed_to_me","desc":"Amazon","date":"2026-10-21","account":"Bank Account","currency":"AED","createdAt":1793296413136},{"id":"import_45","friendId":"f_jazz","friendName":"Jazz","amount":267,"direction":"owed_to_me","desc":"Fine","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_46","friendId":"f_bachir","friendName":"Bachir","amount":11.84,"direction":"owed_to_me","desc":"Carrefour (split)","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_47","friendId":"f_haian","friendName":"Haian","amount":11.84,"direction":"owed_to_me","desc":"Carrefour (split)","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_48","friendId":"f_jazz","friendName":"Jazz","amount":102,"direction":"owed_to_me","desc":"Hafilat Card Subscription","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_49","friendId":"f_haian","friendName":"Haian","amount":2.76,"direction":"owed_to_me","desc":"فيتا (split)","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_50","friendId":"f_bachir","friendName":"Bachir","amount":2.76,"direction":"owed_to_me","desc":"فيتا (split)","date":"2026-10-21","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_56","friendId":"f_haian","friendName":"Haian","amount":5.33,"direction":"owed_to_me","desc":"مي (split)","date":"2026-10-20","account":"Cash","currency":"AED","createdAt":1793296413136},{"id":"import_57","friendId":"f_bachir","friendName":"Bachir","amount":5.33,"direction":"owed_to_me","desc":"مي (split)","date":"2026-10-20","account":"Cash","currency":"AED","createdAt":1793296413136},{"id":"import_58","friendId":"f_bachir","friendName":"Bachir","amount":1.16,"direction":"owed_to_me","desc":"خبز (split)","date":"2026-10-20","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_59","friendId":"f_haian","friendName":"Haian","amount":1.16,"direction":"owed_to_me","desc":"خبز (split)","date":"2026-10-20","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_68","friendId":"f_jazz","friendName":"Jazz","amount":30,"direction":"owed_to_me","desc":"باص العين (split)","date":"2026-10-19","account":"Bank Account","currency":"AED","createdAt":1793296413136},{"id":"import_69","friendId":"f_jazz","friendName":"Jazz","amount":8.38,"direction":"owed_to_me","desc":"سيفيتسوي (split)","date":"2026-10-19","account":"Bank Account","currency":"AED","createdAt":1793296413136},{"id":"import_70","friendId":"f_jazz","friendName":"Jazz","amount":10.49,"direction":"owed_to_me","desc":"دين","date":"2026-10-19","account":"Bank Account","currency":"AED","createdAt":1793296413136},{"id":"import_71","friendId":"f_jazz","friendName":"Jazz","amount":89.03,"direction":"owed_to_me","desc":"حجز أوتيل (split)","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_72","friendId":"f_jazz","friendName":"Jazz","amount":23.5,"direction":"owed_to_me","desc":"ماكدونالدز (split)","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_73","friendId":"f_jazz","friendName":"Jazz","amount":6,"direction":"owed_to_me","desc":"تاكسي (split)","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_74","friendId":"f_jazz","friendName":"Jazz","amount":57.5,"direction":"owed_to_me","desc":"مطعم سبوت لايت (split)","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_75","friendId":"f_jazz","friendName":"Jazz","amount":6,"direction":"owed_to_me","desc":"تكسي (split)","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_76","friendId":"f_jazz","friendName":"Jazz","amount":30,"direction":"owed_to_me","desc":"Bus Al Ain","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_77","friendId":"f_jazz","friendName":"Jazz","amount":10,"direction":"owed_to_me","desc":"Balance","date":"2026-10-19","account":"Tabby Credit Card","currency":"AED","createdAt":1793296413136},{"id":"import_86","friendId":"f_jazz","friendName":"Jazz","amount":140.68,"direction":"i_owe","desc":"Jazz Shoes (3/8) — received","date":"2026-10-18","account":"Bank Account","currency":"AED","createdAt":1793296413137},{"id":"import_87","friendId":"f_jazz","friendName":"Jazz","amount":10.5,"direction":"owed_to_me","desc":"دين","date":"2026-10-18","account":"Bank Account","currency":"AED","createdAt":1793296413137},{"id":"import_88","friendId":"f_jazz","friendName":"Jazz","amount":74.3,"direction":"owed_to_me","desc":"فطور الواحة (split)","date":"2026-10-18","account":"Bank Account","currency":"AED","createdAt":1793296413137},{"id":"import_97","friendId":"f_jazz","friendName":"Jazz","amount":6.54,"direction":"owed_to_me","desc":"Tabby Payment","date":"2026-10-16","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_98","friendId":"f_jazz","friendName":"Jazz","amount":6.33,"direction":"owed_to_me","desc":"Tabby Payment","date":"2026-10-16","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_99","friendId":"f_jazz","friendName":"Jazz","amount":69,"direction":"owed_to_me","desc":"Al Habara Cafeteria","date":"2026-10-16","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_104","friendId":"f_bilal","friendName":"Bilal","amount":14.5,"direction":"i_owe","desc":"Settlement","date":"2026-10-15","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_105","friendId":"f_jazz","friendName":"Jazz","amount":18,"direction":"owed_to_me","desc":"Taxi","date":"2026-10-15","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_106","friendId":"f_bilal","friendName":"Bilal","amount":14.5,"direction":"i_owe","desc":"Settlement","date":"2026-10-14","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_115","friendId":"f_haian","friendName":"Haian","amount":287.23,"direction":"i_owe","desc":"Haian Flight Ticket (4/4) — received","date":"2026-10-13","account":"Bank Account","currency":"AED","createdAt":1793296413137},{"id":"import_116","friendId":"f_haian","friendName":"Haian","amount":393.57,"direction":"i_owe","desc":"Haian Dentist (6/8) — received","date":"2026-10-13","account":"Bank Account","currency":"AED","createdAt":1793296413137},{"id":"import_117","friendId":"f_bachir","friendName":"Bachir","amount":4.58,"direction":"owed_to_me","desc":"محارم خبز (split)","date":"2026-10-13","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_118","friendId":"f_haian","friendName":"Haian","amount":4.58,"direction":"owed_to_me","desc":"محارم خبز (split)","date":"2026-10-13","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_121","friendId":"f_bilal","friendName":"Bilal","amount":18.5,"direction":"owed_to_me","desc":"فطاير الرابية (split)","date":"2026-10-12","account":"Credit Card","currency":"AED","createdAt":1793296413137},{"id":"import_127","friendId":"f_ammar","friendName":"Ammar","amount":2522.37,"direction":"owed_to_me","desc":"Starting balance","date":"2026-10-10","account":"","currency":"AED","createdAt":1793296413137},{"id":"import_128","friendId":"f_bachir","friendName":"Bachir","amount":379.45,"direction":"owed_to_me","desc":"Starting balance","date":"2026-10-10","account":"","currency":"AED","createdAt":1793296413137},{"id":"import_131","friendId":"f_haian","friendName":"Haian","amount":5485.99,"direction":"owed_to_me","desc":"Starting balance","date":"2024-09-01","account":"","currency":"USD","createdAt":1793296413137}],"friends":[{"id":"f_jazz","name":"Jazz"},{"id":"f_haian","name":"Haian"},{"id":"f_bilal","name":"Bilal"},{"id":"f_bachir","name":"Bachir"},{"id":"f_ammar","name":"Ammar"}],"adjustments":[{"id":"import_129","date":"2026-10-10","desc":"Balance adjustment","amount":830,"currency":"USD","account":"Cash","createdAt":1793296413137},{"id":"import_130","date":"2026-10-10","desc":"Balance adjustment","amount":3501.75,"currency":"AED","account":"Cash","createdAt":1793296413137}],"goals":[],"plans":[],"recurring":[],"accountBalances":[{"id":"creditCard","account":"Credit Card","opening":-5493.42},{"id":"tabby_credit_card","account":"Tabby Credit Card","opening":-5180.52},{"id":"tabby_app","account":"Tabby App","opening":-7857.32},{"id":"bank_account","account":"Bank Account","opening":3160.74},{"id":"cash","account":"Cash","opening":-60.01}],"budgets":[],"settings":[{"id":"prefs","defaultAccount":"Bank Account","rates":{"USD":3.6725},"rollover":false,"rolloverFrom":""},{"id":"lists","categories":["Food & Dining","Groceries","Transportation","Entertainment","Financial","Health / Medical","Bills & Utilities","Education & Work","Personal & Social","Shopping","Housing & Living","Family","Smokes","Jazz","Debits","Miscellaneous"],"incomeCats":["Salary","Business","Gift","Refund","Investment","Other","Debit","Allowance"],"currencies":["AED","USD"],"accounts":["Cash","Bank Account","Credit Card","Jazz","Tabby","Tabby Credit Card","Tabby App"],"cards":["Credit Card","Tabby Credit Card"]}]}};
-
-async function loadPreloadedBackup(){
-  const obj = window.PRELOADED_BACKUP;
-  if(!obj || !obj.collections) return;
-  expenses = obj.collections.expenses || [];
-  incomes = obj.collections.income || [];
-  transfers = obj.collections.transfers || [];
-  friendTxns = obj.collections.friendTxns || [];
-  friends = obj.collections.friends || [];
-  adjustments = obj.collections.adjustments || [];
-  goals = obj.collections.goals || [];
-  plans = obj.collections.plans || [];
-  recurring = obj.collections.recurring || [];
-
-  const abs = obj.collections.accountBalances || [];
-  accountBalances = {}; abs.forEach(d=>accountBalances[d.account||d.id]=d);
-
-  const bs = obj.collections.budgets || [];
-  budgets = {}; bs.forEach(d=>budgets[d.category||d.id]=d.limit);
-
-  const sd = obj.collections.settings || [];
-  setCcFromDocs(sd);
-  setListsFromDocs(sd);
-  setMetaFromDocs(sd);
-  setPrefsFromDocs(sd);
-  setInstFromDocs(sd);
-  refreshLists();
-  applyDefaultAccount();
-}
-
 async function connectDb(){
   try{ db = await claude.use('db'); }catch(e){ db = null; }
   const status = document.getElementById('statusLine');
-  if(!db){ 
-    status.textContent = "Running offline mode (preloaded data)"; 
-    await loadPreloadedBackup();
-    hideLock(); 
-    render(); 
-    return; 
-  }
+  if(!db){ status.textContent = "Storage unavailable in this view — your data won't be saved."; hideLock(); render(); return; }
   status.textContent = 'Synced';
   await loadAll();
   if(prefs.pinHash) showLock(); else hideLock();
@@ -892,8 +846,22 @@ async function connectDb(){
   await reconcilePlans();
   await processRecurring();
   render();
+  try{
+    db.collection('expenses').onSnapshot(s=>{ expenses = docsOf(s); render(); });
+    db.collection('income').onSnapshot(s=>{ incomes = docsOf(s); render(); });
+    db.collection('accountBalances').onSnapshot(s=>{ accountBalances = {}; docsOf(s).forEach(d=>{accountBalances[d.account||d.id]=d;}); render(); });
+    db.collection('friends').onSnapshot(s=>{ friends = docsOf(s); render(); });
+    db.collection('friendTxns').onSnapshot(s=>{ friendTxns = docsOf(s); render(); });
+    db.collection('budgets').onSnapshot(s=>{ budgets = {}; docsOf(s).forEach(d=>{budgets[d.category||d.id]=d.limit;}); render(); });
+    db.collection('transfers').onSnapshot(s=>{ transfers = docsOf(s); render(); reconcilePlans().then(n=>{ if(n) render(); }); });
+    db.collection('trash').onSnapshot(s=>{ trash = docsOf(s); render(); });
+    db.collection('adjustments').onSnapshot(s=>{ adjustments = docsOf(s); render(); });
+    db.collection('recurring').onSnapshot(s=>{ recurring = docsOf(s); render(); });
+    db.collection('goals').onSnapshot(s=>{ goals = docsOf(s); render(); });
+    db.collection('plans').onSnapshot(s=>{ plans = docsOf(s); render(); reconcilePlans().then(n=>{ if(n) render(); }); });
+    db.collection('settings').onSnapshot(s=>{ const sd=docsOf(s); setCcFromDocs(sd); setListsFromDocs(sd); setMetaFromDocs(sd); setPrefsFromDocs(sd); setInstFromDocs(sd); refreshLists(); render(); });
+  }catch(e){}
 }
-
 
 // the database hands out read-only (frozen) data, including everything nested inside it, so take a full private copy
 const cloneData = o=>JSON.parse(JSON.stringify(o||{}));
@@ -941,8 +909,12 @@ function applyAddType(){
   show('debtFields', addType==='debt');
   show('splitFields', addType==='splitbill');
   show('transferFields', addType==='transfer');
+  show('itemsWrap', addType==='expense' || addType==='income');
+  if(addType!=='expense' && addType!=='income') resetItems();
+  show('paidByWrap', addType==='expense');
   updateDateHint();
-  show('planBlock', addType==='expense' && !editing && isTabbyAcct(document.getElementById('f-acct').value));
+  show('planBlock', addType==='expense' && !editing && !paidByVal() && isTabbyAcct(document.getElementById('f-acct').value));
+  updatePaidByUI();
   if(addType==='expense'||addType==='income'){
     const sel = document.getElementById('f-cat'); const prev = sel.value;
     fillSelect(sel, addType==='expense' ? CATEGORIES : INCOME_CATS);
@@ -965,7 +937,7 @@ function saveBtnLabel(){
 
 function refreshForSelects(){
   const html = '<option value="">Me</option>' + friends.map(f=>`<option value="${escapeHtml(f.id)}">${escapeHtml(f.name)}</option>`).join('');
-  ['f-for','pFor'].forEach(id=>{ const el = document.getElementById(id); if(el) setSelectHtml(el, html); });
+  ['f-for','pFor','f-paidby','sp-paidby'].forEach(id=>{ const el = document.getElementById(id); if(el) setSelectHtml(el, html); });
 }
 function friendNameOf(p){ const f = friends.find(x=>x.id===p.friendId); return f ? f.name : 'a friend'; }
 function refreshFriendSelect(){
@@ -1011,6 +983,8 @@ function startEdit(coll, id){
   }
   formPhotos = receiptsOf(item).slice(); renderPhotoThumbs();
   document.getElementById('addSeg').style.display = 'none';
+  if(coll==='expenses' || coll==='income') loadItemsIntoForm(item.items);
+  if(coll==='expenses'){ document.getElementById('f-paidby').value = item.paidBy || ''; updatePaidByUI(); }
   document.getElementById('editBar').style.display = 'flex';
   document.getElementById('repeatBar').style.display = 'none';
   document.getElementById('saveBtn').textContent = 'Save changes';
@@ -1158,7 +1132,7 @@ function resetPlanBlock(){
   document.getElementById('planFields').style.display = 'none';
   document.getElementById('f-pfirst').value = '';
 }
-function clearPhotos(discard){ resetPlanBlock(); if(!editing) resetAddDate(); if(discard && draftPhotoIds.size) deleteAssets([...draftPhotoIds]); draftPhotoIds.clear(); formPhotos = []; renderPhotoThumbs(); document.getElementById('photoStatus').textContent = ''; applyDefaultAccount(); }
+function clearPhotos(discard){ resetPlanBlock(); resetItems(); resetPaidBy(); if(!editing) resetAddDate(); if(discard && draftPhotoIds.size) deleteAssets([...draftPhotoIds]); draftPhotoIds.clear(); formPhotos = []; renderPhotoThumbs(); document.getElementById('photoStatus').textContent = ''; applyDefaultAccount(); }
 
 // shrink big phone photos (and convert formats like HEIC) before uploading
 async function compressImage(file){
@@ -1233,20 +1207,33 @@ async function saveSplitBill(){
   const friendShares = Object.entries(totals).filter(([k,v])=>k!=='me' && v>0.004);
   const mine = Math.round((totals['me']||0)*100)/100;
   if(mine<=0 && !friendShares.length){ toast('Assign at least one item to someone.'); return; }
+  const paidBy = document.getElementById('sp-paidby') ? document.getElementById('sp-paidby').value : '';
+  if(paidBy && mine<=0){ toast('You are not on any item, so there is nothing for you to record.'); return; }
+  const itemsSnap = splitItems.filter(it=>(parseFloat(it.amount)||0)>0).map(it=>({name:it.desc||'Item', amount:Math.round((parseFloat(it.amount)||0)*100)/100, who:(it.participants||[]).map(id=>id==='me'?'You':friendNameById(id))}));
   const btn = document.getElementById('saveBtn');
   btn.disabled = true; btn.textContent = 'Saving…';
   const splitId = 'sp_'+Date.now()+'_'+Math.random().toString(36).slice(2,6); // ties the parts of one bill together
   try{
     if(mine>0){
-      const entry = {date, desc, amount:mine, category, account, currency, createdAt:Date.now(), splitId};
+      const entry = {date, desc, amount:mine, category, account: paidBy ? '' : account, currency, createdAt:Date.now(), splitId, splitItems:itemsSnap};
       Object.assign(entry, receiptField());
       const id = (db?'expenses':'local')+'_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+      if(paidBy){ // a friend paid the whole bill: you owe him your share
+        entry.paidBy = paidBy;
+        const debtId = 'friendTxns_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+        entry.paidByTxnId = debtId;
+        const drec = {friendId:paidBy, amount:mine, direction:'i_owe', desc, date, account:'', currency, createdAt:Date.now(), kind:'paid_for_me', expenseId:id};
+        if(db) await db.collection('friendTxns').doc(debtId).set(drec);
+        addLocal(friendTxns, {id:debtId, ...drec});
+      }
       if(db) await db.collection('expenses').doc(id).set(entry);
       addLocal(expenses, {id, ...entry});
     }
-    for(const [friendId, share] of friendShares){
+    let firstFriend = true;
+    for(const [friendId, share] of (paidBy ? [] : friendShares)){
       const amount = Math.round(share*100)/100;
-      const fentry = {friendId, amount, direction:'owed_to_me', desc: desc+' (split)', date, account, currency, createdAt:Date.now(), splitId, ...receiptField()};
+      const fentry = {friendId, amount, direction:'owed_to_me', desc: desc+' (split)', date, account, currency, createdAt:Date.now(), splitId, ...(mine<=0 && firstFriend ? {splitItems:itemsSnap} : {}), ...receiptField()};
+      firstFriend = false;
       const fid = 'ft_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
       if(db) await db.collection('friendTxns').doc(fid).set(fentry);
       addLocal(friendTxns, {id:fid, ...fentry});
@@ -1367,7 +1354,7 @@ async function saveTransferEdit(date, desc, amount){
 async function saveEntry(){
   const date = document.getElementById('f-date').value;
   const desc = document.getElementById('f-desc').value.trim();
-  const amount = parseFloat(document.getElementById('f-amt').value);
+  let amount = parseFloat(document.getElementById('f-amt').value);
   if(editing && editing.coll==='friendTxns'){ await saveDebtEdit(date, desc, amount); return; }
   if(editing && editing.coll==='transfers'){ await saveTransferEdit(date, desc, amount); return; }
   if(!editing && addType==='splitbill'){ await saveSplitBill(); return; }
@@ -1394,11 +1381,20 @@ async function saveEntry(){
     return;
   }
   const category = document.getElementById('f-cat').value;
-  const account = document.getElementById('f-acct').value;
+  let account = document.getElementById('f-acct').value;
   const currency = document.getElementById('f-cur').value;
+  let items = [];
+  if(itemsOn()){
+    syncItemsFromDom();
+    items = formItems.map(i=>({name:(i.name||'').trim() || 'Item', amount:Math.round((parseFloat(i.amount)||0)*100)/100})).filter(i=>i.amount>0);
+    if(!items.length){ toast('Add at least one item with an amount, or turn items off.'); return; }
+    amount = Math.round(items.reduce((t,i)=>t+i.amount,0)*100)/100;   // the total of the bill is the total of its items
+  }
+  const paidBy = addType==='expense' ? (editing ? ((expenses.find(e=>e.id===editing.id)||{}).paidBy||'') : paidByVal()) : '';
+  if(paidBy) account = '';                                           // a friend paid: none of your accounts is used
   if(!date || !desc || !amount || amount<=0){ toast('Please fill in date, description, and a valid amount.'); return; }
   let planCfg = null;
-  if(!editing && addType==='expense' && document.getElementById('f-plan').checked){
+  if(!editing && addType==='expense' && !paidBy && document.getElementById('f-plan').checked){
     const count = parseInt(document.getElementById('f-pn').value,10);
     if(!(count>=2 && count<=36)){ toast('Choose 2 to 36 installments.'); return; }
     planCfg = {id:'pl_'+Date.now()+'_'+Math.random().toString(36).slice(2,6), count, interval:document.getElementById('f-pint').value, firstDue:document.getElementById('f-pfirst').value || date, fee: count>4 ? (parseFloat(document.getElementById('f-pfee').value)||0) : 0, feeDate:date};
@@ -1415,20 +1411,32 @@ async function saveEntry(){
       const {id:_i0, ...rest0} = idx>-1 ? arr[idx] : {createdAt: Date.now()};
       const entry = {...rest0, date, desc, amount, category, account, currency, receiptIds: formPhotos.slice()};
       delete entry.receiptAssetId;
+      if(items.length) entry.items = items; else delete entry.items;
+      if(entry.paidByTxnId){ // keep the debt to the friend in step with the bill
+        const dt = friendTxns.find(t=>t.id===entry.paidByTxnId);
+        if(dt){ const patch = {amount, desc, date, currency}; if(db) await db.collection('friendTxns').doc(dt.id).update(patch); Object.assign(dt, patch); }
+      }
       if(db) await db.collection(coll).doc(id).set(entry);
       if(idx>-1) arr[idx] = {id, ...entry};
       toast('Updated.');
       cancelEdit();
     }else{
-      const entry = {date, desc, amount, category, account, currency, createdAt: Date.now(), ...receiptField(), ...(planCfg ? {planId:planCfg.id} : {})};
+      const entry = {date, desc, amount, category, account, currency, createdAt: Date.now(), ...receiptField(), ...(planCfg ? {planId:planCfg.id} : {}), ...(items.length ? {items} : {}), ...(paidBy ? {paidBy} : {})};
       const coll = addType==='expense' ? 'expenses' : 'income';
       const id = (db?coll:'local')+'_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+      if(paidBy){ // he paid, so you owe him; no account of yours moves
+        const debtId = 'friendTxns_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+        entry.paidByTxnId = debtId;
+        const drec = {friendId:paidBy, amount, direction:'i_owe', desc, date, account:'', currency, createdAt:Date.now(), kind:'paid_for_me', expenseId:id};
+        if(db) await db.collection('friendTxns').doc(debtId).set(drec);
+        addLocal(friendTxns, {id:debtId, ...drec});
+      }
       if(db) await db.collection(coll).doc(id).set(entry);
       const arr = addType==='expense' ? expenses : incomes;
       addLocal(arr, {id, ...entry});
       if(planCfg) await createPlan({...planCfg, desc, account, currency, total:amount, expenseId:id});
       document.getElementById('f-desc').value=''; document.getElementById('f-amt').value=''; clearPhotos();
-      toast(planCfg ? 'Saved with '+planCfg.count+' installments.' : 'Saved.');
+      toast(planCfg ? 'Saved with '+planCfg.count+' installments.' : (paidBy ? 'Saved. You owe '+friendNameById(paidBy)+' '+fmt(amount)+'.' : 'Saved.'));
     }
     render();
     document.querySelector('.tab-btn[data-view="'+(wasEditing ? 'txn' : 'dash')+'"]').click();
@@ -1649,6 +1657,62 @@ async function addAccount(){
   toast('Account added.');
 }
 
+// ---------- delete an account
+let delAcct = null;
+function accountUsageOf(acc){
+  const u = {expenses:expenses.filter(e=>e.account===acc).length, income:incomes.filter(e=>e.account===acc).length, debts:friendTxns.filter(t=>t.account===acc).length,
+    transfers:transfers.filter(t=>t.from===acc||t.to===acc).length, adjustments:adjustments.filter(t=>t.account===acc).length,
+    plans:plans.filter(p=>p.account===acc).length, recurring:recurring.filter(t=>t.account===acc).length};
+  u.total = Object.values(u).reduce((t,v)=>t+v,0);
+  u.opening = (accountBalances[acc] && accountBalances[acc].opening) || 0;
+  return u;
+}
+function openRemoveAccount(i){
+  const acc = ACCOUNTS[i];
+  if(acc===undefined) return;
+  if(ACCOUNTS.length<=1){ toast('Keep at least one account.'); return; }
+  const u = accountUsageOf(acc);
+  delAcct = {acc, usage:u};
+  document.getElementById('adTitle').textContent = 'Delete '+acc+'?';
+  const parts = [['expense',u.expenses],['income entr'+(u.income===1?'y':'ies'),u.income],['debt entr'+(u.debts===1?'y':'ies'),u.debts],['transfer',u.transfers],['balance adjustment',u.adjustments],['installment plan',u.plans],['recurring item',u.recurring]].filter(([n,c])=>c>0).map(([n,c])=>c+' '+n+(c===1||n.endsWith('y')||n.endsWith('ies')?'':'s'));
+  const body = document.getElementById('adBody'), wrap = document.getElementById('adMoveWrap'), sel = document.getElementById('adMoveTo');
+  if(u.total===0 && Math.abs(u.opening)<0.005){
+    body.textContent = 'This account is empty (no transactions and no starting balance), so nothing is lost.';
+    wrap.style.display = 'none';
+  }else{
+    body.textContent = acc+' has '+(parts.length ? parts.join(', ') : 'no transactions')+(Math.abs(u.opening)>=0.005 ? (parts.length?' and ':'')+'a starting balance of '+fmt(u.opening) : '')+'. Choose where to move them; the account is deleted after that.';
+    wrap.style.display = 'block';
+    const others = ACCOUNTS.filter(a=>a!==acc);
+    setSelectHtml(sel, others.map(a=>`<option value="${escapeHtml(a)}">${CARDS.includes(a)?'💳 ':''}${escapeHtml(a)}</option>`).join(''));
+    sel.value = others.includes('Bank Account') ? 'Bank Account' : others[0];
+  }
+  document.getElementById('acctDelSheet').style.display = 'flex';
+}
+function closeAcctDel(){ document.getElementById('acctDelSheet').style.display = 'none'; delAcct = null; }
+async function moveAccountRefs(old, target){
+  const jobs = [];
+  const add = (coll, arr, fields)=>arr.forEach(o=>{ const patch = {}; fields.forEach(f=>{ if(o[f]===old) patch[f] = target; }); if(Object.keys(patch).length) jobs.push([coll, o.id, patch, ()=>Object.assign(o, patch)]); });
+  add('expenses',expenses,['account']); add('income',incomes,['account']); add('friendTxns',friendTxns,['account']); add('adjustments',adjustments,['account']);
+  add('transfers',transfers,['from','to']); add('plans',plans,['account']); add('recurring',recurring,['account']);
+  await runJobs(jobs);
+  const op = (accountBalances[old] && accountBalances[old].opening) || 0;
+  if(Math.abs(op)>=0.005){ const cur = (accountBalances[target] && accountBalances[target].opening) || 0; await saveOpeningBalance(target, cur+op); }
+}
+async function confirmAcctDel(){
+  if(!delAcct) return;
+  const acc = delAcct.acc, u = delAcct.usage;
+  try{
+    if(u.total>0 || Math.abs(u.opening)>=0.005){
+      const target = document.getElementById('adMoveTo').value;
+      if(!target || target===acc){ toast('Pick the account to move everything to.'); return; }
+      toast('Moving…');
+      await moveAccountRefs(acc, target);
+    }
+    const idx = ACCOUNTS.indexOf(acc);
+    closeAcctDel();
+    if(idx>=0) await doRemoveAccount(idx);
+  }catch(e){ toast((e && e.message) || 'Could not delete the account.'); }
+}
 function removeAccount(ev, i){
   const acc = ACCOUNTS[i];
   const used = countAccountUse(acc);
@@ -1714,7 +1778,7 @@ function renderManagedLists(){
     const arr = arrFor(kind);
     document.getElementById(boxId).innerHTML = arr.map((n,i)=>{
       const open = renaming && renaming.kind===kind && renaming.i===i;
-      const rmCb = kind==='acc' ? `removeAccount(event,${i})` : `removeListItem(event,'${kind}',${i})`;
+      const rmCb = kind==='acc' ? `openRemoveAccount(${i})` : `removeListItem(event,'${kind}',${i})`;
       return `<div class="txn" style="padding:7px 0;flex-wrap:wrap"><span class="txn-desc" style="font-weight:600">${kind==='acc' && CARDS.includes(n) ? '💳 ' : ''}${escapeHtml(n)}</span>
         <span style="display:flex;align-items:center">${kind==='acc' ? btn('💳',`toggleCard(${i})`,`color:var(--accent);opacity:${CARDS.includes(n)?1:.35}`) : ''}${btn('↑',`moveItem('${kind}',${i},-1)`, i===0 ? 'opacity:.25' : 'color:var(--accent)')}${btn('↓',`moveItem('${kind}',${i},1)`, i===arr.length-1 ? 'opacity:.25' : 'color:var(--accent)')}${btn('✎',`openRename('${kind}',${i})`,'color:var(--accent)')}${btn('✕',rmCb)}</span>
         ${open ? `<div style="width:100%;margin-top:8px"><div class="inline-edit"><input type="text" id="rn-input" value="${escapeHtml(n)}"><button class="btn-sm" onclick="doRename()">Save</button><button class="btn-sm" onclick="closeRename()">Cancel</button></div>
@@ -1775,7 +1839,7 @@ async function renameAccountRefs(old, nw){
   if(ccBills[old]){
     const b = ccBills[old];
     if(db){
-      await db.collection('settings').doc(cardDocId(nw)).set({account:nw, dueDate:b.dueDate||'', status:b.status||'', paidOn:b.paidOn||'', statementDay:Number(b.statementDay)||0});
+      await db.collection('settings').doc(cardDocId(nw)).set({account:nw, dueDate:b.dueDate||'', status:b.status||'', paidOn:b.paidOn||'', dueDay:Number(b.dueDay)||0, statementDay:Number(b.statementDay)||0});
       if(cardDocId(old)!==cardDocId(nw)) await db.collection('settings').doc(cardDocId(old)).delete();
     }
     ccBills[nw] = b; delete ccBills[old];
@@ -1955,6 +2019,8 @@ function fillFields(coll, item){
     const cs = document.getElementById('f-cat');
     if(item.category && ![...cs.options].some(o=>o.value===item.category)) cs.insertAdjacentHTML('beforeend', `<option value="${escapeHtml(item.category)}">${escapeHtml(item.category)}</option>`);
     cs.value = item.category || ''; set('f-acct', item.account || ACCOUNTS[0]);
+    loadItemsIntoForm(item.items);
+    if(coll==='expenses'){ document.getElementById('f-paidby').value = item.paidBy || ''; updatePaidByUI(); }
   }else if(coll==='friendTxns'){
     refreshFriendSelect();
     const fs = document.getElementById('f-friend');
@@ -2336,10 +2402,117 @@ async function saveFriendOpening(fid){
   }catch(e){ toast('Could not save.'); }
 }
 
+// ---------- items on a bill (optional)
+let formItems = [], openItems = new Set();
+function friendNameById(id){ const f = friends.find(x=>x.id===id); return f ? f.name : 'a friend'; }
+function itemsOn(){ const c = document.getElementById('f-useitems'); return !!(c && c.checked); }
+function syncItemsFromDom(){
+  formItems.forEach((it,k)=>{ const n = document.getElementById('fi-n-'+k), a = document.getElementById('fi-a-'+k); if(n) it.name = n.value; if(a) it.amount = a.value; });
+}
+function itemsSum(){ return Math.round(formItems.reduce((t,i)=>t+(parseFloat(i.amount)||0),0)*100)/100; }
+function updateItemsTotal(){
+  const t = itemsSum(), tot = document.getElementById('f-itemsTotal');
+  if(tot) tot.textContent = formItems.length ? 'Total of the items: '+fmt(t) : '';
+  if(itemsOn()){ const amt = document.getElementById('f-amt'); amt.value = t>0 ? t.toFixed(2) : ''; amt.readOnly = true; updatePlanHint(); }
+}
+function renderFormItems(){
+  const box = document.getElementById('f-itemRows');
+  if(!box) return;
+  box.innerHTML = formItems.map((it,k)=>`<div class="inline-edit" style="margin-bottom:6px"><input type="text" id="fi-n-${k}" placeholder="Item" value="${escapeHtml(it.name||'')}" oninput="onItemInput()"><input type="number" step="0.01" inputmode="decimal" id="fi-a-${k}" placeholder="0.00" value="${(it.amount===''||it.amount===undefined) ? '' : escapeHtml(String(it.amount))}" style="max-width:110px" oninput="onItemInput()"><button class="del" type="button" onclick="removeFormItem(${k})">✕</button></div>`).join('');
+  updateItemsTotal();
+}
+function onItemInput(){ syncItemsFromDom(); updateItemsTotal(); }
+function toggleItemsUI(){
+  const on = itemsOn(), amt = document.getElementById('f-amt');
+  document.getElementById('f-itemsBox').style.display = on ? 'block' : 'none';
+  if(on){ if(!formItems.length){ const a = parseFloat(amt.value)||0; formItems = [{name:'', amount:a>0 ? a : ''}]; } renderFormItems(); }
+  else{ formItems = []; amt.readOnly = false; }
+}
+function addFormItem(){ syncItemsFromDom(); formItems.push({name:'', amount:''}); renderFormItems(); const n = document.getElementById('fi-n-'+(formItems.length-1)); if(n && n.focus) n.focus(); }
+function removeFormItem(k){
+  syncItemsFromDom(); formItems.splice(k,1);
+  if(!formItems.length){ document.getElementById('f-useitems').checked = false; toggleItemsUI(); return; }
+  renderFormItems();
+}
+function resetItems(){
+  formItems = [];
+  const c = document.getElementById('f-useitems'), box = document.getElementById('f-itemsBox'), amt = document.getElementById('f-amt'), rows = document.getElementById('f-itemRows');
+  if(c) c.checked = false; if(box) box.style.display = 'none'; if(amt) amt.readOnly = false; if(rows) rows.innerHTML = '';
+}
+function loadItemsIntoForm(items){
+  if(!items || !items.length){ resetItems(); return; }
+  formItems = items.map(i=>({name:i.name||'', amount:i.amount}));
+  document.getElementById('f-useitems').checked = true;
+  document.getElementById('f-itemsBox').style.display = 'block';
+  renderFormItems();
+}
+function itemsPanelHtml(items){
+  const sum = Math.round(items.reduce((t,i)=>t+(Number(i.amount)||0),0)*100)/100;
+  return `<div class="items-panel">${items.map(it=>`<div class="row"><span>${escapeHtml(it.name||'Item')}${(it.who && it.who.length) ? ' <span class="sub" style="margin:0">· '+escapeHtml(it.who.join(', '))+'</span>' : ''}</span><span>${fmt(it.amount)}</span></div>`).join('')}<div class="row" style="border-top:1px solid var(--line);padding-top:4px;margin-top:4px"><strong>Total</strong><strong>${fmt(sum)}</strong></div></div>`;
+}
+function toggleItems(ev, key){
+  if(ev && ev.target && ev.target.closest && ev.target.closest('button,select,input,img,a')) return;
+  if(openItems.has(key)) openItems.delete(key); else openItems.add(key);
+  renderTxns();
+}
+
+// ---------- someone else paid a bill for you
+function paidByVal(){ const e = document.getElementById('f-paidby'); return e ? e.value : ''; }
+function updatePaidByUI(){
+  const sel = document.getElementById('f-paidby');
+  if(!sel) return;
+  const who = addType==='expense' ? sel.value : '', fr = friends.find(f=>f.id===who);
+  const acct = document.getElementById('f-acct'); if(acct) acct.disabled = !!who;
+  sel.disabled = !!editing;
+  const hint = document.getElementById('paidByHint');
+  if(hint) hint.textContent = fr ? fr.name+' paid it. It counts as your spending and you owe '+fr.name+' the amount; none of your accounts change.' : '';
+  if(who) document.getElementById('planBlock').style.display = 'none';
+}
+function resetPaidBy(){
+  const sel = document.getElementById('f-paidby'); if(sel){ sel.value = ''; sel.disabled = false; }
+  const a = document.getElementById('f-acct'); if(a) a.disabled = false;
+  const h = document.getElementById('paidByHint'); if(h) h.textContent = '';
+}
+function updateSplitPaidHint(){
+  const v = document.getElementById('sp-paidby').value, fr = friends.find(f=>f.id===v), h = document.getElementById('spPaidHint');
+  if(h) h.textContent = fr ? fr.name+' paid the whole bill. Only your share is recorded (as your spending) and you owe '+fr.name+" that amount. The other friends' shares are not recorded." : '';
+  const a = document.getElementById('sp-acct'); if(a) a.disabled = !!v;
+}
+// paying him back
+let repFid = null;
+function openRepay(fid){
+  const f = friends.find(x=>x.id===fid); if(!f) return;
+  repFid = fid;
+  const owed = Math.max(0, -friendBalance(fid,'AED','debt'));
+  document.getElementById('repTitle').textContent = 'Pay back '+f.name;
+  document.getElementById('repAmt').value = owed>0 ? owed.toFixed(2) : '';
+  const accts = ACCOUNTS.filter(a=>a!==instCfg.account && a!==instCfg.appAccount);
+  setSelectHtml(document.getElementById('repAcct'), accts.map(a=>`<option value="${escapeHtml(a)}">${CARDS.includes(a)?'💳 ':''}${escapeHtml(a)}</option>`).join(''));
+  const dflt = (prefs.defaultAccount && accts.includes(prefs.defaultAccount)) ? prefs.defaultAccount : (accts.includes('Bank Account') ? 'Bank Account' : accts.find(a=>!CARDS.includes(a)));
+  document.getElementById('repAcct').value = dflt || '';
+  document.getElementById('repDate').value = todayStr();
+  document.getElementById('repSheet').style.display = 'flex';
+}
+function closeRepay(){ document.getElementById('repSheet').style.display = 'none'; repFid = null; }
+async function saveRepay(){
+  if(!repFid) return;
+  const amount = Math.round((parseFloat(document.getElementById('repAmt').value)||0)*100)/100, acct = document.getElementById('repAcct').value, date = document.getElementById('repDate').value || todayStr();
+  if(!(amount>0)){ toast('Enter the amount you paid.'); return; }
+  if(!acct){ toast('Pick the account you paid from.'); return; }
+  const fid = repFid, f = friends.find(x=>x.id===fid), id = 'friendTxns_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
+  const rec = {friendId:fid, amount, direction:'owed_to_me', desc:'Paid back', date, account:acct, currency:'AED', createdAt:Date.now(), kind:'repayment'};
+  try{
+    if(db) await db.collection('friendTxns').doc(id).set(rec);
+    addLocal(friendTxns, {id, ...rec});
+    closeRepay(); render();
+    toastAction('You paid '+(f?f.name:'him')+' '+fmt(amount)+' from '+acct+'.', 'Undo', async ()=>{ try{ if(db) await db.collection('friendTxns').doc(id).delete(); friendTxns = friendTxns.filter(t=>t.id!==id); render(); toast('Removed.'); }catch(e){ toast('Could not undo.'); } });
+  }catch(e){ toast('Could not save.'); }
+}
+
 // ---------- discard a draft
 function draftHasContent(){
   const v = id=>(document.getElementById(id).value||'').trim();
-  return !!(v('f-desc') || v('f-amt') || splitItems.length || formPhotos.length);
+  return !!(v('f-desc') || v('f-amt') || splitItems.length || formPhotos.length || formItems.length);
 }
 function doDiscardDraft(){
   ['f-desc','f-amt','newFriendDebt','newFriendSplit'].forEach(id=>{ const el = document.getElementById(id); if(el) el.value = ''; });
@@ -2554,22 +2727,30 @@ function closeOnOrAfter(dateStr, day){
   return c;
 }
 // a purchase made up to the closing day is on that statement; you then have `graceDays` to pay it
+// the payment date of a statement: the chosen day of the month after it closes, or a number of days after the closing day
+function tabbyDueFromClose(closeDate){
+  if(Number(instCfg.dueDay)>0) return firstDayAfter(closeDate, Number(instCfg.dueDay));
+  const d = new Date(closeDate); d.setDate(d.getDate() + (instCfg.graceDays||0)); return d;
+}
 function firstDueFor(dateStr){
-  const c = closeOnOrAfter(dateStr, instCfg.statementDay), due = new Date(c);
-  due.setDate(due.getDate() + (instCfg.graceDays||0));
+  const c = closeOnOrAfter(dateStr, instCfg.statementDay), due = tabbyDueFromClose(c);
   return {close: ymd(c), due: ymd(due)};
 }
 function stmtDueForInstallment(dateStr){
   const day = instCfg.statementDay, grace = instCfg.graceDays||0, d = new Date(dateStr+'T00:00:00');
   let c = new Date(d.getFullYear(), d.getMonth(), clampDay(d.getFullYear(), d.getMonth(), day));
   if(c>d) c = new Date(d.getFullYear(), d.getMonth()-1, clampDay(d.getFullYear(), d.getMonth()-1, day));
-  const w = new Date(c); w.setDate(w.getDate()+grace);
+  const w = tabbyDueFromClose(c);
   if(d<=w) return ymd(w);                      // inside the payment window of the statement that closed on c
-  const n = new Date(c.getFullYear(), c.getMonth()+1, clampDay(c.getFullYear(), c.getMonth()+1, day)); n.setDate(n.getDate()+grace);
+  const n = tabbyDueFromClose(new Date(c.getFullYear(), c.getMonth()+1, clampDay(c.getFullYear(), c.getMonth()+1, day)));
   return ymd(n);                               // otherwise it goes on the next statement
 }
 function defaultFirstDue(account, dateStr){ return (hasInst() && account===instCfg.account) ? firstDueFor(dateStr).due : dateStr; }
-function stmtClose(due){ const d = new Date(due+'T00:00:00'); d.setDate(d.getDate()-(instCfg.graceDays||0)); return ymd(d); }
+function stmtClose(due){
+  const d = new Date(due+'T00:00:00');
+  if(Number(instCfg.dueDay)>0){ d.setDate(d.getDate()-1); return ymd(lastCloseOnOrBefore(ymd(d), instCfg.statementDay)); }
+  d.setDate(d.getDate()-(instCfg.graceDays||0)); return ymd(d);
+}
 function tabbyRemaining(onlyLegacy){
   return plans.filter(p=>hasInst() && p.account===instCfg.account && (p.currency||'AED')==='AED' && (!onlyLegacy || !p.expenseId))
     .reduce((t,p)=>t+p.installments.filter(i=>!i.paidOn).reduce((x,i)=>x+Number(i.amount||0),0),0);
@@ -2602,7 +2783,7 @@ function planFieldsToggle(){
 function isTabbyAcct(a){ return (hasInst() && a===instCfg.account) || (!!instCfg.appAccount && a===instCfg.appAccount); }
 function onAddAccountChange(){
   if(addType!=='expense' || editing) return;
-  const acct = document.getElementById('f-acct').value, tabby = isTabbyAcct(acct), box = document.getElementById('f-plan');
+  const acct = document.getElementById('f-acct').value, tabby = isTabbyAcct(acct) && !paidByVal(), box = document.getElementById('f-plan');
   document.getElementById('planBlock').style.display = tabby ? 'block' : 'none';
   if(!tabby){ if(box.checked){ box.checked = false; planFieldsToggle(); } else updatePlanHint(); return; }
   if(!box.checked){ box.checked = true; planFieldsToggle(); return; }
@@ -2713,11 +2894,11 @@ async function createPlanFromForm(){
 }
 
 async function saveInstDoc(){
-  if(db) await db.collection('settings').doc('inst').set({account:instCfg.account||'', statementDay:Number(instCfg.statementDay)||0, graceDays:Number(instCfg.graceDays)||0, limit:Number(instCfg.limit)||0, trackFrom:instCfg.trackFrom||'', plus:!!instCfg.plus, appAccount:instCfg.appAccount||''});
+  if(db) await db.collection('settings').doc('inst').set({account:instCfg.account||'', statementDay:Number(instCfg.statementDay)||0, graceDays:Number(instCfg.graceDays)||0, dueDay:Number(instCfg.dueDay)||0, limit:Number(instCfg.limit)||0, trackFrom:instCfg.trackFrom||'', plus:!!instCfg.plus, appAccount:instCfg.appAccount||''});
 }
 function setInstFromDocs(docs){
   const d = docs.find(x=>x.id==='inst');
-  instCfg = d ? {account:d.account||'', statementDay:Number(d.statementDay)||0, graceDays:Number(d.graceDays)||0, limit:Number(d.limit)||0, trackFrom:d.trackFrom||'', plus:!!d.plus, appAccount:d.appAccount||''} : {};
+  instCfg = d ? {account:d.account||'', statementDay:Number(d.statementDay)||0, graceDays:Number(d.graceDays)||0, dueDay:Number(d.dueDay)||0, limit:Number(d.limit)||0, trackFrom:d.trackFrom||'', plus:!!d.plus, appAccount:d.appAccount||''} : {};
 }
 function renderTabbyCfg(){
   document.getElementById('tabbyCfgForm').style.display = tabbyCfgOpen ? 'block' : 'none';
@@ -2728,6 +2909,7 @@ function renderTabbyCfg(){
   sel.value = instCfg.account || (ACCOUNTS.find(a=>/tabby/i.test(a)) || '');
   document.getElementById('iDay').value = instCfg.statementDay || '';
   document.getElementById('iGrace').value = instCfg.graceDays || '';
+  document.getElementById('iDueDay').value = instCfg.dueDay || '';
   document.getElementById('iLimit').value = instCfg.limit || '';
   document.getElementById('iTrack').value = instCfg.trackFrom || '';
   document.getElementById('iPlus').checked = !!instCfg.plus;
@@ -2743,10 +2925,12 @@ async function saveInst(){
     try{ await saveInstDoc(); tabbyCfgOpen = false; render(); renderTabbyCfg(); toast('Saved.'); }catch(e){ toast('Could not save.'); }
     return;
   }
-  const day = parseInt(document.getElementById('iDay').value,10), grace = parseInt(document.getElementById('iGrace').value,10), limit = parseFloat(document.getElementById('iLimit').value)||0;
+  const day = parseInt(document.getElementById('iDay').value,10), graceRaw = document.getElementById('iGrace').value, dueDay = parseInt(document.getElementById('iDueDay').value,10)||0, limit = parseFloat(document.getElementById('iLimit').value)||0;
+  const grace = parseInt(graceRaw,10);
   if(!(day>=1 && day<=31)){ toast('Enter the day of the month your statement closes (1–31).'); return; }
-  if(!(grace>=0 && grace<=60)){ toast('Enter how many days you have to pay (0–60).'); return; }
-  instCfg = {account:acc, statementDay:day, graceDays:grace, limit, trackFrom:document.getElementById('iTrack').value || '', plus:document.getElementById('iPlus').checked, appAccount:app};
+  if(document.getElementById('iDueDay').value!=='' && !(dueDay>=1 && dueDay<=31)){ toast('The payment due day must be between 1 and 31.'); return; }
+  if(!dueDay && !(grace>=0 && grace<=60)){ toast('Enter the day the payment is due, or how many days you have to pay.'); return; }
+  instCfg = {account:acc, statementDay:day, graceDays:(grace>=0 ? grace : 0), dueDay, limit, trackFrom:document.getElementById('iTrack').value || '', plus:document.getElementById('iPlus').checked, appAccount:app};
   if(!instCfg.trackFrom) instCfg.trackFrom = cycleStartFor(todayStr());
   try{
     await saveInstDoc();
@@ -3182,7 +3366,7 @@ function renderTabbyBox(){
   const units = dueUnits().filter(u=>u.kind==='stmt'), next = units[0];
   const used = usedLimit(), limit = Number(instCfg.limit)||0, avail = limit-used, pct = limit ? Math.min(100, used/limit*100) : 0;
   const cls = limit && used>=limit ? ' over' : (limit && used/limit>=0.8 ? ' warn' : '');
-  let html = `<div class="row"><strong>🧾 ${escapeHtml(instCfg.account)}</strong><span class="sub" style="margin:0">statement closes on the ${instCfg.statementDay}th · ${instCfg.graceDays} days to pay${instCfg.plus ? ' · Plus' : ''}</span></div>`;
+  let html = `<div class="row"><strong>🧾 ${escapeHtml(instCfg.account)}</strong><span class="sub" style="margin:0">statement closes on the ${instCfg.statementDay}th · ${Number(instCfg.dueDay)>0 ? 'due on the '+instCfg.dueDay+'th' : instCfg.graceDays+' days to pay'}${instCfg.plus ? ' · Plus' : ''}</span></div>`;
   if(limit) html += `<div class="row" style="margin-top:10px"><span class="sub" style="margin:0">Used ${fmt(used)} of ${fmt(limit)}</span><strong style="color:${avail<0?'var(--danger)':'var(--good)'}">${fmt(avail)} available</strong></div><div class="bar-bg" style="margin-top:4px"><div class="bar-fill${cls}" style="width:${pct}%"></div></div>`;
   html += `<div class="row" style="margin-top:12px"><div><div class="sub" style="margin:0">Owed in total (uses your limit)</div><strong style="font-size:1.15rem">${fmt(used)}</strong></div><div style="text-align:right"><div class="sub" style="margin:0">Due on the next statement</div><strong style="font-size:1.15rem">${next ? fmt(next.total) : '0.00'}</strong></div></div>`;
   if(next){
@@ -3504,6 +3688,10 @@ async function debtFullCascade(item){
 async function planCascadeFor(expense){
   const tids = []; let payments = 0, hadPlan = false;
   if(!expense) return {tids, payments, hadPlan};
+  if(expense.paidByTxnId){
+    const dt = friendTxns.find(t=>t.id===expense.paidByTxnId);
+    if(dt){ tids.push(await moveToTrash('friendTxns', dt)); if(db) await db.collection('friendTxns').doc(dt.id).delete(); friendTxns = friendTxns.filter(t=>t.id!==dt.id); }
+  }
   const plan = expense.planId ? plans.find(p=>p.id===expense.planId) : null;
   if(!plan){ // a Tabby purchase without a plan: remove the payment that settled it in full, if there is one
     for(const t of transfers.filter(t=>t.kind==='tabby_full' && t.expenseId===expense.id)){
@@ -3656,8 +3844,8 @@ function buildBackup(){
     recurring: recurring.map(({...t})=>t),
     accountBalances: Object.entries(accountBalances).map(([acc,d])=>({id:safeKey(acc), account:acc, opening:Number(d.opening)||0})),
     budgets: Object.entries(budgets).map(([cat,limit])=>({id:safeKey(cat), category:cat, limit:Number(limit)||0})),
-    settings: [...((instCfg.account || instCfg.appAccount) ? [{id:'inst', account:instCfg.account||'', statementDay:instCfg.statementDay||0, graceDays:instCfg.graceDays||0, limit:instCfg.limit||0, trackFrom:instCfg.trackFrom||'', plus:!!instCfg.plus, appAccount:instCfg.appAccount||''}] : []), {id:'prefs', defaultAccount:prefs.defaultAccount||'', rates:prefs.rates||{}, rollover:!!prefs.rollover, rolloverFrom:prefs.rolloverFrom||''}, {id:'lists', categories:CATEGORIES, incomeCats:INCOME_CATS, currencies:CURRENCIES, accounts:ACCOUNTS, cards:CARDS},
-      ...Object.entries(ccBills).map(([acc,b])=>({id:cardDocId(acc), account:acc, dueDate:b.dueDate||'', status:b.status||'', paidOn:b.paidOn||'', statementDay:Number(b.statementDay)||0}))]
+    settings: [...((instCfg.account || instCfg.appAccount) ? [{id:'inst', account:instCfg.account||'', statementDay:instCfg.statementDay||0, graceDays:instCfg.graceDays||0, dueDay:instCfg.dueDay||0, limit:instCfg.limit||0, trackFrom:instCfg.trackFrom||'', plus:!!instCfg.plus, appAccount:instCfg.appAccount||''}] : []), {id:'prefs', defaultAccount:prefs.defaultAccount||'', rates:prefs.rates||{}, rollover:!!prefs.rollover, rolloverFrom:prefs.rolloverFrom||''}, {id:'lists', categories:CATEGORIES, incomeCats:INCOME_CATS, currencies:CURRENCIES, accounts:ACCOUNTS, cards:CARDS},
+      ...Object.entries(ccBills).map(([acc,b])=>({id:cardDocId(acc), account:acc, dueDate:b.dueDate||'', status:b.status||'', paidOn:b.paidOn||'', dueDay:Number(b.dueDay)||0, statementDay:Number(b.statementDay)||0}))]
   }};
 }
 
@@ -3709,62 +3897,6 @@ async function doRestore(){
   render();
 }
 
-let pendingCsv = null;
-async function handleCsvFile(ev){
-  const f = ev.target.files[0]; ev.target.value = '';
-  const info = document.getElementById('csvInfo'), btn = document.getElementById('csvImportBtn');
-  btn.style.display = 'none'; pendingCsv = null;
-  if(!f) return;
-  const text = await f.text();
-  const rows = text.split(/\r?\n/).slice(1).filter(r=>r.trim()).map(r=>{
-    const cols = [], curr = []; let inQuotes = false;
-    for(let i=0; i<r.length; i++){
-      const c = r[i];
-      if(c==='"' && r[i+1]==='"') { curr.push('"'); i++; }
-      else if(c==='"') inQuotes = !inQuotes;
-      else if(c===',' && !inQuotes) { cols.push(curr.join('')); curr.length=0; }
-      else curr.push(c);
-    }
-    cols.push(curr.join('')); return cols;
-  });
-  pendingCsv = rows;
-  info.textContent = `Found ${rows.length} transactions in CSV. Import will add these to your current data.`;
-  btn.style.display = 'block';
-}
-
-async function doCsvImport(){
-  const info = document.getElementById('csvInfo'), btn = document.getElementById('csvImportBtn');
-  if(!pendingCsv || !db){ return; }
-  let done = 0, failed = 0;
-  for(const row of pendingCsv){
-    try{
-      const [type, date, desc, amount, currency, category, account, from, to, friend, direction, photos] = row;
-      const amt = parseFloat(amount)||0;
-      if(type==='Expense' || type==='Income'){
-        const coll = type==='Expense' ? 'expenses' : 'income';
-        const id = coll+'_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
-        await db.collection(coll).doc(id).set({date, desc, amount:amt, currency:currency||'AED', category, account, createdAt:Date.now()});
-        done++;
-      } else if(type==='Transfer'){
-        const id = 'transfers_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
-        await db.collection('transfers').doc(id).set({date, desc, amount:amt, currency:currency||'AED', from, to, createdAt:Date.now()});
-        done++;
-      } else if(type==='Debt'){
-        const f = friends.find(x=>x.name===friend);
-        let fid = f ? f.id : 'f_'+safeKey(friend.toLowerCase());
-        if(!f){ await db.collection('friends').doc(fid).set({name:friend}); addLocal(friends, {id:fid, name:friend}); }
-        const id = 'friendTxns_'+Date.now()+'_'+Math.random().toString(36).slice(2,7);
-        await db.collection('friendTxns').doc(id).set({friendId:fid, amount:amt, direction:direction==='They owe me'?'owed_to_me':'i_owe', desc, date, account, currency:currency||'AED', createdAt:Date.now()});
-        done++;
-      }
-    }catch(e){ failed++; }
-  }
-  btn.style.display = 'none';
-  info.textContent = `Imported ${done} item(s)${failed ? ', '+failed+' failed' : ''}.`;
-  toast('Import finished.');
-  render();
-}
-
 function curOf(e){ return e.currency || 'AED'; }
 
 function accountBalance(acc, cur, upTo){
@@ -3802,13 +3934,13 @@ function setCcFromDocs(docs){
   docs.forEach(d=>{
     const acc = d.id==='creditCard' ? 'Credit Card' : (String(d.id).startsWith('card_') ? d.account : null);
     if(!acc) return;
-    ccBills[acc] = {dueDate: d.dueDate||'', status: d.status||'', paidOn: d.paidOn||'', statementDay: Number(d.statementDay)||0};
+    ccBills[acc] = {dueDate: d.dueDate||'', status: d.status||'', paidOn: d.paidOn||'', statementDay: Number(d.statementDay)||0, dueDay: Number(d.dueDay)||0};
   });
 }
 
 async function persistCcBill(acc){
   const b = ccOf(acc);
-  if(db) await db.collection('settings').doc(cardDocId(acc)).set({account: acc, dueDate: b.dueDate||'', status: b.status||'', paidOn: b.paidOn||'', statementDay: Number(b.statementDay)||0});
+  if(db) await db.collection('settings').doc(cardDocId(acc)).set({account: acc, dueDate: b.dueDate||'', status: b.status||'', paidOn: b.paidOn||'', statementDay: Number(b.statementDay)||0, dueDay: Number(b.dueDay)||0});
 }
 
 async function saveCcDue(i){
@@ -3838,6 +3970,44 @@ async function payCreditCard(i){
   }catch(e){ toast('Could not record payment.'); }
 }
 
+// A card statement closes on one day of the month; anything after that is the next statement. The payment is due on the next "due day" after it closes.
+function lastCloseOnOrBefore(dateStr, day){
+  const d = new Date(dateStr+'T00:00:00');
+  let c = new Date(d.getFullYear(), d.getMonth(), clampDay(d.getFullYear(), d.getMonth(), day));
+  if(c>d) c = new Date(d.getFullYear(), d.getMonth()-1, clampDay(d.getFullYear(), d.getMonth()-1, day));
+  return c;
+}
+function firstDayAfter(closeDate, day){
+  const y = closeDate.getFullYear(), m = closeDate.getMonth();
+  let c = new Date(y, m, clampDay(y, m, day));
+  if(c<=closeDate) c = new Date(y, m+1, clampDay(y, m+1, day));
+  return c;
+}
+function cardCycle(acc, todayOverride){
+  const b = ccOf(acc), S = Number(b.statementDay)||0, D = Number(b.dueDay)||0;
+  if(!S || !D) return null;
+  const today = todayOverride || todayStr();
+  const close = lastCloseOnOrBefore(today, S), due = firstDayAfter(close, D);
+  const closeStr = ymd(close), dueStr = ymd(due);
+  const nextClose = new Date(close.getFullYear(), close.getMonth()+1, clampDay(close.getFullYear(), close.getMonth()+1, S)), nextCloseStr = ymd(nextClose);
+  const statementBal = Math.round(Math.max(0, -accountBalance(acc,'AED',closeStr))*100)/100;        // what was owed the day the statement closed
+  const paid = Math.round(transfers.filter(t=>t.to===acc && curOf(t)==='AED' && (t.date||'')>closeStr).reduce((t,x)=>t+Number(x.amount||0),0)*100)/100;
+  const amountDue = Math.round(Math.max(0, statementBal - paid)*100)/100;
+  const spentSince = Math.round(expenses.filter(e=>e.account===acc && curOf(e)==='AED' && (e.date||'')>closeStr && (e.date||'')<=nextCloseStr).reduce((t,e)=>t+Number(e.amount||0),0)*100)/100;
+  return {closeStr, dueStr, nextCloseStr, statementBal, paid, amountDue, spentSince};
+}
+async function saveCardCycle(i){
+  const acc = ACCOUNTS[i], day = document.getElementById('cc-day-'+i).value, dd = document.getElementById('cc-dd-'+i).value;
+  if(day==='' && dd===''){ ccBills[acc] = {...ccOf(acc), statementDay:0, dueDay:0}; }
+  else{
+    const S = parseInt(day,10), D = parseInt(dd,10);
+    if(!(S>=1 && S<=31)){ toast('Enter the day your statement closes (1–31).'); return; }
+    if(!(D>=1 && D<=31)){ toast('Enter the day the payment is due (1–31).'); return; }
+    ccBills[acc] = {...ccOf(acc), statementDay:S, dueDay:D};
+  }
+  try{ await persistCcBill(acc); toast('Saved.'); }catch(e){ toast('Could not save.'); }
+  render();
+}
 function ccSection(acc, i){
   const owed = cardOwed(acc);
   const b = ccOf(acc), st = b.status, due = b.dueDate;
@@ -3850,13 +4020,25 @@ function ccSection(acc, i){
     status = `<strong style="color:var(--good)">Paid</strong>${b.paidOn?' on '+b.paidOn:''}`;
   }
   const others = ACCOUNTS.filter(a=>a!==acc);
+  const cy = cardCycle(acc), bb = ccOf(acc);
+  let cycleBlock = '';
+  if(cy){
+    const dd = daysUntil(cy.dueStr), when = dd<0 ? Math.abs(dd)+' day(s) overdue' : dd===0 ? 'today' : 'in '+dd+' day(s)';
+    cycleBlock = `<div class="sub" style="margin:8px 0 4px">Statement closed <strong>${cy.closeStr}</strong> · balance <strong>${fmt(cy.statementBal)}</strong> AED</div>
+      <div class="sub" style="margin:0 0 4px">${cy.amountDue<0.005 ? '<strong style="color:var(--good)">Paid</strong>'+(cy.statementBal>0.005 ? ' (you paid '+fmt(cy.paid)+' since it closed)' : '') : `Pay by <strong>${cy.dueStr}</strong> (<span style="${dd<0?'color:var(--danger);font-weight:700':''}">${when}</span>) · still due <strong style="color:${dd<0?'var(--danger)':'inherit'}">${fmt(cy.amountDue)}</strong> AED`}</div>
+      <div class="sub" style="margin:0 0 8px">Next statement closes <strong>${cy.nextCloseStr}</strong> · spent on it so far ${fmt(cy.spentSince)} AED. Anything after the closing day goes on the next statement.</div>`;
+  }
   return `<div class="cc-box">
-    <label style="margin:0 0 4px">Credit card due date</label>
+    <label style="margin:0 0 4px">Statement closes on day · payment due on day</label>
+    <div class="inline-edit"><input type="number" min="1" max="31" inputmode="numeric" id="cc-day-${i}" value="${bb.statementDay||''}" placeholder="Closes, e.g. 12"><input type="number" min="1" max="31" inputmode="numeric" id="cc-dd-${i}" value="${bb.dueDay||''}" placeholder="Due, e.g. 6"><button class="btn-sm" onclick="saveCardCycle(${i})">Save</button></div>
+    <div class="sub" style="margin:4px 0 0">Example: closes on 12 and due on 6 means a statement that closed on 12 Oct is paid by 6 Nov.</div>
+    ${cycleBlock}
+    ${cy ? '' : `<label style="margin:10px 0 4px">Or set one due date by hand</label>
     <div class="inline-edit"><input type="date" id="cc-due-${i}" value="${due||''}"><button class="btn-sm" onclick="saveCcDue(${i})">Set as unpaid</button></div>
-    <div class="sub" style="margin:8px 0">${status}</div>
+    <div class="sub" style="margin:8px 0">${status}</div>`}
     ${(st==='unpaid' || owed>0.005) ? `<label style="margin:0 0 4px">Pay from</label>
       <select id="cc-from-${i}">${others.map(a=>`<option value="${escapeHtml(a)}"${a==='Bank Account'?' selected':''}>${CARDS.includes(a)?'💳 ':''}${escapeHtml(a)}</option>`).join('')}</select>
-      <div class="inline-edit" style="margin-top:8px"><input type="number" step="0.01" id="cc-amt-${i}" value="${owed.toFixed(2)}"><button class="btn-sm" onclick="payCreditCard(${i})">Pay card</button></div>` : ''}
+      <div class="inline-edit" style="margin-top:8px"><input type="number" step="0.01" id="cc-amt-${i}" value="${(cy && cy.amountDue>0.005 ? cy.amountDue : owed).toFixed(2)}"><button class="btn-sm" onclick="payCreditCard(${i})">Pay card</button></div>` : ''}
   </div>`;
 }
 
@@ -3864,7 +4046,14 @@ function renderCcBanner(){
   const box = document.getElementById('ccBanner');
   if(!box) return;
   box.innerHTML = CARDS.filter(a=>ACCOUNTS.includes(a) && !(hasInst() && a===instCfg.account)).map(acc=>{
-    const b = ccOf(acc);
+    const b = ccOf(acc), cy = cardCycle(acc);
+    if(cy){
+      if(cy.amountDue<0.005) return '';
+      const dc = daysUntil(cy.dueStr);
+      if(dc>7) return '';
+      const m2 = dc<0 ? `${acc} payment is ${Math.abs(dc)} day(s) overdue` : dc===0 ? `${acc} payment is due today` : `${acc} payment due in ${dc} day(s) (${cy.dueStr})`;
+      return `<div class="banner${dc<0?' overdue':''}" onclick="document.querySelector('.tab-btn[data-view=accts]').click()">💳 ${escapeHtml(m2)} · ${fmt(cy.amountDue)} AED — tap to pay</div>`;
+    }
     if(b.status!=='unpaid' || !b.dueDate) return '';
     const d = daysUntil(b.dueDate);
     if(d>7) return '';
@@ -4225,7 +4414,7 @@ function showFriendTxns(friendId){
 
 // colour of a row: red = money out of your pocket, green = money in, gray = it is not yours (someone else's share, a note), blue = moved between your own accounts
 function toneOf(e){
-  if(e._type==='expense') return 'out';
+  if(e._type==='expense') return e.paidBy ? 'other' : 'out';   // paid by a friend: it is yours, but it did not leave your pocket
   if(e._type==='income') return 'in';
   if(e._type==='transfer') return 'move';
   if(e._type==='adjustment') return Number(e.amount)>0 ? 'in' : 'out';
@@ -4237,9 +4426,17 @@ function signOf(e, tone){
   if(e._type==='debt' && !e.account) return '';   // just a note, no money moved
   return tone==='in' ? '+' : '−';
 }
+// a bill with items opens to show them when you tap it
 function txnRowHtml(e){
+  let h = txnRowCore(e);
+  if(selMode || !(e.items && e.items.length)) return h;
+  const key = e._coll+':'+e.id;
+  h = h.replace('<div class="txn t-', `<div onclick="toggleItems(event,'${key}')" style="cursor:pointer" class="txn t-`);
+  return h + (openItems.has(key) ? itemsPanelHtml(e.items) : '');
+}
+function txnRowCore(e){
   const plus = e._type==='income' || (e._type==='debt' && e.direction==='i_owe') || (e._type==='adjustment' && Number(e.amount)>0);
-  const meta = `<span class="txn-meta">${e.date||''} · ${e._type==='adjustment' ? `<span class="pill">Balance adjustment</span>` : e._type==='transfer' ? `<span class="pill">${escapeHtml(e.from)} → ${escapeHtml(e.to)}</span>` : e._type==='debt' ? `<span class="pill">${escapeHtml(e._friend)}</span><span class="pill">${e.direction==='owed_to_me'?'They owe me':'I owe them'}</span>` : `<span class="pill">${escapeHtml(e.category||'')}</span>`}${e.account?`<span class="pill">${escapeHtml(e.account)}</span>`:''}</span>`;
+  const meta = `<span class="txn-meta">${e.date||''} · ${e._type==='adjustment' ? `<span class="pill">Balance adjustment</span>` : e._type==='transfer' ? `<span class="pill">${escapeHtml(e.from)} → ${escapeHtml(e.to)}</span>` : e._type==='debt' ? `<span class="pill">${escapeHtml(e._friend)}</span><span class="pill">${e.direction==='owed_to_me'?'They owe me':'I owe them'}</span>` : `<span class="pill">${escapeHtml(e.category||'')}</span>`}${e.account?`<span class="pill">${escapeHtml(e.account)}</span>`:''}${e.paidBy ? `<span class="pill">Paid by ${escapeHtml(friendNameById(e.paidBy))}</span>` : ''}${(e.items && e.items.length) ? `<span class="pill">🧾 ${e.items.length} item${e.items.length===1?'':'s'}</span>` : ''}</span>`;
   const tone = toneOf(e), sign = signOf(e, tone);
   const amt = `<span class="txn-amt tone-${tone}">${sign}${fmt(Math.abs(Number(e.amount||0)))} <small style="font-weight:500;color:var(--sub)">${e.currency||'AED'}</small></span>`;
   if(selMode){
@@ -4271,6 +4468,12 @@ function buildSplitGroups(all){
   all.filter(e=>e.splitId && (e._type==='expense' || e._type==='debt')).forEach(e=>add('sid:'+e.splitId, e, (e.desc||'').replace(/\s*\(split\)\s*$/,'').trim()));
   // one payment from a friend that settled several things is shown as one row
   all.filter(e=>e.payId && e._type==='debt').forEach(e=>add('pay:'+e.payId, e, (e._friend||'A friend')+' paid you', 'pay'));
+  // a bill a friend paid for you: the bill and what you owe him are one row
+  all.filter(e=>e._type==='debt' && e.kind==='paid_for_me' && e.expenseId).forEach(d=>{
+    const gid = 'pb:'+d.expenseId, ex = all.find(x=>x._type==='expense' && x.id===d.expenseId);
+    add(gid, d, (d.desc||'Paid for me'), 'paidby');
+    if(ex){ groups[gid].keys.push(keyOf(ex)); entryGroup[keyOf(ex)] = gid; }
+  });
   // older bills have no shared id: a debt "X (split)" and the expense "X" saved a moment before it belong together
   const legacy = all.filter(e=>e._type==='debt' && !e.splitId && /\(split\)\s*$/.test(e.desc||'')).sort((a,b)=>(a.createdAt||0)-(b.createdAt||0));
   const exps = all.filter(e=>e._type==='expense' && !e.splitId);
@@ -4296,26 +4499,26 @@ function toggleSelGroup(gid){
 }
 function splitGroupHtml(row){
   const {g, kids} = row, open = openSplits.has(g.gid);
-  const total = kids.reduce((t,e)=>t+Number(e.amount||0),0);
+  const total = (g.kind==='paidby') ? Number((kids.find(e=>e._type==='expense') || kids[0]).amount||0) : kids.reduce((t,e)=>t+Number(e.amount||0),0);
   const mine = kids.filter(e=>e._type==='expense').reduce((t,e)=>t+Number(e.amount||0),0);
   const theirs = kids.filter(e=>e._type==='debt');
-  const pay = g.kind==='pay', tone = pay ? 'in' : 'out', sign = pay ? '+' : '−';
+  const pay = g.kind==='pay', pb = g.kind==='paidby', tone = pay ? 'in' : pb ? 'other' : 'out', sign = pay ? '+' : '−';
   const people = (mine>0 ? 1 : 0) + theirs.length;
   const cur = curOf(kids[0]);
-  const shares = pay ? kids.map(e=>escapeHtml((e.desc||'').replace(/\s*—\s*received\s*$/,''))+' '+fmt(e.amount)).join(' · ') : [mine>0 ? 'You '+fmt(mine) : '', ...theirs.map(e=>escapeHtml(e._friend||'A friend')+' '+fmt(e.amount))].filter(Boolean).join(' · ');
-  const who = pay ? kids.length+' part'+(kids.length===1?'':'s') : people+' '+(people===1?'person':'people');
+  const shares = pb ? (escapeHtml(friendNameById((kids.find(e=>e._type==='debt')||{}).friendId))+' paid · you owe '+fmt(Number((kids.find(e=>e._type==='debt')||{}).amount||0))) : pay ? kids.map(e=>escapeHtml((e.desc||'').replace(/\s*—\s*received\s*$/,''))+' '+fmt(e.amount)).join(' · ') : [mine>0 ? 'You '+fmt(mine) : '', ...theirs.map(e=>escapeHtml(e._friend||'A friend')+' '+fmt(e.amount))].filter(Boolean).join(' · ');
+  const who = pb ? 'paid by a friend' : pay ? kids.length+' part'+(kids.length===1?'':'s') : people+' '+(people===1?'person':'people');
   const photos = kids.find(e=>(e.receiptIds && e.receiptIds.length) || e.receiptAssetId);
   if(selMode){
     const keys = kids.map(e=>e._coll+':'+e.id), on = keys.every(k=>selected.has(k));
     return `<div class="txn t-${tone}${on?' picked':''}" onclick="toggleSelGroup('${g.gid}')" style="cursor:pointer"><input type="checkbox" ${on?'checked':''} tabindex="-1" style="width:auto;margin:0 12px 0 0;pointer-events:none">
-      <div class="txn-main" style="flex:1"><span class="txn-desc">${escapeHtml(g.desc||'Split bill')} <span class="pill">${pay ? 'payment' : 'split'}</span></span><span class="txn-meta">${g.date||''} · ${who} · ${shares}</span></div><span class="txn-amt tone-${tone}">${sign}${fmt(total)} <small style="font-weight:500;color:var(--sub)">${cur}</small></span></div>`;
+      <div class="txn-main" style="flex:1"><span class="txn-desc">${escapeHtml(g.desc||'Split bill')} <span class="pill">${pay ? 'payment' : pb ? 'paid by' : 'split'}</span></span><span class="txn-meta">${g.date||''} · ${who} · ${shares}</span></div><span class="txn-amt tone-${tone}">${sign}${fmt(total)} <small style="font-weight:500;color:var(--sub)">${cur}</small></span></div>`;
   }
   return `<div class="txn t-${tone} grp" onclick="toggleSplit('${g.gid}')" style="cursor:pointer">
-      <div class="txn-main"><span class="txn-desc">${open?'▾':'▸'} ${escapeHtml(g.desc||'Split bill')} <span class="pill">${pay ? 'payment' : 'split'}</span></span>
+      <div class="txn-main"><span class="txn-desc">${open?'▾':'▸'} ${escapeHtml(g.desc||'Split bill')} <span class="pill">${pay ? 'payment' : pb ? 'paid by' : 'split'}</span></span>
         <span class="txn-meta">${g.date||''}${g.account ? ' · <span class="pill">'+escapeHtml(g.account)+'</span>' : ''} · ${who}</span>
         <span class="txn-meta" style="display:block">${shares}</span>${photos ? thumbsHtml(photos) : ''}</div>
-      <span class="txn-amt tone-${tone}">${sign}${fmt(total)} <small style="font-weight:500;color:var(--sub)">${cur}</small><span class="txn-meta" style="display:block;text-align:right;font-weight:400">${pay ? 'received' : 'bill total'}</span></span></div>
-    ${open ? `<div class="grp-body">${kids.map(txnRowHtml).join('')}</div>` : ''}`;
+      <span class="txn-amt tone-${tone}">${sign}${fmt(total)} <small style="font-weight:500;color:var(--sub)">${cur}</small><span class="txn-meta" style="display:block;text-align:right;font-weight:400">${pay ? 'received' : pb ? 'you owe' : 'bill total'}</span></span></div>
+    ${open ? `<div class="grp-body">${(()=>{ const src = kids.map(k=>k.splitItems || k.items).find(x=>x && x.length); return src ? itemsPanelHtml(src) : ''; })()}${kids.map(txnRowHtml).join('')}</div>` : ''}`;
 }
 
 // ---------- select several + delete
@@ -4541,6 +4744,7 @@ function renderFriends(){
           <button class="btn-sm" onclick="showFriendTxns('${f.id}')">View all transactions</button>
         </div>
         <button class="btn-sm" style="width:100%;margin-top:10px;padding:10px" onclick="openReceive('${f.id}')">💵 ${escapeHtml(f.name)} paid me…</button>
+        ${friendBalance(f.id,'AED','debt') < -0.004 ? `<button class="btn-sm" style="width:100%;margin-top:8px;padding:10px" onclick="openRepay('${f.id}')">💸 I paid ${escapeHtml(f.name)} back…</button>` : ''}
         ${fAll.flatMap(p=>p.installments.filter(i=>i.paidOn && !i.friendPaidOn).map(i=>({p,i}))).map(({p,i})=>`<div class="txn t-other"><div class="txn-main"><span class="txn-desc">${escapeHtml(p.desc)} (${i.n}/${p.count})</span><span class="txn-meta">you paid Tabby ${i.external ? 'before' : i.paidOn} · waiting for ${escapeHtml(f.name)}</span></div><span class="txn-amt tone-other">${fmt(i.amount)} <small style="font-weight:500;color:var(--sub)">${escapeHtml(p.currency||'AED')}</small></span></div>`).join('')}
         ${false ? `<label>Settle a payment</label>
         <select id="st-acct-${f.id}" style="margin-bottom:8px">${ACCOUNTS.map(a=>`<option value="${escapeHtml(a)}">${escapeHtml(a)}</option>`).join('')}</select>
