@@ -1,0 +1,5703 @@
+{
+ "app": "expense-tracker",
+ "version": 1,
+ "exportedAt": "2026-11-22T18:55:01.806Z",
+ "collections": {
+  "expenses": [
+   {
+    "id": "expenses_1791746437846_tusaz",
+    "account": "Bank Account",
+    "amount": 1333.5,
+    "category": "Housing & Living",
+    "createdAt": 1791746437846,
+    "currency": "AED",
+    "date": "2026-10-10",
+    "desc": "Housing",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1791746489421_klbsk",
+    "account": "Bank Account",
+    "amount": 30.5,
+    "category": "Food & Dining",
+    "createdAt": 1791746489421,
+    "currency": "AED",
+    "date": "2026-10-10",
+    "desc": "ملوخية"
+   },
+   {
+    "id": "expenses_1791746629108_78vnp",
+    "account": "Bank Account",
+    "amount": 20.5,
+    "category": "Food & Dining",
+    "createdAt": 1791746629108,
+    "currency": "AED",
+    "date": "2026-10-11",
+    "desc": "شاكرية"
+   },
+   {
+    "id": "expenses_1791809716138_7x5q9",
+    "account": "Credit Card",
+    "amount": 14.5,
+    "category": "Food & Dining",
+    "createdAt": 1791809716138,
+    "currency": "AED",
+    "date": "2026-10-12",
+    "desc": "فطاير الرابية",
+    "receiptIds": [
+     "06981e385a97c30adee97f982a377e44"
+    ]
+   },
+   {
+    "id": "expenses_1791836784205_qel0p",
+    "account": "Credit Card",
+    "amount": 4.58,
+    "category": "Groceries",
+    "createdAt": 1791836784204,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "محارم خبز",
+    "receiptIds": [
+     "07afbb0c5d57b66fcb05a3ab863ebb86"
+    ]
+   },
+   {
+    "id": "expenses_1791887387006_ulsld",
+    "account": "Credit Card",
+    "amount": 15,
+    "category": "Jazz",
+    "createdAt": 1791887387006,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "رصيد"
+   },
+   {
+    "id": "expenses_1791915673874_3m8hm",
+    "account": "Credit Card",
+    "amount": 11.33,
+    "category": "Groceries",
+    "createdAt": 1791915673874,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Carrefour بندورة وكوكاكولا"
+   },
+   {
+    "id": "expenses_1791915693918_t2zlz",
+    "account": "Credit Card",
+    "amount": 27.8,
+    "category": "Food & Dining",
+    "createdAt": 1791915693918,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "شاورما"
+   },
+   {
+    "id": "expenses_1792048147264_70vzy",
+    "account": "Credit Card",
+    "amount": 12.97,
+    "category": "Groceries",
+    "createdAt": 1792048147264,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "كارفور موز شيبس"
+   },
+   {
+    "id": "expenses_1792048203538_4x3tu",
+    "account": "Credit Card",
+    "amount": 56.4,
+    "category": "Jazz",
+    "createdAt": 1792048203538,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "كيك"
+   },
+   {
+    "id": "expenses_1792055738930_gotz4",
+    "account": "Credit Card",
+    "amount": 1,
+    "category": "Bills & Utilities",
+    "createdAt": 1792055738929,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "رصيد"
+   },
+   {
+    "id": "expenses_1792089847519_3uq5r",
+    "account": "Bank Account",
+    "amount": 30.5,
+    "category": "Food & Dining",
+    "createdAt": 1792089847518,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "شيش برك وكريب"
+   },
+   {
+    "id": "expenses_1792165181953_7qmfq",
+    "account": "Bank Account",
+    "amount": 12,
+    "category": "Transportation",
+    "createdAt": 1792165181953,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Taxi",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1792165223514_apyrv",
+    "account": "Bank Account",
+    "amount": 33.25,
+    "category": "Jazz",
+    "createdAt": 1792165223513,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Fish Snacks"
+   },
+   {
+    "id": "expenses_1792165262248_bkic0",
+    "account": "Bank Account",
+    "amount": 21,
+    "category": "Transportation",
+    "createdAt": 1792165262248,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Taxi"
+   },
+   {
+    "id": "expenses_1792165322085_gedbj",
+    "account": "Bank Account",
+    "amount": 12,
+    "category": "Transportation",
+    "createdAt": 1792165322085,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Taxi"
+   },
+   {
+    "id": "expenses_1792165340736_585qd",
+    "account": "Bank Account",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1792165340736,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Bus"
+   },
+   {
+    "id": "expenses_1792165388764_cbifz",
+    "account": "Bank Account",
+    "amount": 7,
+    "category": "Groceries",
+    "createdAt": 1792165388764,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "كروسان وبوظة"
+   },
+   {
+    "id": "expenses_1792312461678_kxll0",
+    "account": "Bank Account",
+    "amount": 63.9,
+    "category": "Food & Dining",
+    "createdAt": 1792312461678,
+    "currency": "AED",
+    "date": "2026-10-17",
+    "desc": "برغر هاف باف"
+   },
+   {
+    "id": "expenses_1792312498112_ofw16",
+    "account": "Bank Account",
+    "amount": 6,
+    "category": "Groceries",
+    "createdAt": 1792312498111,
+    "currency": "AED",
+    "date": "2026-10-17",
+    "desc": "خبز جبن"
+   },
+   {
+    "id": "expenses_1792312584707_gj8v1",
+    "account": "Bank Account",
+    "amount": 64,
+    "category": "Food & Dining",
+    "createdAt": 1792312584707,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "ماكدونالدز"
+   },
+   {
+    "id": "expenses_1792312723890_kee00",
+    "account": "Bank Account",
+    "amount": 74.31,
+    "category": "Food & Dining",
+    "createdAt": 1792312723890,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "فطور الواحة"
+   },
+   {
+    "id": "expenses_1792315362643_z5wl5",
+    "account": "Bank Account",
+    "amount": 782.15,
+    "category": "Miscellaneous",
+    "createdAt": 1792315362643,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Tabby Statement September",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1792430052839_7tdsw",
+    "account": "Bank Account",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1792430052839,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1792430148906_ai48f",
+    "account": "Bank Account",
+    "amount": 2.88,
+    "category": "Jazz",
+    "createdAt": 1792430148906,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "سيفيتسوي"
+   },
+   {
+    "id": "expenses_1792430360386_apek9",
+    "account": "Tabby Credit Card",
+    "amount": 89.03,
+    "category": "Jazz",
+    "createdAt": 1792430360386,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "حجز أوتيل"
+   },
+   {
+    "id": "expenses_1792430408788_rbjcb",
+    "account": "Tabby Credit Card",
+    "amount": 23.5,
+    "category": "Food & Dining",
+    "createdAt": 1792430408788,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "ماكدونالدز"
+   },
+   {
+    "id": "expenses_1792430452446_4mwaz",
+    "account": "Tabby Credit Card",
+    "amount": 6,
+    "category": "Transportation",
+    "createdAt": 1792430452446,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "تاكسي"
+   },
+   {
+    "id": "expenses_1792430502450_s3moj",
+    "account": "Tabby Credit Card",
+    "amount": 57.5,
+    "category": "Food & Dining",
+    "createdAt": 1792430502450,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "مطعم سبوت لايت"
+   },
+   {
+    "id": "expenses_1792430526545_56vw9",
+    "account": "Tabby Credit Card",
+    "amount": 6,
+    "category": "Transportation",
+    "createdAt": 1792430526545,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "تكسي"
+   },
+   {
+    "id": "expenses_1792430590355_0fsy2",
+    "account": "Tabby Credit Card",
+    "amount": 20,
+    "category": "Transportation",
+    "createdAt": 1792430590355,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "Nol Card"
+   },
+   {
+    "id": "expenses_1792510515080_b0jft",
+    "account": "Cash",
+    "amount": 25,
+    "category": "Food & Dining",
+    "createdAt": 1792510515080,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "رز وخضار"
+   },
+   {
+    "id": "expenses_1792512606326_1gn8m",
+    "account": "Cash",
+    "amount": 5.33,
+    "category": "Groceries",
+    "createdAt": 1792512606326,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "مي"
+   },
+   {
+    "id": "expenses_1792512741746_7ixq6",
+    "account": "Tabby Credit Card",
+    "amount": 16.14,
+    "category": "Groceries",
+    "createdAt": 1792512741746,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "كارفور خبز موز بطيخ",
+    "receiptIds": [
+     "2c8b5b8f7d12e7502162c1f19d9df3de"
+    ]
+   },
+   {
+    "id": "expenses_1792512776569_gmf2b",
+    "account": "Tabby Credit Card",
+    "amount": 1.16,
+    "category": "Groceries",
+    "createdAt": 1792512776569,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "خبز"
+   },
+   {
+    "id": "expenses_1792596004509_9mjev",
+    "account": "Tabby Credit Card",
+    "amount": 11.84,
+    "category": "Groceries",
+    "createdAt": 1792596004508,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Carrefour",
+    "receiptIds": [
+     "8d2f735a15f9a6bda1dae976b6edbca1"
+    ]
+   },
+   {
+    "id": "expenses_1792596191318_2k0zf",
+    "account": "Tabby Credit Card",
+    "amount": 26.96,
+    "category": "Groceries",
+    "createdAt": 1792596191318,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "كارفور عرنوس بندورة",
+    "receiptIds": [
+     "56dab10e8a17a9c00327baf1919f1588"
+    ]
+   },
+   {
+    "id": "expenses_1792696017319_ghomn",
+    "account": "Tabby Credit Card",
+    "amount": 1.17,
+    "category": "Groceries",
+    "createdAt": 1792696017319,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "خبز",
+    "receiptIds": [
+     "46cfbdf60a0897c7733409687b123039"
+    ],
+    "splitId": "sp_1792696017319_2o2x"
+   },
+   {
+    "id": "expenses_1792696073102_vvnpn",
+    "account": "Tabby Credit Card",
+    "amount": 15.29,
+    "category": "Groceries",
+    "createdAt": 1792696073102,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "كارفور مربى وموز",
+    "receiptIds": [
+     "80917ed53f4525aa0d01483c392c61ec"
+    ]
+   },
+   {
+    "id": "expenses_1792696133501_8c4bt",
+    "account": "Tabby Credit Card",
+    "amount": 31.5,
+    "category": "Food & Dining",
+    "createdAt": 1792696133501,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "شاورما"
+   },
+   {
+    "id": "expenses_1792752265557_qkuof",
+    "account": "Tabby Credit Card",
+    "amount": 15.5,
+    "category": "Food & Dining",
+    "createdAt": 1792752265557,
+    "currency": "AED",
+    "date": "2026-10-23",
+    "desc": "فطاير",
+    "receiptIds": [
+     "2a806bf7c13887472f3398407ff7ac61"
+    ],
+    "splitId": "sp_1792752265557_4tsv"
+   },
+   {
+    "id": "expenses_1792775242395_br9bw",
+    "account": "Tabby Credit Card",
+    "amount": 20.56,
+    "category": "Groceries",
+    "createdAt": 1792775242394,
+    "currency": "AED",
+    "date": "2026-10-23",
+    "desc": "كارفور أندومي بطيخ",
+    "receiptIds": [
+     "db9f3628598bcdf2ba5b46a8bbeffb9d"
+    ]
+   },
+   {
+    "id": "expenses_1792818319350_hebp9",
+    "account": "Bank Account",
+    "amount": 59,
+    "category": "Financial",
+    "createdAt": 1792818319350,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "Tabby Plus Subscription"
+   },
+   {
+    "id": "expenses_1792828899856_hczse",
+    "account": "Tabby Credit Card",
+    "amount": 2.77,
+    "category": "Groceries",
+    "createdAt": 1792828899856,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "فيتا",
+    "splitId": "sp_1792828899856_s42m"
+   },
+   {
+    "id": "expenses_1792829715598_subrg",
+    "account": "Tabby Credit Card",
+    "amount": 27.2,
+    "category": "Food & Dining",
+    "createdAt": 1792829715598,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "شاورما Operation Falafel"
+   },
+   {
+    "id": "expenses_1792830466119_bxx2k",
+    "account": "Tabby Credit Card",
+    "amount": 16.5,
+    "category": "Food & Dining",
+    "createdAt": 1792830466118,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "فلافل الرابية محمرة وقشقوان"
+   },
+   {
+    "id": "expenses_1792830521547_9avmd",
+    "account": "Tabby Credit Card",
+    "amount": 27.5,
+    "category": "Jazz",
+    "createdAt": 1792830521547,
+    "currency": "AED",
+    "date": "2026-10-23",
+    "desc": "Keeta Mango Lab",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1792851298069_bjyvv",
+    "account": "Tabby Credit Card",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1792851298069,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1792851315619_ijbko",
+    "account": "Tabby Credit Card",
+    "amount": 12,
+    "category": "Transportation",
+    "createdAt": 1792851315619,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "تكسي"
+   },
+   {
+    "id": "expenses_1792855105487_5p8h1",
+    "account": "Tabby Credit Card",
+    "amount": 14.2,
+    "category": "Groceries",
+    "createdAt": 1792855105487,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "Eco Mini Mart Bus Station"
+   },
+   {
+    "id": "expenses_1792855121761_q6zcl",
+    "account": "Tabby Credit Card",
+    "amount": 5,
+    "category": "Groceries",
+    "createdAt": 1792855121761,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "بوظة"
+   },
+   {
+    "id": "expenses_1792912920105_v9dtc",
+    "account": "Tabby Credit Card",
+    "amount": 54.9,
+    "category": "Food & Dining",
+    "createdAt": 1792912920105,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "بيتزا"
+   },
+   {
+    "id": "expenses_1792913012728_w2gre",
+    "account": "Tabby Credit Card",
+    "amount": 6.5,
+    "category": "Groceries",
+    "createdAt": 1792913012728,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "بسكوتة وبيبسي"
+   },
+   {
+    "id": "expenses_1792923521759_op3qf",
+    "account": "Tabby Credit Card",
+    "amount": 37.1,
+    "category": "Food & Dining",
+    "createdAt": 1792923521759,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "Keeta Food",
+    "splitId": "sp_1792923521758_mf2k"
+   },
+   {
+    "id": "expenses_1792941248835_s9dqb",
+    "account": "Tabby Credit Card",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1792941248835,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1792942991270_xxny5",
+    "account": "Tabby Credit Card",
+    "amount": 9,
+    "category": "Groceries",
+    "createdAt": 1792942991270,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "مي جوز الهند وكروسان"
+   },
+   {
+    "id": "expenses_1793025295852_wk3j4",
+    "account": "Tabby Credit Card",
+    "amount": 37.51,
+    "category": "Groceries",
+    "createdAt": 1793025295851,
+    "currency": "AED",
+    "date": "2026-10-26",
+    "desc": "كارفور خبز بندورة جبن زبدة"
+   },
+   {
+    "id": "expenses_1793029001531_dh9xa",
+    "account": "Bank Account",
+    "amount": 10.5,
+    "category": "Food & Dining",
+    "createdAt": 1793029001531,
+    "currency": "AED",
+    "date": "2026-10-26",
+    "desc": "بانكيك نوتيلا الخال"
+   },
+   {
+    "id": "expenses_1793091892509_4mj3p",
+    "account": "Tabby Credit Card",
+    "amount": 8.16,
+    "category": "Groceries",
+    "createdAt": 1793091892509,
+    "currency": "AED",
+    "date": "2026-10-27",
+    "desc": "توست وكروسان"
+   },
+   {
+    "id": "expenses_1793163584975_mj27i",
+    "account": "Bank Account",
+    "amount": 40.25,
+    "category": "Food & Dining",
+    "createdAt": 1793163584975,
+    "currency": "AED",
+    "date": "2026-10-27",
+    "desc": "الخال",
+    "receiptIds": [],
+    "splitId": "sp_1793163584975_vhxt"
+   },
+   {
+    "id": "expenses_1793181978068_dwwea",
+    "account": "Tabby Credit Card",
+    "amount": 7.66,
+    "category": "Groceries",
+    "createdAt": 1793181978068,
+    "currency": "AED",
+    "date": "2026-10-28",
+    "desc": "توست وكروسان"
+   },
+   {
+    "id": "expenses_1793269076960_tjaif",
+    "account": "Tabby Credit Card",
+    "amount": 4.25,
+    "category": "Groceries",
+    "createdAt": 1793269076960,
+    "currency": "AED",
+    "date": "2026-10-29",
+    "desc": "توست"
+   },
+   {
+    "id": "expenses_1793345701179_oh0g1",
+    "account": "Tabby Credit Card",
+    "amount": 14.07,
+    "category": "Groceries",
+    "createdAt": 1793345701179,
+    "currency": "AED",
+    "date": "2026-10-29",
+    "desc": "موز توست",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1793345729315_6ke3g",
+    "account": "Bank Account",
+    "amount": 20.5,
+    "category": "Food & Dining",
+    "createdAt": 1793345729315,
+    "currency": "AED",
+    "date": "2026-10-29",
+    "desc": "شيش برك الخال",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1793345916218_5oyec",
+    "account": "Bank Account",
+    "amount": 34,
+    "category": "Food & Dining",
+    "createdAt": 1793345916218,
+    "currency": "AED",
+    "date": "2026-10-30",
+    "desc": "الرابية",
+    "receiptIds": [
+     "b1d724332fa884961723c81a34c7f045"
+    ],
+    "splitId": "sp_1793345916218_9017"
+   },
+   {
+    "id": "expenses_1793389427134_jy53t",
+    "account": "Bank Account",
+    "amount": 23.9,
+    "category": "Food & Dining",
+    "createdAt": 1793389427134,
+    "currency": "AED",
+    "date": "2026-10-30",
+    "desc": "بروستد لفاح"
+   },
+   {
+    "id": "expenses_1793389553677_jec64",
+    "account": "Tabby Credit Card",
+    "amount": 12.61,
+    "category": "Groceries",
+    "createdAt": 1793389553676,
+    "currency": "AED",
+    "date": "2026-10-30",
+    "desc": "شيبس كروسان"
+   },
+   {
+    "id": "expenses_1793452486438_ydr4t",
+    "account": "Bank Account",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1793452486438,
+    "currency": "AED",
+    "date": "2026-10-31",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1793529691133_qdoec",
+    "account": "Bank Account",
+    "amount": 104.5,
+    "category": "Debits",
+    "createdAt": 1793529691133,
+    "currency": "AED",
+    "date": "2026-10-31",
+    "desc": "دين بلال"
+   },
+   {
+    "id": "expenses_1793529814165_3eex2",
+    "account": "Bank Account",
+    "amount": 26.25,
+    "category": "Financial",
+    "createdAt": 1793529814165,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "ضريبة البنك"
+   },
+   {
+    "id": "expenses_1793529843819_n0o2u",
+    "account": "Credit Card",
+    "amount": 36,
+    "category": "Food & Dining",
+    "createdAt": 1793529843819,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "بروستد كيتا"
+   },
+   {
+    "id": "expenses_1793530007722_xjgyf",
+    "account": "Tabby Credit Card",
+    "amount": 1.5,
+    "category": "Groceries",
+    "createdAt": 1793530007722,
+    "currency": "AED",
+    "date": "2026-10-31",
+    "desc": "مي"
+   },
+   {
+    "id": "expenses_1793536142334_4x1mc",
+    "account": "Bank Account",
+    "amount": 90.38,
+    "category": "Entertainment",
+    "createdAt": 1793536142334,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Hotel",
+    "splitId": "sp_1793536142334_c33a"
+   },
+   {
+    "id": "expenses_1793536173059_hcoe6",
+    "account": "Bank Account",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1793536173059,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Bus Dubai",
+    "splitId": "sp_1793536173059_w5y4"
+   },
+   {
+    "id": "expenses_1793536239409_nm1pr",
+    "account": "Tabby Credit Card",
+    "amount": 3,
+    "category": "Groceries",
+    "createdAt": 1793536239409,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Water Biscuits",
+    "splitId": "sp_1793536239409_ttay"
+   },
+   {
+    "id": "expenses_1793544874626_72jwc",
+    "account": "Bank Account",
+    "amount": 10,
+    "category": "Transportation",
+    "createdAt": 1793544874626,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Nol Card",
+    "splitId": "sp_1793544874626_t969"
+   },
+   {
+    "id": "expenses_1793594149328_sb1u0",
+    "account": "Credit Card",
+    "amount": 31.5,
+    "category": "Food & Dining",
+    "createdAt": 1793594149328,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "شاورما"
+   },
+   {
+    "id": "expenses_1793594193693_pah71",
+    "account": "Bank Account",
+    "amount": 43.89,
+    "category": "Jazz",
+    "createdAt": 1793594193693,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Sushi",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1793602496819_hp0in",
+    "account": "Bank Account",
+    "amount": 20,
+    "category": "Transportation",
+    "createdAt": 1793602496819,
+    "currency": "AED",
+    "date": "2026-11-02",
+    "desc": "Nol Card"
+   },
+   {
+    "id": "expenses_1793613328781_ckae4",
+    "account": "Credit Card",
+    "amount": 17.15,
+    "category": "Food & Dining",
+    "createdAt": 1793613328781,
+    "currency": "AED",
+    "date": "2026-11-02",
+    "desc": "منقوشة قلعة بعلبك"
+   },
+   {
+    "id": "expenses_1793632604926_hw164",
+    "account": "Bank Account",
+    "amount": 33.6,
+    "category": "Food & Dining",
+    "createdAt": 1793632604925,
+    "currency": "AED",
+    "date": "2026-11-02",
+    "desc": "فروج مشوي"
+   },
+   {
+    "id": "expenses_1793688788372_6gkc1",
+    "account": "Bank Account",
+    "amount": 28.85,
+    "category": "Food & Dining",
+    "createdAt": 1793688788372,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "مناقيش قلعة بعلبك"
+   },
+   {
+    "id": "expenses_1793723778981_opqxt",
+    "account": "Bank Account",
+    "amount": 4.25,
+    "category": "Groceries",
+    "createdAt": 1793723778981,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "خبز بيبسي"
+   },
+   {
+    "id": "expenses_1793733320824_x3x4c",
+    "account": "Bank Account",
+    "amount": 1890.5,
+    "category": "Family",
+    "createdAt": 1793733320824,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "أهلي"
+   },
+   {
+    "id": "expenses_1793772579904_zl5zx",
+    "account": "Bank Account",
+    "amount": 12,
+    "category": "Transportation",
+    "createdAt": 1793772579904,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "تكسي"
+   },
+   {
+    "id": "expenses_1793786288691_sd2y6",
+    "account": "Bank Account",
+    "amount": 20,
+    "category": "Transportation",
+    "createdAt": 1793786288690,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "Nol Card"
+   },
+   {
+    "id": "expenses_1793786308822_9vq55",
+    "account": "Bank Account",
+    "amount": 28.25,
+    "category": "Food & Dining",
+    "createdAt": 1793786308822,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "مناقيش قلعة بعلبك"
+   },
+   {
+    "id": "expenses_1793802270097_kxd4f",
+    "account": "Cash",
+    "amount": 1333,
+    "category": "Housing & Living",
+    "createdAt": 1793802270097,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "آجار البيت"
+   },
+   {
+    "id": "expenses_1793806763537_qpq7k",
+    "account": "Bank Account",
+    "amount": 25.5,
+    "category": "Food & Dining",
+    "createdAt": 1793806763537,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "فريكة الخال"
+   },
+   {
+    "id": "expenses_1793861475148_ohyd3",
+    "account": "Bank Account",
+    "amount": 17.15,
+    "category": "Food & Dining",
+    "createdAt": 1793861475148,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "مناقيش قلعة بعلبك"
+   },
+   {
+    "id": "expenses_1793881998046_2nbu7",
+    "account": "Bank Account",
+    "amount": 30,
+    "category": "Bills & Utilities",
+    "createdAt": 1793881998045,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "رصيد"
+   },
+   {
+    "id": "expenses_1793902582822_4t237",
+    "account": "Bank Account",
+    "amount": 25.04,
+    "category": "Food & Dining",
+    "createdAt": 1793902582821,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "كارفور",
+    "items": [
+     {
+      "amount": 10.79,
+      "name": "عرانيس"
+     },
+     {
+      "amount": 7.11,
+      "name": "موز"
+     },
+     {
+      "amount": 6.89,
+      "name": "شيبس"
+     },
+     {
+      "amount": 0.25,
+      "name": "كيس"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1793902715110_qs1ji",
+    "account": "Bank Account",
+    "amount": 1.05,
+    "category": "Education & Work",
+    "createdAt": 1793902715110,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "نسخة جواز"
+   },
+   {
+    "id": "expenses_1793902785214_fy0h7",
+    "account": "Bank Account",
+    "amount": 1.5,
+    "category": "Education & Work",
+    "createdAt": 1793902785214,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "لبن رايب"
+   },
+   {
+    "id": "expenses_1793968571993_ojhrz",
+    "account": "Credit Card",
+    "amount": 27.19,
+    "category": "Food & Dining",
+    "createdAt": 1793968571993,
+    "currency": "AED",
+    "date": "2026-11-06",
+    "desc": "شاورما"
+   },
+   {
+    "id": "expenses_1793971361312_ht2gv",
+    "account": "Credit Card",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1793971361312,
+    "currency": "AED",
+    "date": "2026-11-06",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1793975995973_z02ib",
+    "account": "Tabby Credit Card",
+    "amount": 1.25,
+    "category": "Groceries",
+    "createdAt": 1793975995973,
+    "currency": "AED",
+    "date": "2026-11-06",
+    "desc": "مي"
+   },
+   {
+    "id": "expenses_1794058824654_omvj2",
+    "account": "Credit Card",
+    "amount": 22.5,
+    "category": "Groceries",
+    "createdAt": 1794058824654,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "بوظة كروسان علوك"
+   },
+   {
+    "id": "expenses_1794060117017_81bvp",
+    "account": "Credit Card",
+    "amount": 35,
+    "category": "Jazz",
+    "createdAt": 1794060117017,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "شرمب"
+   },
+   {
+    "id": "expenses_1794060142620_4m5v9",
+    "account": "Credit Card",
+    "amount": 8,
+    "category": "Groceries",
+    "createdAt": 1794060142620,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "فريز"
+   },
+   {
+    "id": "expenses_1794060152626_pismg",
+    "account": "Credit Card",
+    "amount": 11,
+    "category": "Groceries",
+    "createdAt": 1794060152626,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "خرمى"
+   },
+   {
+    "id": "expenses_1794060230584_7ge54",
+    "account": "Credit Card",
+    "amount": 2.5,
+    "category": "Groceries",
+    "createdAt": 1794060230584,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "خبز"
+   },
+   {
+    "id": "expenses_1794060370430_pb7z7",
+    "account": "Credit Card",
+    "amount": 5,
+    "category": "Groceries",
+    "createdAt": 1794060370430,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "Pepsi Ice",
+    "splitId": "sp_1794060370430_ckgl",
+    "splitItems": [
+     {
+      "amount": 8,
+      "name": "Pepsi Ice ",
+      "who": [
+       "You",
+       "Jazz"
+      ]
+     },
+     {
+      "amount": 2,
+      "name": "Cucumber ",
+      "who": [
+       "You",
+       "Jazz"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794075300789_jnndp",
+    "account": "Credit Card",
+    "amount": 43.05,
+    "category": "Food & Dining",
+    "createdAt": 1794075300789,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "Macdonalds",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1794075500648_ut0bx",
+    "account": "Credit Card",
+    "amount": 38.96,
+    "category": "Groceries",
+    "createdAt": 1794075500648,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "Ice cream Coconut Water skin care"
+   },
+   {
+    "id": "expenses_1794128300825_sp63k",
+    "account": "Credit Card",
+    "amount": 24.15,
+    "category": "Food & Dining",
+    "createdAt": 1794128300825,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "مناقيش"
+   },
+   {
+    "id": "expenses_1794132284778_cf8l0",
+    "account": "Credit Card",
+    "amount": 4.5,
+    "category": "Entertainment",
+    "createdAt": 1794132284778,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "بوظة"
+   },
+   {
+    "id": "expenses_1794145879006_hwxm8",
+    "account": "Credit Card",
+    "amount": 35.7,
+    "category": "Jazz",
+    "createdAt": 1794145879006,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "Sushi"
+   },
+   {
+    "id": "expenses_1794145901882_ho0tj",
+    "account": "Credit Card",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1794145901882,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "باص العين"
+   },
+   {
+    "id": "expenses_1794153741510_868t4",
+    "account": "Credit Card",
+    "amount": 36,
+    "category": "Jazz",
+    "createdAt": 1794153741510,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "Brosted"
+   },
+   {
+    "id": "expenses_1794153882920_1h0rn",
+    "account": "Bank Account",
+    "amount": 5.22,
+    "category": "Financial",
+    "createdAt": 1794153882920,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "International Merchants Fees"
+   },
+   {
+    "id": "expenses_1794160787176_2pdrk",
+    "account": "Cash",
+    "amount": 8,
+    "category": "Groceries",
+    "createdAt": 1794160787176,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "كروسان بسكوت"
+   },
+   {
+    "id": "expenses_1794231698989_ufg47",
+    "account": "Credit Card",
+    "amount": 17.15,
+    "category": "Food & Dining",
+    "createdAt": 1794231698989,
+    "currency": "AED",
+    "date": "2026-11-09",
+    "desc": "مناقيش"
+   },
+   {
+    "id": "expenses_1794249243303_d92ah",
+    "account": "Credit Card",
+    "amount": 17.03,
+    "category": "Groceries",
+    "createdAt": 1794249243302,
+    "currency": "AED",
+    "date": "2026-11-09",
+    "desc": "كارفور عرنوس بندورة",
+    "items": [
+     {
+      "amount": 0.25,
+      "name": "كيس"
+     },
+     {
+      "amount": 5.29,
+      "name": "شيبس"
+     },
+     {
+      "amount": 11.49,
+      "name": "جبن فيلاديلفيا"
+     }
+    ],
+    "receiptIds": [
+     "33d1aad1a729c3871d3dec8beeb152c1"
+    ]
+   },
+   {
+    "id": "expenses_1794249262935_nlgxg",
+    "account": "Bank Account",
+    "amount": 25.5,
+    "category": "Food & Dining",
+    "createdAt": 1794249262935,
+    "currency": "AED",
+    "date": "2026-11-09",
+    "desc": "كوسا بلبن"
+   },
+   {
+    "id": "expenses_1794314214348_1x3xn",
+    "account": "Credit Card",
+    "amount": 1.75,
+    "category": "Groceries",
+    "createdAt": 1794314214348,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "خبز"
+   },
+   {
+    "id": "expenses_1794330592973_29ftu",
+    "account": "Credit Card",
+    "amount": 105.5,
+    "category": "Jazz",
+    "createdAt": 1794330592973,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "Jazz Steak"
+   },
+   {
+    "id": "expenses_1794330626155_tz9gb",
+    "account": "Credit Card",
+    "amount": 63,
+    "category": "Education & Work",
+    "createdAt": 1794330626155,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "Photograph"
+   },
+   {
+    "id": "expenses_1794330653127_d0yyn",
+    "account": "Credit Card",
+    "amount": 45.4,
+    "category": "Food & Dining",
+    "createdAt": 1794330653127,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "المشاوي الحلبية"
+   },
+   {
+    "id": "expenses_1794373609170_aivx2",
+    "account": "Credit Card",
+    "amount": 70,
+    "category": "Transportation",
+    "createdAt": 1794373609170,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "Udrive",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1794373640224_xhl1t",
+    "account": "Credit Card",
+    "amount": 57,
+    "category": "Entertainment",
+    "createdAt": 1794373640224,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "بلبن"
+   },
+   {
+    "id": "expenses_1794373658708_qnt7f",
+    "account": "Credit Card",
+    "amount": 2,
+    "category": "Groceries",
+    "createdAt": 1794373658708,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "مي"
+   },
+   {
+    "id": "expenses_1794481406564_x4v40",
+    "account": "Credit Card",
+    "amount": 25.95,
+    "category": "Jazz",
+    "createdAt": 1794481406564,
+    "currency": "AED",
+    "date": "2026-11-11",
+    "desc": "Ketta Bubee"
+   },
+   {
+    "id": "expenses_1794481460029_7oz5q",
+    "account": "",
+    "amount": 13.5,
+    "category": "Food & Dining",
+    "createdAt": 1794481460029,
+    "currency": "AED",
+    "date": "2026-11-12",
+    "desc": "مناقيش",
+    "paidBy": "f_bilal",
+    "paidByTxnId": "friendTxns_1794481460029_5hi3t"
+   },
+   {
+    "id": "expenses_1794481832925_8150z",
+    "account": "Credit Card",
+    "amount": 18.5,
+    "category": "Food & Dining",
+    "createdAt": 1794481832925,
+    "currency": "AED",
+    "date": "2026-11-12",
+    "desc": "مناقيش",
+    "receiptIds": [
+     "0016df4fa9a27888df5ba522ac0d724d"
+    ],
+    "splitId": "sp_1794481832925_bfu2",
+    "splitItems": [
+     {
+      "amount": 5,
+      "name": "توصيل",
+      "who": [
+       "You",
+       "Bilal"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "كرافت مع عسل",
+      "who": [
+       "You"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "جبن وبيض",
+      "who": [
+       "Bilal"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794547648997_dl6hc",
+    "account": "Credit Card",
+    "amount": 49,
+    "category": "Food & Dining",
+    "createdAt": 1794547648997,
+    "currency": "AED",
+    "date": "2026-11-12",
+    "desc": "شاورما سبوت لايت"
+   },
+   {
+    "id": "expenses_1794547761336_3y1iz",
+    "account": "Credit Card",
+    "amount": 25.95,
+    "category": "Jazz",
+    "createdAt": 1794547761336,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "Keeta Mango Lab"
+   },
+   {
+    "id": "expenses_1794552972097_0wywy",
+    "account": "Credit Card",
+    "amount": 17.68,
+    "category": "Food & Dining",
+    "createdAt": 1794552972097,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "مناقيش",
+    "receiptIds": [
+     "13fc9fdcca7642def1099140152d4c03"
+    ],
+    "splitId": "sp_1794552972097_24e6",
+    "splitItems": [
+     {
+      "amount": 3,
+      "name": "عسل",
+      "who": [
+       "Zain"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "جبنة وبيض",
+      "who": [
+       "Zain"
+      ]
+     },
+     {
+      "amount": 5,
+      "name": "خدمة توصيل",
+      "who": [
+       "Zain",
+       "You",
+       "Bilal"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "كرافت مع عسل ",
+      "who": [
+       "You"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "شامية",
+      "who": [
+       "Bilal"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794576541066_c6vuf",
+    "account": "Credit Card",
+    "amount": 3.41,
+    "category": "Groceries",
+    "createdAt": 1794576541066,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "كروسان"
+   },
+   {
+    "id": "expenses_1794588274843_4xi5r",
+    "account": "Credit Card",
+    "amount": 24.66,
+    "category": "Groceries",
+    "createdAt": 1794588274842,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "كارفور",
+    "items": [
+     {
+      "amount": 0.25,
+      "name": "كيس"
+     },
+     {
+      "amount": 4.89,
+      "name": "ليز"
+     },
+     {
+      "amount": 2.89,
+      "name": "كروسان"
+     },
+     {
+      "amount": 4.49,
+      "name": "عرانيس"
+     },
+     {
+      "amount": 4.49,
+      "name": "عرانيس"
+     },
+     {
+      "amount": 7.65,
+      "name": "موز"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794588293325_o03rw",
+    "account": "Credit Card",
+    "amount": 33.6,
+    "category": "Food & Dining",
+    "createdAt": 1794588293325,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "فروج مشوي"
+   },
+   {
+    "id": "expenses_1794653061190_h7idu",
+    "account": "Credit Card",
+    "amount": 21,
+    "category": "Food & Dining",
+    "createdAt": 1794653061190,
+    "currency": "AED",
+    "date": "2026-11-14",
+    "desc": "فلافل الرابية",
+    "items": [
+     {
+      "amount": 16,
+      "name": "كرافت وعسل"
+     },
+     {
+      "amount": 5,
+      "name": "توصيل"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794676500923_otapa",
+    "account": "Credit Card",
+    "amount": 7.16,
+    "category": "Groceries",
+    "createdAt": 1794676500923,
+    "currency": "AED",
+    "date": "2026-11-14",
+    "desc": "كروسان خبز"
+   },
+   {
+    "id": "expenses_1794745565915_5j915",
+    "account": "Credit Card",
+    "amount": 31.5,
+    "category": "Jazz",
+    "createdAt": 1794745565915,
+    "currency": "AED",
+    "date": "2026-11-14",
+    "desc": "Macdonalds",
+    "items": [
+     {
+      "amount": 31.5,
+      "name": "Fish Wrap Meal"
+     }
+    ],
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1794745633254_ni1n0",
+    "account": "Credit Card",
+    "amount": 35.19,
+    "category": "Food & Dining",
+    "createdAt": 1794745633254,
+    "currency": "AED",
+    "date": "2026-11-15",
+    "desc": "المشاوي الحلبية",
+    "items": [
+     {
+      "amount": 35.19,
+      "name": "Chicken Brosted Meal"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794806298987_a6ql5",
+    "account": "Credit Card",
+    "amount": 6.5,
+    "category": "Groceries",
+    "createdAt": 1794806298987,
+    "currency": "AED",
+    "date": "2026-11-15",
+    "desc": "Speed Way",
+    "items": [
+     {
+      "amount": 6.5,
+      "name": "Water Ice Cream"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794816740795_oqxio",
+    "account": "",
+    "amount": 18.5,
+    "category": "Food & Dining",
+    "createdAt": 1794816740795,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "الرابية الخضراء",
+    "paidBy": "f_zain",
+    "paidByTxnId": "friendTxns_1794816740795_z0oxl",
+    "receiptIds": [
+     "4fb1b8864cc5fff907bb237701024fea"
+    ],
+    "splitId": "sp_1794816740795_kgwo",
+    "splitItems": [
+     {
+      "amount": 5,
+      "name": "توصيل",
+      "who": [
+       "You",
+       "Zain"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "كرافت وعسل ",
+      "who": [
+       "You"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "جبن وبيض ",
+      "who": [
+       "Zain"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794834680443_4y99w",
+    "account": "Credit Card",
+    "amount": 3.34,
+    "category": "Food & Dining",
+    "createdAt": 1794834680443,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "متي",
+    "splitId": "sp_1794834680443_776r",
+    "splitItems": [
+     {
+      "amount": 10,
+      "name": "متي",
+      "who": [
+       "You",
+       "Bachir",
+       "Haian"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794857008791_61a4t",
+    "account": "Credit Card",
+    "amount": 8.03,
+    "category": "Groceries",
+    "createdAt": 1794857008791,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "كارفور",
+    "items": [
+     {
+      "amount": 2.89,
+      "name": "كروسان"
+     },
+     {
+      "amount": 4.89,
+      "name": "ليز"
+     },
+     {
+      "amount": 0.25,
+      "name": "كيس"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794905349164_oy29h",
+    "account": "Credit Card",
+    "amount": 18.5,
+    "category": "Food & Dining",
+    "createdAt": 1794905349163,
+    "currency": "AED",
+    "date": "2026-11-17",
+    "desc": "الرابية الخضراء",
+    "receiptIds": [
+     "0cf1ff76b8653d458c96685a1a8a4769"
+    ],
+    "splitId": "sp_1794905349163_554l",
+    "splitItems": [
+     {
+      "amount": 5,
+      "name": "توصيل ",
+      "who": [
+       "You",
+       "Zain"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "بيض وجبن ",
+      "who": [
+       "Zain"
+      ]
+     },
+     {
+      "amount": 8,
+      "name": "اكسترا بيض",
+      "who": [
+       "Zain"
+      ]
+     },
+     {
+      "amount": 16,
+      "name": "كرافت وعسل ",
+      "who": [
+       "You"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1794946378346_gbbeq",
+    "account": "Credit Card",
+    "amount": 22.03,
+    "category": "Food & Dining",
+    "createdAt": 1794946378346,
+    "currency": "AED",
+    "date": "2026-11-17",
+    "desc": "KFC"
+   },
+   {
+    "id": "expenses_1794987652019_h423n",
+    "account": "",
+    "amount": 18.5,
+    "category": "Food & Dining",
+    "createdAt": 1794987652019,
+    "currency": "AED",
+    "date": "2026-11-18",
+    "desc": "الرابية الخضراء",
+    "paidBy": "f_zain",
+    "paidByTxnId": "friendTxns_1794987652019_4rb47",
+    "splitId": "sp_1794987652019_r256",
+    "splitItems": [
+     {
+      "amount": 5,
+      "name": "توصيل ",
+      "who": [
+       "You",
+       "Zain"
+      ]
+     },
+     {
+      "amount": 32,
+      "name": "كرافت وعسل ",
+      "who": [
+       "You",
+       "Zain"
+      ]
+     }
+    ]
+   },
+   {
+    "id": "expenses_1795010598368_o442s",
+    "account": "Credit Card",
+    "amount": 28.8,
+    "category": "Food & Dining",
+    "createdAt": 1795010598368,
+    "currency": "AED",
+    "date": "2026-11-18",
+    "desc": "ألو شام",
+    "items": [
+     {
+      "amount": 26.3,
+      "name": "شاورما"
+     },
+     {
+      "amount": 2.5,
+      "name": "بيبسي"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1795079758531_e1ce0",
+    "account": "Credit Card",
+    "amount": 21,
+    "category": "Food & Dining",
+    "createdAt": 1795079758531,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "الرابية الخضراء",
+    "items": [
+     {
+      "amount": 5,
+      "name": "توصيل"
+     },
+     {
+      "amount": 16,
+      "name": "كرافت وعسل"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1795086612123_ejhmb",
+    "account": "",
+    "amount": 230,
+    "category": "Smokes",
+    "createdAt": 1795086612123,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Smokes",
+    "paidBy": "f_bilal",
+    "paidByTxnId": "friendTxns_1795086612123_dbe8i"
+   },
+   {
+    "id": "expenses_1795086981835_tdme8",
+    "account": "Bank Account",
+    "amount": 0.5,
+    "category": "Financial",
+    "createdAt": 1795086981835,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Smokes",
+    "items": [
+     {
+      "amount": 0.5,
+      "name": "Transfer Fee 207.5"
+     }
+    ],
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1795094330493_r9j3t",
+    "account": "Credit Card",
+    "amount": 80,
+    "category": "Bills & Utilities",
+    "createdAt": 1795094330493,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Balance"
+   },
+   {
+    "id": "expenses_1795104134059_5z41q",
+    "account": "Credit Card",
+    "amount": 59,
+    "category": "Food & Dining",
+    "createdAt": 1795104134059,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Macdonalds"
+   },
+   {
+    "id": "expenses_1795250414251_fx677",
+    "account": "Credit Card",
+    "amount": 42.16,
+    "category": "Jazz",
+    "createdAt": 1795250414251,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "1004 Mart"
+   },
+   {
+    "id": "expenses_1795250437742_jnqnz",
+    "account": "Credit Card",
+    "amount": 21,
+    "category": "Food & Dining",
+    "createdAt": 1795250437742,
+    "currency": "AED",
+    "date": "2026-11-20",
+    "desc": "الرابية الخضراء",
+    "items": [
+     {
+      "amount": 5,
+      "name": "توصيل"
+     },
+     {
+      "amount": 16,
+      "name": "كرافت وعسل"
+     }
+    ],
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1795250452033_2w9ld",
+    "account": "Credit Card",
+    "amount": 30,
+    "category": "Transportation",
+    "createdAt": 1795250452033,
+    "currency": "AED",
+    "date": "2026-11-20",
+    "desc": "باص العين",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1795250466085_7ek6s",
+    "account": "Credit Card",
+    "amount": 12,
+    "category": "Transportation",
+    "createdAt": 1795250466085,
+    "currency": "AED",
+    "date": "2026-11-20",
+    "desc": "Taxi",
+    "receiptIds": []
+   },
+   {
+    "id": "expenses_1795250505546_shnve",
+    "account": "Credit Card",
+    "amount": 11,
+    "category": "Jazz",
+    "createdAt": 1795250505546,
+    "currency": "AED",
+    "date": "2026-11-20",
+    "desc": "Jazz Gums"
+   },
+   {
+    "id": "expenses_1795250559414_wb6d6",
+    "account": "Credit Card",
+    "amount": 38,
+    "category": "Shopping",
+    "createdAt": 1795250559414,
+    "currency": "AED",
+    "date": "2026-11-20",
+    "desc": "USB Cable"
+   },
+   {
+    "id": "expenses_1795250591404_zn7kq",
+    "account": "Credit Card",
+    "amount": 26.78,
+    "category": "Food & Dining",
+    "createdAt": 1795250591403,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Arabic Sweets",
+    "items": [
+     {
+      "amount": 26.78,
+      "name": "شعبيات"
+     }
+    ]
+   },
+   {
+    "id": "expenses_1795339161543_wpd69",
+    "account": "Bank Account",
+    "amount": 50.5,
+    "category": "Food & Dining",
+    "createdAt": 1795339161543,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "ملوخية الخال"
+   },
+   {
+    "id": "expenses_1795339453038_fu3u2",
+    "account": "Bank Account",
+    "amount": 59,
+    "category": "Financial",
+    "createdAt": 1795339453038,
+    "currency": "AED",
+    "date": "2026-11-22",
+    "desc": "Tabby Plus"
+   }
+  ],
+  "income": [
+   {
+    "id": "income_1791746719234_fdrsb",
+    "account": "Bank Account",
+    "amount": 2199.5,
+    "category": "Debit",
+    "createdAt": 1791746719234,
+    "currency": "AED",
+    "date": "2026-10-11",
+    "desc": "Jazz Debit"
+   },
+   {
+    "id": "income_1791746760048_5q6cd",
+    "account": "Bank Account",
+    "amount": 177,
+    "category": "Debit",
+    "createdAt": 1791746760048,
+    "currency": "AED",
+    "date": "2026-10-11",
+    "desc": "Haian Gold"
+   },
+   {
+    "id": "income_1791805903541_ehb0p",
+    "account": "Bank Account",
+    "amount": 500,
+    "category": "Allowance",
+    "createdAt": 1791805903541,
+    "currency": "AED",
+    "date": "2026-10-12",
+    "desc": "Transportation Allowance"
+   },
+   {
+    "id": "income_1791837186771_rwa7n",
+    "account": "Bank Account",
+    "amount": 6.2,
+    "category": "Debit",
+    "createdAt": 1791837186771,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "حيان دين"
+   },
+   {
+    "id": "income_1792312554388_8xa05",
+    "account": "Bank Account",
+    "amount": 1859.32,
+    "category": "Debit",
+    "createdAt": 1792312554388,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Jazz September Statement 1",
+    "receiptIds": []
+   },
+   {
+    "id": "income_1792578451171_a1ph3",
+    "account": "Bank Account",
+    "amount": 1000,
+    "category": "Debit",
+    "createdAt": 1792578451170,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "بشير",
+    "receiptIds": [
+     "a1c4e3613d7abd82e4d9b0adf0dd01bf"
+    ]
+   },
+   {
+    "id": "income_1793437404589_bntyw",
+    "account": "Bank Account",
+    "amount": 5750,
+    "category": "Salary",
+    "createdAt": 1793437404589,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Salary",
+    "receiptIds": []
+   }
+  ],
+  "transfers": [
+   {
+    "id": "transfers_1791887650910_h3wp",
+    "amount": 140.68,
+    "createdAt": 1791887650910,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Jazz Shoes (3/8)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 3,
+    "planId": "pl_1791713394733_s6au",
+    "receiptIds": [],
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1791889500903_2p87",
+    "amount": 287.23,
+    "createdAt": 1791889500903,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Haian Flight Ticket (4/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 4,
+    "planId": "pl_1791744864408_btco",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1791889519244_ne06",
+    "amount": 393.57,
+    "createdAt": 1791889519244,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Haian Dentist (6/8)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 6,
+    "planId": "pl_1791744632997_hmfz",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1792315228616_34bs",
+    "amount": 341.25,
+    "createdAt": 1792315228616,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Hair Coloring (1/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 1,
+    "planId": "pl_1791630496095_kvzw",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1792315229994_3983",
+    "amount": 195.25,
+    "createdAt": 1792315229994,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Primark Clothes (1/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 1,
+    "planId": "pl_1791630532303_pip2",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1792315231742_r9jx",
+    "amount": 64.91,
+    "createdAt": 1792315231742,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Udrive Jazz (1/6)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 1,
+    "planId": "pl_1792311807096_45bh",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1792315233091_evug",
+    "amount": 377.86,
+    "createdAt": 1792315233092,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Laptop (2/8)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791630382134_pyxz",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1792510378439_9vck4",
+    "amount": 100,
+    "createdAt": 1792510378439,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "تحويل للمي والأكل",
+    "from": "Bank Account",
+    "to": "Cash"
+   },
+   {
+    "id": "transfers_1792647839641_bmxr",
+    "amount": 46.01,
+    "createdAt": 1792647839641,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "Amazon Jazz (3/6)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 3,
+    "planId": "pl_1791713540996_axh6",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1792647850843_e9ue",
+    "amount": 25.49,
+    "createdAt": 1792647850843,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "Jazz Noon Minutes (3/7)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 3,
+    "planId": "pl_1791743868761_sogf",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793247996968_eu46",
+    "amount": 25.5,
+    "createdAt": 1793247996969,
+    "currency": "AED",
+    "date": "2026-10-29",
+    "desc": "Ear Buds (2/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791745097073_b4l5",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793540525045_myu6",
+    "amount": 341.16,
+    "createdAt": 1793540525045,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Rana Phone 1 (12/12)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 12,
+    "planId": "pl_1791745767782_y5lm",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793540533881_5kl9",
+    "amount": 314.82,
+    "createdAt": 1793540533881,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Rana Phone 2 (7/12)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 7,
+    "planId": "pl_1791745990253_kycb",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793735500532_vw15",
+    "amount": 393.57,
+    "createdAt": 1793735500532,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Haian Dentist (7/8)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 7,
+    "planId": "pl_1791744632997_hmfz",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793735512132_fbmm",
+    "amount": 176.75,
+    "createdAt": 1793735512133,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Haian Gold (2/6)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791746175273_aa1t",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1793802452937_3uapd",
+    "amount": 2500,
+    "createdAt": 1793802452937,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "آجار البيت",
+    "from": "Bank Account",
+    "to": "Cash"
+   },
+   {
+    "id": "transfers_1793904591300_zx9d0",
+    "amount": 5285.8,
+    "createdAt": 1793904591300,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "Credit Card payment",
+    "from": "Bank Account",
+    "kind": "cc_payment",
+    "to": "Credit Card"
+   },
+   {
+    "id": "transfers_1793904763961_6nfn",
+    "amount": 497.16,
+    "createdAt": 1793904763961,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "Jazz Iphone (10/12)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 10,
+    "planId": "pl_1791745634068_vbsd",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1794330696969_5xhs",
+    "amount": 46.78,
+    "createdAt": 1794330696969,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "Jazz Shein (2/12)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791746098582_sxpv",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1794330700486_kvlj",
+    "amount": 37.5,
+    "createdAt": 1794330700486,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "IQOS (4/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 4,
+    "planId": "pl_1791810254455_1bgu",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1794547776766_7jz6",
+    "amount": 140.68,
+    "createdAt": 1794547776767,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "Jazz Shoes (4/8)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 4,
+    "planId": "pl_1791713394733_s6au",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1795250894021_kjyf",
+    "amount": 46.01,
+    "createdAt": 1795250894021,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Amazon Jazz (4/6)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 4,
+    "planId": "pl_1791713540996_axh6",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1795251687093_9koq",
+    "amount": 341.25,
+    "createdAt": 1795251687093,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Hair Coloring (2/4)",
+    "from": "Credit Card",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791630496095_kvzw",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251688360_y0as",
+    "amount": 195.25,
+    "createdAt": 1795251688360,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Primark Clothes (2/4)",
+    "from": "Credit Card",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1791630532303_pip2",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251689450_y4yv",
+    "amount": 64.91,
+    "createdAt": 1795251689450,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Udrive Jazz (2/6)",
+    "from": "Credit Card",
+    "kind": "plan_payment",
+    "n": 2,
+    "planId": "pl_1792311807096_45bh",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251690579_y6sq",
+    "amount": 377.86,
+    "createdAt": 1795251690579,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Laptop (3/8)",
+    "from": "Credit Card",
+    "kind": "plan_payment",
+    "n": 3,
+    "planId": "pl_1791630382134_pyxz",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251691744_j4fg",
+    "amount": 89.03,
+    "createdAt": 1795251691744,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "حجز أوتيل (paid in full)",
+    "expenseId": "expenses_1792430360386_apek9",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251692072_fa0e",
+    "amount": 23.5,
+    "createdAt": 1795251692072,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "ماكدونالدز (paid in full)",
+    "expenseId": "expenses_1792430408788_rbjcb",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251692407_xpx7",
+    "amount": 6,
+    "createdAt": 1795251692407,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "تاكسي (paid in full)",
+    "expenseId": "expenses_1792430452446_4mwaz",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251692751_am6y",
+    "amount": 57.5,
+    "createdAt": 1795251692751,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "مطعم سبوت لايت (paid in full)",
+    "expenseId": "expenses_1792430502450_s3moj",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251693094_4lu6",
+    "amount": 6,
+    "createdAt": 1795251693094,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "تكسي (paid in full)",
+    "expenseId": "expenses_1792430526545_56vw9",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251693550_8nsv",
+    "amount": 20,
+    "createdAt": 1795251693550,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Nol Card (paid in full)",
+    "expenseId": "expenses_1792430590355_0fsy2",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251693886_ryle",
+    "amount": 89.03,
+    "createdAt": 1795251693886,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "حجز أوتيل (split) (paid in full)",
+    "friendTxnId": "ft_1792430363317_cflmk",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251694212_0vj0",
+    "amount": 23.5,
+    "createdAt": 1795251694212,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "ماكدونالدز (split) (paid in full)",
+    "friendTxnId": "ft_1792430409452_ou0n5",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251694684_xwbc",
+    "amount": 6,
+    "createdAt": 1795251694684,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "تاكسي (split) (paid in full)",
+    "friendTxnId": "ft_1792430453205_peyum",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251695135_nvsr",
+    "amount": 57.5,
+    "createdAt": 1795251695135,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "مطعم سبوت لايت (split) (paid in full)",
+    "friendTxnId": "ft_1792430503131_wxhfc",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251695606_7jdo",
+    "amount": 6,
+    "createdAt": 1795251695606,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "تكسي (split) (paid in full)",
+    "friendTxnId": "ft_1792430528499_o00q7",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251696120_9id8",
+    "amount": 30,
+    "createdAt": 1795251696120,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Bus Al Ain (paid in full)",
+    "friendTxnId": "ft_1792430557564_en3a2",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251696581_ju8a",
+    "amount": 10,
+    "createdAt": 1795251696581,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Balance (paid in full)",
+    "friendTxnId": "ft_1792431517105_thtrl",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251696902_no92",
+    "amount": 16.14,
+    "createdAt": 1795251696903,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "كارفور خبز موز بطيخ (paid in full)",
+    "expenseId": "expenses_1792512741746_7ixq6",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251697214_n940",
+    "amount": 1.16,
+    "createdAt": 1795251697214,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (paid in full)",
+    "expenseId": "expenses_1792512776569_gmf2b",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251697545_hrt7",
+    "amount": 1.16,
+    "createdAt": 1795251697545,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (split) (paid in full)",
+    "friendTxnId": "ft_1792512777018_bwhpc",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251698066_qqh8",
+    "amount": 1.16,
+    "createdAt": 1795251698066,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (split) (paid in full)",
+    "friendTxnId": "ft_1792512777413_ujtnh",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251698586_0vba",
+    "amount": 11.84,
+    "createdAt": 1795251698586,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Carrefour (paid in full)",
+    "expenseId": "expenses_1792596004509_9mjev",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251699133_qicy",
+    "amount": 26.96,
+    "createdAt": 1795251699133,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "كارفور عرنوس بندورة (paid in full)",
+    "expenseId": "expenses_1792596191318_2k0zf",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251699446_s8k0",
+    "amount": 2.77,
+    "createdAt": 1795251699446,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فيتا (paid in full)",
+    "expenseId": "expenses_1792828899856_hczse",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251699777_fvl5",
+    "amount": 27.2,
+    "createdAt": 1795251699777,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "شاورما Operation Falafel (paid in full)",
+    "expenseId": "expenses_1792829715598_subrg",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251700100_1s9u",
+    "amount": 267,
+    "createdAt": 1795251700100,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Fine (paid in full)",
+    "friendTxnId": "ft_1792577035509_7g0we",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251700437_rn9a",
+    "amount": 11.84,
+    "createdAt": 1795251700437,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Carrefour (split) (paid in full)",
+    "friendTxnId": "ft_1792596005052_zdlz7",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251700738_180b",
+    "amount": 11.84,
+    "createdAt": 1795251700738,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Carrefour (split) (paid in full)",
+    "friendTxnId": "ft_1792596005574_4imkd",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251701063_7qe9",
+    "amount": 102,
+    "createdAt": 1795251701063,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Hafilat Card Subscription (paid in full)",
+    "friendTxnId": "ft_1792607815385_5m4vr",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251701388_ozcv",
+    "amount": 2.76,
+    "createdAt": 1795251701388,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فيتا (split) (paid in full)",
+    "friendTxnId": "ft_1792828900456_sfvhj",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251701715_4qiz",
+    "amount": 2.76,
+    "createdAt": 1795251701715,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فيتا (split) (paid in full)",
+    "friendTxnId": "ft_1792828900974_ifcmz",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251702145_dw7i",
+    "amount": 1.17,
+    "createdAt": 1795251702145,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (paid in full)",
+    "expenseId": "expenses_1792696017319_ghomn",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251702463_fus8",
+    "amount": 15.29,
+    "createdAt": 1795251702463,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "كارفور مربى وموز (paid in full)",
+    "expenseId": "expenses_1792696073102_vvnpn",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251702794_60sn",
+    "amount": 31.5,
+    "createdAt": 1795251702794,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "شاورما (paid in full)",
+    "expenseId": "expenses_1792696133501_8c4bt",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251703131_7r4o",
+    "amount": 1.16,
+    "createdAt": 1795251703131,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (split) (paid in full)",
+    "friendTxnId": "ft_1792696017782_f18rg",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251703448_z346",
+    "amount": 1.16,
+    "createdAt": 1795251703448,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "خبز (split) (paid in full)",
+    "friendTxnId": "ft_1792696018326_rymm1",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251703770_9yhm",
+    "amount": 29.55,
+    "createdAt": 1795251703770,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Noon Minutes (paid in full)",
+    "friendTxnId": "ft_1792829581521_2qqxb",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251704299_twaq",
+    "amount": 15.5,
+    "createdAt": 1795251704299,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فطاير (paid in full)",
+    "expenseId": "expenses_1792752265557_qkuof",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251704605_ycsa",
+    "amount": 20.56,
+    "createdAt": 1795251704605,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "كارفور أندومي بطيخ (paid in full)",
+    "expenseId": "expenses_1792775242395_br9bw",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251705024_lbky",
+    "amount": 27.5,
+    "createdAt": 1795251705024,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Keeta Mango Lab (paid in full)",
+    "expenseId": "expenses_1792830521547_9avmd",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251705355_4v0t",
+    "amount": 10.5,
+    "createdAt": 1795251705355,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فطاير (split) (paid in full)",
+    "friendTxnId": "ft_1792752266035_m0dtw",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251705692_pdh2",
+    "amount": 16.5,
+    "createdAt": 1795251705692,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "فلافل الرابية محمرة وقشقوان (paid in full)",
+    "expenseId": "expenses_1792830466119_bxx2k",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251706043_5noq",
+    "amount": 30,
+    "createdAt": 1795251706043,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "باص العين (paid in full)",
+    "expenseId": "expenses_1792851298069_bjyvv",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251706335_9zeb",
+    "amount": 12,
+    "createdAt": 1795251706335,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "تكسي (paid in full)",
+    "expenseId": "expenses_1792851315619_ijbko",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251706877_yaao",
+    "amount": 14.2,
+    "createdAt": 1795251706877,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Eco Mini Mart Bus Station (paid in full)",
+    "expenseId": "expenses_1792855105487_5p8h1",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251707402_hmhi",
+    "amount": 5,
+    "createdAt": 1795251707403,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "بوظة (paid in full)",
+    "expenseId": "expenses_1792855121761_q6zcl",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251707698_xwuw",
+    "amount": 54.9,
+    "createdAt": 1795251707698,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "بيتزا (paid in full)",
+    "expenseId": "expenses_1792912920105_v9dtc",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795251708020_g0h8",
+    "amount": 6.5,
+    "createdAt": 1795251708020,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "بسكوتة وبيبسي (paid in full)",
+    "expenseId": "expenses_1792913012728_w2gre",
+    "from": "Credit Card",
+    "kind": "tabby_full",
+    "to": "Tabby Credit Card"
+   },
+   {
+    "id": "transfers_1795339347785_n93y",
+    "amount": 25.49,
+    "createdAt": 1795339347785,
+    "currency": "AED",
+    "date": "2026-11-22",
+    "desc": "Jazz Noon Minutes (4/7)",
+    "from": "Credit Card",
+    "kind": "plan_payment",
+    "n": 4,
+    "planId": "pl_1791743868761_sogf",
+    "to": "Tabby App"
+   },
+   {
+    "id": "transfers_1795339558365_8zus",
+    "amount": 25.5,
+    "createdAt": 1795339558365,
+    "currency": "AED",
+    "date": "2026-11-22",
+    "desc": "Ear Buds (3/4)",
+    "from": "Bank Account",
+    "kind": "plan_payment",
+    "n": 3,
+    "planId": "pl_1791745097073_b4l5",
+    "to": "Tabby App"
+   }
+  ],
+  "friendTxns": [
+   {
+    "id": "fo_f_ammar",
+    "amount": 2500,
+    "createdAt": 1791608494692,
+    "currency": "AED",
+    "date": "2026-10-10",
+    "desc": "Starting balance",
+    "direction": "owed_to_me",
+    "friendId": "f_ammar",
+    "kind": "opening"
+   },
+   {
+    "id": "fo_f_bachir",
+    "amount": 379.45,
+    "createdAt": 1791608411212,
+    "currency": "AED",
+    "date": "2026-10-10",
+    "desc": "Starting balance",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "kind": "opening"
+   },
+   {
+    "id": "fo_f_haian",
+    "account": "",
+    "amount": 5485.99,
+    "createdAt": 1793029548795,
+    "currency": "USD",
+    "date": "2024-09-01",
+    "desc": "Starting balance",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "kind": "opening",
+    "receiptIds": []
+   },
+   {
+    "id": "friendTxns_1791889503857_lt53l",
+    "account": "Bank Account",
+    "amount": 287.23,
+    "createdAt": 1791889503857,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Haian Flight Ticket (4/4) — received",
+    "direction": "i_owe",
+    "friendId": "f_haian",
+    "kind": "plan_friend_payment",
+    "n": 4,
+    "planId": "pl_1791744864408_btco"
+   },
+   {
+    "id": "friendTxns_1791889521715_84tsd",
+    "account": "Bank Account",
+    "amount": 393.57,
+    "createdAt": 1791889521716,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "Haian Dentist (6/8) — received",
+    "direction": "i_owe",
+    "friendId": "f_haian",
+    "kind": "plan_friend_payment",
+    "n": 6,
+    "planId": "pl_1791744632997_hmfz"
+   },
+   {
+    "id": "friendTxns_1792314496470_0shfv",
+    "account": "Bank Account",
+    "amount": 140.68,
+    "createdAt": 1792314496470,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "Jazz Shoes (3/8) — received",
+    "direction": "i_owe",
+    "friendId": "f_jazz",
+    "kind": "plan_friend_payment",
+    "n": 3,
+    "planId": "pl_1791713394733_s6au"
+   },
+   {
+    "id": "friendTxns_1793540492326_1fva1",
+    "account": "Bank Account",
+    "amount": 314.82,
+    "createdAt": 1793540492326,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Rana Phone 2 (7/12) — received",
+    "direction": "i_owe",
+    "friendId": "f_rana",
+    "kind": "plan_friend_payment",
+    "n": 7,
+    "payId": "pay_1793540492326_oshn",
+    "payTotal": 766,
+    "planId": "pl_1791745990253_kycb"
+   },
+   {
+    "id": "friendTxns_1793540493934_7gwdy",
+    "account": "Bank Account",
+    "amount": 341.16,
+    "createdAt": 1793540493934,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Rana Phone 1 (12/12) — received",
+    "direction": "i_owe",
+    "friendId": "f_rana",
+    "kind": "plan_friend_payment",
+    "n": 12,
+    "payId": "pay_1793540492326_oshn",
+    "payTotal": 766,
+    "planId": "pl_1791745767782_y5lm"
+   },
+   {
+    "id": "friendTxns_1793540495728_clg3o",
+    "account": "Bank Account",
+    "amount": 110.02,
+    "createdAt": 1793540495729,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Payment received",
+    "direction": "i_owe",
+    "friendId": "f_rana",
+    "kind": "payment",
+    "payId": "pay_1793540492326_oshn",
+    "payTotal": 766
+   },
+   {
+    "id": "friendTxns_1793735338103_mtsi1",
+    "account": "Bank Account",
+    "amount": 176.75,
+    "createdAt": 1793735338103,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Haian Gold (2/6) — received",
+    "direction": "i_owe",
+    "friendId": "f_haian",
+    "kind": "plan_friend_payment",
+    "n": 2,
+    "payId": "pay_1793735338102_ysgf",
+    "payTotal": 1902,
+    "planId": "pl_1791746175273_aa1t"
+   },
+   {
+    "id": "friendTxns_1793735339432_nvhgc",
+    "account": "Bank Account",
+    "amount": 393.57,
+    "createdAt": 1793735339432,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Haian Dentist (7/8) — received",
+    "direction": "i_owe",
+    "friendId": "f_haian",
+    "kind": "plan_friend_payment",
+    "n": 7,
+    "payId": "pay_1793735338102_ysgf",
+    "payTotal": 1902,
+    "planId": "pl_1791744632997_hmfz"
+   },
+   {
+    "id": "friendTxns_1793802288674_53whu",
+    "account": "Cash",
+    "amount": 1500,
+    "createdAt": 1793802288674,
+    "currency": "AED",
+    "date": "2026-11-02",
+    "desc": "Payment received",
+    "direction": "i_owe",
+    "friendId": "f_bachir",
+    "kind": "payment",
+    "payId": "pay_1793802288674_x6h3",
+    "payTotal": 1500
+   },
+   {
+    "id": "friendTxns_1793802417207_vquk6",
+    "account": "Bank Account",
+    "amount": 1331.68,
+    "createdAt": 1793802417207,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Payment received",
+    "direction": "i_owe",
+    "friendId": "f_haian",
+    "kind": "payment",
+    "payId": "pay_1793802417207_kgb2",
+    "payTotal": 1331.68
+   },
+   {
+    "id": "friendTxns_1793904774030_lic7i",
+    "account": "Bank Account",
+    "amount": 497.16,
+    "createdAt": 1793904774030,
+    "currency": "AED",
+    "date": "2026-11-05",
+    "desc": "Jazz Iphone (10/12) — received",
+    "direction": "i_owe",
+    "friendId": "f_jazz",
+    "kind": "plan_friend_payment",
+    "n": 10,
+    "planId": "pl_1791745634068_vbsd"
+   },
+   {
+    "id": "friendTxns_1794153771191_83ztn",
+    "account": "Bank Account",
+    "amount": 2500,
+    "createdAt": 1794153771191,
+    "currency": "AED",
+    "date": "2026-11-08",
+    "desc": "Payment received",
+    "direction": "i_owe",
+    "friendId": "f_ammar",
+    "kind": "payment",
+    "payId": "pay_1794153771191_ikie",
+    "payTotal": 2500
+   },
+   {
+    "id": "friendTxns_1794330709364_i1ayl",
+    "account": "Bank Account",
+    "amount": 46.78,
+    "createdAt": 1794330709364,
+    "currency": "AED",
+    "date": "2026-11-10",
+    "desc": "Jazz Shein (2/12) — received",
+    "direction": "i_owe",
+    "friendId": "f_jazz",
+    "kind": "plan_friend_payment",
+    "n": 2,
+    "planId": "pl_1791746098582_sxpv"
+   },
+   {
+    "id": "friendTxns_1794481460029_5hi3t",
+    "account": "",
+    "amount": 13.5,
+    "createdAt": 1794481460029,
+    "currency": "AED",
+    "date": "2026-11-12",
+    "desc": "مناقيش",
+    "direction": "i_owe",
+    "expenseId": "expenses_1794481460029_7oz5q",
+    "friendId": "f_bilal",
+    "kind": "paid_for_me"
+   },
+   {
+    "id": "friendTxns_1794816740795_z0oxl",
+    "account": "",
+    "amount": 18.5,
+    "createdAt": 1794816740795,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "الرابية الخضراء",
+    "direction": "i_owe",
+    "expenseId": "expenses_1794816740795_oqxio",
+    "friendId": "f_zain",
+    "kind": "paid_for_me"
+   },
+   {
+    "id": "friendTxns_1794902317266_eo2n2",
+    "account": "Bank Account",
+    "amount": 595.26,
+    "createdAt": 1794902317266,
+    "currency": "AED",
+    "date": "2026-11-17",
+    "desc": "Payment received",
+    "direction": "i_owe",
+    "friendId": "f_rami",
+    "kind": "payment",
+    "payId": "pay_1794902317266_8z3h",
+    "payTotal": 595.26
+   },
+   {
+    "id": "friendTxns_1794987652019_4rb47",
+    "account": "",
+    "amount": 18.5,
+    "createdAt": 1794987652020,
+    "currency": "AED",
+    "date": "2026-11-18",
+    "desc": "الرابية الخضراء",
+    "direction": "i_owe",
+    "expenseId": "expenses_1794987652019_h423n",
+    "friendId": "f_zain",
+    "kind": "paid_for_me"
+   },
+   {
+    "id": "friendTxns_1795086612123_dbe8i",
+    "account": "",
+    "amount": 230,
+    "createdAt": 1795086612123,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Smokes",
+    "direction": "i_owe",
+    "expenseId": "expenses_1795086612123_ejhmb",
+    "friendId": "f_bilal",
+    "kind": "paid_for_me"
+   },
+   {
+    "id": "friendTxns_1795086657105_5mbbm",
+    "account": "Bank Account",
+    "amount": 207.5,
+    "createdAt": 1795086657105,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Paid back",
+    "direction": "owed_to_me",
+    "friendId": "f_bilal",
+    "kind": "repayment",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1791809716646_vn5md",
+    "account": "Credit Card",
+    "amount": 18.5,
+    "createdAt": 1791809716646,
+    "currency": "AED",
+    "date": "2026-10-12",
+    "desc": "فطاير الرابية (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bilal",
+    "receiptIds": [
+     "06981e385a97c30adee97f982a377e44"
+    ]
+   },
+   {
+    "id": "ft_1791836785245_yjbmi",
+    "account": "Credit Card",
+    "amount": 4.58,
+    "createdAt": 1791836785245,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "محارم خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "receiptIds": [
+     "07afbb0c5d57b66fcb05a3ab863ebb86"
+    ]
+   },
+   {
+    "id": "ft_1791836786524_9i2di",
+    "account": "Credit Card",
+    "amount": 4.58,
+    "createdAt": 1791836786524,
+    "currency": "AED",
+    "date": "2026-10-13",
+    "desc": "محارم خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "receiptIds": [
+     "07afbb0c5d57b66fcb05a3ab863ebb86"
+    ]
+   },
+   {
+    "id": "ft_1791962557520_y9oww",
+    "account": "Credit Card",
+    "amount": 14.5,
+    "createdAt": 1791962557520,
+    "currency": "AED",
+    "date": "2026-10-14",
+    "desc": "Settlement",
+    "direction": "i_owe",
+    "friendId": "f_bilal"
+   },
+   {
+    "id": "ft_1792055758273_y5hr3",
+    "account": "Credit Card",
+    "amount": 14.5,
+    "createdAt": 1792055758273,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "Settlement",
+    "direction": "i_owe",
+    "friendId": "f_bilal"
+   },
+   {
+    "id": "ft_1792067746028_dkxy7",
+    "account": "Credit Card",
+    "amount": 18,
+    "createdAt": 1792067746028,
+    "currency": "AED",
+    "date": "2026-10-15",
+    "desc": "Taxi",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792165082566_vmnxl",
+    "account": "Credit Card",
+    "amount": 6.54,
+    "createdAt": 1792165082566,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Tabby Payment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792165106265_4dgt4",
+    "account": "Credit Card",
+    "amount": 6.33,
+    "createdAt": 1792165106265,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Tabby Payment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792165157258_aloaj",
+    "account": "Credit Card",
+    "amount": 69,
+    "createdAt": 1792165157258,
+    "currency": "AED",
+    "date": "2026-10-16",
+    "desc": "Al Habara Cafeteria",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792312609699_nvfzq",
+    "account": "Bank Account",
+    "amount": 10.5,
+    "createdAt": 1792312609699,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "دين",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792312724373_ryxt4",
+    "account": "Bank Account",
+    "amount": 74.3,
+    "createdAt": 1792312724373,
+    "currency": "AED",
+    "date": "2026-10-18",
+    "desc": "فطور الواحة (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1792430053466_sw54u",
+    "account": "Bank Account",
+    "amount": 30,
+    "createdAt": 1792430053466,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "باص العين (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430149454_8ryu9",
+    "account": "Bank Account",
+    "amount": 8.38,
+    "createdAt": 1792430149454,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "سيفيتسوي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430175891_duxae",
+    "account": "Bank Account",
+    "amount": 10.49,
+    "createdAt": 1792430175891,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "دين",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1792430363317_cflmk",
+    "account": "Tabby Credit Card",
+    "amount": 89.03,
+    "createdAt": 1792430363317,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "حجز أوتيل (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430409452_ou0n5",
+    "account": "Tabby Credit Card",
+    "amount": 23.5,
+    "createdAt": 1792430409452,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "ماكدونالدز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430453205_peyum",
+    "account": "Tabby Credit Card",
+    "amount": 6,
+    "createdAt": 1792430453205,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "تاكسي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430503131_wxhfc",
+    "account": "Tabby Credit Card",
+    "amount": 57.5,
+    "createdAt": 1792430503131,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "مطعم سبوت لايت (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430528499_o00q7",
+    "account": "Tabby Credit Card",
+    "amount": 6,
+    "createdAt": 1792430528499,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "تكسي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792430557564_en3a2",
+    "account": "Tabby Credit Card",
+    "amount": 30,
+    "createdAt": 1792430557564,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "Bus Al Ain",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792431517105_thtrl",
+    "account": "Tabby Credit Card",
+    "amount": 10,
+    "createdAt": 1792431517105,
+    "currency": "AED",
+    "date": "2026-10-19",
+    "desc": "Balance",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792512606748_f6972",
+    "account": "Cash",
+    "amount": 5.33,
+    "createdAt": 1792512606748,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "مي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian"
+   },
+   {
+    "id": "ft_1792512607214_q2vx4",
+    "account": "Cash",
+    "amount": 5.33,
+    "createdAt": 1792512607214,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "مي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir"
+   },
+   {
+    "id": "ft_1792512777018_bwhpc",
+    "account": "Tabby Credit Card",
+    "amount": 1.16,
+    "createdAt": 1792512777018,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir"
+   },
+   {
+    "id": "ft_1792512777413_ujtnh",
+    "account": "Tabby Credit Card",
+    "amount": 1.16,
+    "createdAt": 1792512777413,
+    "currency": "AED",
+    "date": "2026-10-20",
+    "desc": "خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian"
+   },
+   {
+    "id": "ft_1792577015216_6poag",
+    "account": "Bank Account",
+    "amount": 46.01,
+    "createdAt": 1792577015216,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Amazon",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792577035509_7g0we",
+    "account": "Tabby Credit Card",
+    "amount": 267,
+    "createdAt": 1792577035509,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Fine",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1792596005052_zdlz7",
+    "account": "Tabby Credit Card",
+    "amount": 11.84,
+    "createdAt": 1792596005052,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Carrefour (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "receiptIds": [
+     "8d2f735a15f9a6bda1dae976b6edbca1"
+    ]
+   },
+   {
+    "id": "ft_1792596005574_4imkd",
+    "account": "Tabby Credit Card",
+    "amount": 11.84,
+    "createdAt": 1792596005574,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Carrefour (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "receiptIds": [
+     "8d2f735a15f9a6bda1dae976b6edbca1"
+    ]
+   },
+   {
+    "id": "ft_1792607815385_5m4vr",
+    "account": "Tabby Credit Card",
+    "amount": 102,
+    "createdAt": 1792607815385,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "Hafilat Card Subscription",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792696017782_f18rg",
+    "account": "Tabby Credit Card",
+    "amount": 1.16,
+    "createdAt": 1792696017782,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "receiptIds": [
+     "46cfbdf60a0897c7733409687b123039"
+    ],
+    "splitId": "sp_1792696017319_2o2x"
+   },
+   {
+    "id": "ft_1792696018326_rymm1",
+    "account": "Tabby Credit Card",
+    "amount": 1.16,
+    "createdAt": 1792696018326,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "خبز (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "receiptIds": [
+     "46cfbdf60a0897c7733409687b123039"
+    ],
+    "splitId": "sp_1792696017319_2o2x"
+   },
+   {
+    "id": "ft_1792752266035_m0dtw",
+    "account": "Tabby Credit Card",
+    "amount": 10.5,
+    "createdAt": 1792752266035,
+    "currency": "AED",
+    "date": "2026-10-23",
+    "desc": "فطاير (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bilal",
+    "receiptIds": [
+     "2a806bf7c13887472f3398407ff7ac61"
+    ],
+    "splitId": "sp_1792752265557_4tsv"
+   },
+   {
+    "id": "ft_1792828900456_sfvhj",
+    "account": "Tabby Credit Card",
+    "amount": 2.76,
+    "createdAt": 1792828900456,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "فيتا (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "splitId": "sp_1792828899856_s42m"
+   },
+   {
+    "id": "ft_1792828900974_ifcmz",
+    "account": "Tabby Credit Card",
+    "amount": 2.76,
+    "createdAt": 1792828900974,
+    "currency": "AED",
+    "date": "2026-10-21",
+    "desc": "فيتا (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "splitId": "sp_1792828899856_s42m"
+   },
+   {
+    "id": "ft_1792829581521_2qqxb",
+    "account": "Tabby Credit Card",
+    "amount": 29.55,
+    "createdAt": 1792829581520,
+    "currency": "AED",
+    "date": "2026-10-22",
+    "desc": "Noon Minutes",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792830787280_pmnb8",
+    "account": "Tabby Credit Card",
+    "amount": 122,
+    "createdAt": 1792830787280,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "Le Cheval Cafe",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792855148365_w0lng",
+    "account": "Tabby Credit Card",
+    "amount": 20.25,
+    "createdAt": 1792855148365,
+    "currency": "AED",
+    "date": "2026-10-24",
+    "desc": "Taxi",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792923401452_3r8s2",
+    "account": "Tabby Credit Card",
+    "amount": 126,
+    "createdAt": 1792923401452,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "Involuntary Loss Of Employment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1792923522129_zo9wv",
+    "account": "Tabby Credit Card",
+    "amount": 37.1,
+    "createdAt": 1792923522129,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "Keeta Food (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1792923521758_mf2k"
+   },
+   {
+    "id": "ft_1792948635877_3kxtc",
+    "account": "Tabby Credit Card",
+    "amount": 27.5,
+    "createdAt": 1792948635877,
+    "currency": "AED",
+    "date": "2026-10-25",
+    "desc": "Keeta Mango Lab",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793091925231_kvmcv",
+    "account": "Bank Account",
+    "amount": 100.5,
+    "createdAt": 1793091925231,
+    "currency": "AED",
+    "date": "2026-10-27",
+    "desc": "Debt",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793163585527_259he",
+    "account": "Bank Account",
+    "amount": 20.25,
+    "createdAt": 1793163585527,
+    "currency": "AED",
+    "date": "2026-10-27",
+    "desc": "الخال (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "receiptIds": [],
+    "splitId": "sp_1793163584975_vhxt"
+   },
+   {
+    "id": "ft_1793172216078_plpmw",
+    "account": "Bank Account",
+    "amount": 55,
+    "createdAt": 1793172216077,
+    "currency": "AED",
+    "date": "2026-10-28",
+    "desc": "Etisalat",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793529744781_2rnfp",
+    "account": "Credit Card",
+    "amount": 20.33,
+    "createdAt": 1793529744781,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Tabby Payment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793529762600_fns5a",
+    "account": "Credit Card",
+    "amount": 21.51,
+    "createdAt": 1793529762600,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Tabby Payment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793529782459_jgyd0",
+    "account": "Credit Card",
+    "amount": 29.27,
+    "createdAt": 1793529782459,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Tabby Payment",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793536143267_mxam4",
+    "account": "Bank Account",
+    "amount": 90.38,
+    "createdAt": 1793536143267,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Hotel (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1793536142334_c33a"
+   },
+   {
+    "id": "ft_1793536173751_p5q5n",
+    "account": "Bank Account",
+    "amount": 30,
+    "createdAt": 1793536173751,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Bus Dubai (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1793536173059_w5y4"
+   },
+   {
+    "id": "ft_1793536240100_h377b",
+    "account": "Tabby Credit Card",
+    "amount": 3,
+    "createdAt": 1793536240100,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Water Biscuits (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1793536239409_ttay"
+   },
+   {
+    "id": "ft_1793544875037_6wwv3",
+    "account": "Bank Account",
+    "amount": 10,
+    "createdAt": 1793544875037,
+    "currency": "AED",
+    "date": "2026-11-01",
+    "desc": "Nol Card (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1793544874626_t969"
+   },
+   {
+    "id": "ft_1793645522270_iljhp",
+    "account": "Bank Account",
+    "amount": 50,
+    "createdAt": 1793645522269,
+    "currency": "AED",
+    "date": "2026-11-02",
+    "desc": "Debt",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1793723747380_amd7g",
+    "account": "Bank Account",
+    "amount": 200.5,
+    "createdAt": 1793723747379,
+    "currency": "AED",
+    "date": "2026-11-03",
+    "desc": "Debt",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1793802204838_fhk3y",
+    "account": "Cash",
+    "amount": 1334,
+    "createdAt": 1793802204837,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "آجار البيت",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "receiptIds": [
+     "0729a48a9c735473a3078182adaa1738"
+    ]
+   },
+   {
+    "id": "ft_1793802246048_alv2p",
+    "account": "Cash",
+    "amount": 1333,
+    "createdAt": 1793802246047,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "آجار البيت",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1793816268299_25mpd",
+    "account": "Bank Account",
+    "amount": 27.5,
+    "createdAt": 1793816268299,
+    "currency": "AED",
+    "date": "2026-11-04",
+    "desc": "Mango Lab",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794060070132_zjpc7",
+    "account": "Credit Card",
+    "amount": 11.5,
+    "createdAt": 1794060070132,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "Pepsi Coconut Water",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794060255050_bx8b0",
+    "account": "Bank Account",
+    "amount": 200.5,
+    "createdAt": 1794060255050,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "دين",
+    "direction": "owed_to_me",
+    "friendId": "f_sharoon"
+   },
+   {
+    "id": "ft_1794060371050_lehk5",
+    "account": "Credit Card",
+    "amount": 5,
+    "createdAt": 1794060371050,
+    "currency": "AED",
+    "date": "2026-11-07",
+    "desc": "Pepsi Ice (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz",
+    "splitId": "sp_1794060370430_ckgl"
+   },
+   {
+    "id": "ft_1794481833750_2f0q0",
+    "account": "Credit Card",
+    "amount": 18.5,
+    "createdAt": 1794481833750,
+    "currency": "AED",
+    "date": "2026-11-12",
+    "desc": "مناقيش (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bilal",
+    "splitId": "sp_1794481832925_bfu2"
+   },
+   {
+    "id": "ft_1794552972535_s1e4t",
+    "account": "Credit Card",
+    "amount": 20.66,
+    "createdAt": 1794552972535,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "مناقيش (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_zain",
+    "receiptIds": [
+     "13fc9fdcca7642def1099140152d4c03"
+    ],
+    "splitId": "sp_1794552972097_24e6"
+   },
+   {
+    "id": "ft_1794552972979_vsw3i",
+    "account": "Credit Card",
+    "amount": 17.66,
+    "createdAt": 1794552972979,
+    "currency": "AED",
+    "date": "2026-11-13",
+    "desc": "مناقيش (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bilal",
+    "receiptIds": [
+     "13fc9fdcca7642def1099140152d4c03"
+    ],
+    "splitId": "sp_1794552972097_24e6"
+   },
+   {
+    "id": "ft_1794662446833_s1ytp",
+    "account": "Bank Account",
+    "amount": 567.5,
+    "createdAt": 1794662446833,
+    "currency": "AED",
+    "date": "2026-11-14",
+    "desc": "تحويل أهلي قيس",
+    "direction": "owed_to_me",
+    "friendId": "f_rami",
+    "receiptIds": []
+   },
+   {
+    "id": "ft_1794676105984_or45y",
+    "account": "Bank Account",
+    "amount": 700.5,
+    "createdAt": 1794676105984,
+    "currency": "AED",
+    "date": "2026-11-14",
+    "desc": "Housing",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794834630546_qab31",
+    "account": "Credit Card",
+    "amount": 39.95,
+    "createdAt": 1794834630545,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "Keeta Filipino Food",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794834681432_sadjq",
+    "account": "Credit Card",
+    "amount": 3.33,
+    "createdAt": 1794834681432,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "متي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir",
+    "splitId": "sp_1794834680443_776r"
+   },
+   {
+    "id": "ft_1794834681887_0q0ls",
+    "account": "Credit Card",
+    "amount": 3.33,
+    "createdAt": 1794834681887,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "متي (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_haian",
+    "splitId": "sp_1794834680443_776r"
+   },
+   {
+    "id": "ft_1794850489747_kuhfw",
+    "account": "Bank Account",
+    "amount": 40.5,
+    "createdAt": 1794850489746,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "دين دخان",
+    "direction": "owed_to_me",
+    "friendId": "f_bachir"
+   },
+   {
+    "id": "ft_1794857046312_jcm8d",
+    "account": "Credit Card",
+    "amount": 25,
+    "createdAt": 1794857046312,
+    "currency": "AED",
+    "date": "2026-11-16",
+    "desc": "Turon",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794905349633_gzgwl",
+    "account": "Credit Card",
+    "amount": 26.5,
+    "createdAt": 1794905349633,
+    "currency": "AED",
+    "date": "2026-11-17",
+    "desc": "الرابية الخضراء (split)",
+    "direction": "owed_to_me",
+    "friendId": "f_zain",
+    "receiptIds": [
+     "0cf1ff76b8653d458c96685a1a8a4769"
+    ],
+    "splitId": "sp_1794905349163_554l"
+   },
+   {
+    "id": "ft_1794934443727_82c4n",
+    "account": "Bank Account",
+    "amount": 100.5,
+    "createdAt": 1794934443727,
+    "currency": "AED",
+    "date": "2026-11-17",
+    "desc": "Debt",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794995978039_blwpq",
+    "account": "Credit Card",
+    "amount": 20,
+    "createdAt": 1794995978039,
+    "currency": "AED",
+    "date": "2026-11-18",
+    "desc": "Al Rannen Clinic",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1794996736941_p9app",
+    "account": "Credit Card",
+    "amount": 20.48,
+    "createdAt": 1794996736941,
+    "currency": "AED",
+    "date": "2026-11-18",
+    "desc": "Al Rannen Pharmacy",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1795104156358_tzk5z",
+    "account": "Credit Card",
+    "amount": 34,
+    "createdAt": 1795104156358,
+    "currency": "AED",
+    "date": "2026-11-19",
+    "desc": "Macdonalds",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1795250616663_8vlkq",
+    "account": "Credit Card",
+    "amount": 102,
+    "createdAt": 1795250616663,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Bus Subscription",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1795339196576_p7ioa",
+    "account": "Credit Card",
+    "amount": 8.84,
+    "createdAt": 1795339196576,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Jazz Noon",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   },
+   {
+    "id": "ft_1795339307491_nk19z",
+    "account": "Credit Card",
+    "amount": 20.5,
+    "createdAt": 1795339307491,
+    "currency": "AED",
+    "date": "2026-11-21",
+    "desc": "Butter Pepsi Ice",
+    "direction": "owed_to_me",
+    "friendId": "f_jazz"
+   }
+  ],
+  "friends": [
+   {
+    "id": "f_ammar",
+    "name": "Ammar"
+   },
+   {
+    "id": "f_bachir",
+    "name": "Bachir"
+   },
+   {
+    "id": "f_bilal",
+    "name": "Bilal"
+   },
+   {
+    "id": "f_haian",
+    "name": "Haian"
+   },
+   {
+    "id": "f_jazz",
+    "name": "Jazz"
+   },
+   {
+    "id": "f_rami",
+    "name": "Rami"
+   },
+   {
+    "id": "f_rana",
+    "name": "Rana"
+   },
+   {
+    "id": "f_sharoon",
+    "name": "Sharoon"
+   },
+   {
+    "id": "f_zain",
+    "name": "Zain"
+   }
+  ],
+  "adjustments": [
+   {
+    "id": "adj_1791642395314_jfim",
+    "account": "Cash",
+    "amount": 830,
+    "createdAt": 1791642395314,
+    "currency": "USD",
+    "date": "2026-10-10",
+    "desc": "Balance adjustment"
+   },
+   {
+    "id": "adj_1791642736043_rncu",
+    "account": "Cash",
+    "amount": 3501.75,
+    "createdAt": 1791642736043,
+    "currency": "AED",
+    "date": "2026-10-10",
+    "desc": "Balance adjustment"
+   }
+  ],
+  "goals": [],
+  "plans": [
+   {
+    "id": "pl_1791630382134_pyxz",
+    "account": "Tabby Credit Card",
+    "count": 8,
+    "createdAt": 1791630382134,
+    "currency": "AED",
+    "desc": "Laptop",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-09-12",
+    "installments": [
+     {
+      "amount": 377.86,
+      "due": "2026-09-12",
+      "external": true,
+      "n": 1,
+      "paidOn": "2026-09-12",
+      "transferId": ""
+     },
+     {
+      "amount": 377.86,
+      "due": "2026-10-12",
+      "n": 2,
+      "paidOn": "2026-10-18",
+      "transferId": "transfers_1792315233091_evug"
+     },
+     {
+      "amount": 377.86,
+      "due": "2026-11-12",
+      "n": 3,
+      "paidOn": "2026-11-21",
+      "transferId": "transfers_1795251690579_y6sq"
+     },
+     {
+      "amount": 377.86,
+      "due": "2026-12-12",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 377.86,
+      "due": "2027-01-12",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 377.86,
+      "due": "2027-02-12",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 377.86,
+      "due": "2027-03-12",
+      "n": 7,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 377.86,
+      "due": "2027-04-12",
+      "n": 8,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 3022.88
+   },
+   {
+    "id": "pl_1791630496095_kvzw",
+    "account": "Tabby Credit Card",
+    "count": 4,
+    "createdAt": 1791630496095,
+    "currency": "AED",
+    "desc": "Hair Coloring",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-10-12",
+    "installments": [
+     {
+      "amount": 341.25,
+      "due": "2026-10-12",
+      "n": 1,
+      "paidOn": "2026-10-18",
+      "transferId": "transfers_1792315228616_34bs"
+     },
+     {
+      "amount": 341.25,
+      "due": "2026-11-12",
+      "n": 2,
+      "paidOn": "2026-11-21",
+      "transferId": "transfers_1795251687093_9koq"
+     },
+     {
+      "amount": 341.25,
+      "due": "2026-12-12",
+      "n": 3,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 341.25,
+      "due": "2027-01-12",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 1365
+   },
+   {
+    "id": "pl_1791630532303_pip2",
+    "account": "Tabby Credit Card",
+    "count": 4,
+    "createdAt": 1791630532303,
+    "currency": "AED",
+    "desc": "Primark Clothes",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-10-12",
+    "installments": [
+     {
+      "amount": 195.25,
+      "due": "2026-10-12",
+      "n": 1,
+      "paidOn": "2026-10-18",
+      "transferId": "transfers_1792315229994_3983"
+     },
+     {
+      "amount": 195.25,
+      "due": "2026-11-12",
+      "n": 2,
+      "paidOn": "2026-11-21",
+      "transferId": "transfers_1795251688360_y0as"
+     },
+     {
+      "amount": 195.25,
+      "due": "2026-12-12",
+      "n": 3,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 195.25,
+      "due": "2027-01-12",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 781
+   },
+   {
+    "id": "pl_1791713394733_s6au",
+    "account": "Tabby App",
+    "count": 8,
+    "createdAt": 1791713394735,
+    "currency": "AED",
+    "desc": "Jazz Shoes",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-08-13",
+    "friendId": "f_jazz",
+    "friendTxnId": "friendTxns_1791713395341_k0rjy",
+    "installments": [
+     {
+      "amount": 140.68,
+      "due": "2026-08-13",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-13",
+      "n": 1,
+      "paidOn": "2026-08-13",
+      "transferId": ""
+     },
+     {
+      "amount": 140.68,
+      "due": "2026-09-13",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-13",
+      "n": 2,
+      "paidOn": "2026-09-13",
+      "transferId": ""
+     },
+     {
+      "amount": 140.68,
+      "due": "2026-10-13",
+      "fSettleId": "friendTxns_1792314496470_0shfv",
+      "friendPaidOn": "2026-10-18",
+      "n": 3,
+      "paidOn": "2026-10-13",
+      "transferId": "transfers_1791887650910_h3wp"
+     },
+     {
+      "amount": 140.68,
+      "due": "2026-11-13",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 4,
+      "paidOn": "2026-11-13",
+      "transferId": "transfers_1794547776766_7jz6"
+     },
+     {
+      "amount": 140.68,
+      "due": "2026-12-13",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 140.68,
+      "due": "2027-01-13",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 140.68,
+      "due": "2027-02-13",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 7,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 140.66,
+      "due": "2027-03-13",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 8,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 1125.42
+   },
+   {
+    "id": "pl_1791713540996_axh6",
+    "account": "Tabby App",
+    "count": 6,
+    "createdAt": 1791713540997,
+    "currency": "AED",
+    "desc": "Amazon Jazz",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-08-21",
+    "friendId": "f_jazz",
+    "friendTxnId": "friendTxns_1791713541512_qql2y",
+    "installments": [
+     {
+      "amount": 46.01,
+      "due": "2026-08-21",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-21",
+      "n": 1,
+      "paidOn": "2026-08-21",
+      "transferId": ""
+     },
+     {
+      "amount": 46.01,
+      "due": "2026-09-21",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-21",
+      "n": 2,
+      "paidOn": "2026-09-21",
+      "transferId": ""
+     },
+     {
+      "amount": 46.01,
+      "due": "2026-10-21",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 3,
+      "paidOn": "2026-10-22",
+      "transferId": "transfers_1792647839641_bmxr"
+     },
+     {
+      "amount": 46.01,
+      "due": "2026-11-21",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 4,
+      "paidOn": "2026-11-21",
+      "transferId": "transfers_1795250894021_kjyf"
+     },
+     {
+      "amount": 46.01,
+      "due": "2026-12-21",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.01,
+      "due": "2027-01-21",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 276.06
+   },
+   {
+    "id": "pl_1791743868761_sogf",
+    "account": "Tabby App",
+    "count": 7,
+    "createdAt": 1791743868762,
+    "currency": "AED",
+    "desc": "Jazz Noon Minutes",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-08-22",
+    "friendId": "f_jazz",
+    "friendTxnId": "friendTxns_1791743869390_76j41",
+    "installments": [
+     {
+      "amount": 25.49,
+      "due": "2026-08-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-22",
+      "n": 1,
+      "paidOn": "2026-08-22",
+      "transferId": ""
+     },
+     {
+      "amount": 25.49,
+      "due": "2026-09-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-22",
+      "n": 2,
+      "paidOn": "2026-09-22",
+      "transferId": ""
+     },
+     {
+      "amount": 25.49,
+      "due": "2026-10-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 3,
+      "paidOn": "2026-10-22",
+      "transferId": "transfers_1792647850843_e9ue"
+     },
+     {
+      "amount": 25.49,
+      "due": "2026-11-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 4,
+      "paidOn": "2026-11-22",
+      "transferId": "transfers_1795339347785_n93y"
+     },
+     {
+      "amount": 25.49,
+      "due": "2026-12-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 25.49,
+      "due": "2027-01-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 25.51,
+      "due": "2027-02-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 7,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 178.45
+   },
+   {
+    "id": "pl_1791744632997_hmfz",
+    "account": "Tabby App",
+    "count": 8,
+    "createdAt": 1791744632999,
+    "currency": "AED",
+    "desc": "Haian Dentist",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-05-22",
+    "friendId": "f_haian",
+    "friendTxnId": "friendTxns_1791744633768_35kq3",
+    "installments": [
+     {
+      "amount": 842.5,
+      "due": "2026-05-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-05-22",
+      "n": 1,
+      "paidOn": "2026-05-22",
+      "transferId": ""
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-06-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-06-22",
+      "n": 2,
+      "paidOn": "2026-06-22",
+      "transferId": ""
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-07-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-07-22",
+      "n": 3,
+      "paidOn": "2026-07-22",
+      "transferId": ""
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-08-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-22",
+      "n": 4,
+      "paidOn": "2026-08-22",
+      "transferId": ""
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-09-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-22",
+      "n": 5,
+      "paidOn": "2026-09-22",
+      "transferId": ""
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-10-22",
+      "fSettleId": "friendTxns_1791889521715_84tsd",
+      "friendPaidOn": "2026-10-13",
+      "n": 6,
+      "paidOn": "2026-10-13",
+      "transferId": "transfers_1791889519244_ne06"
+     },
+     {
+      "amount": 393.57,
+      "due": "2026-11-22",
+      "fSettleId": "friendTxns_1793735339432_nvhgc",
+      "friendPaidOn": "2026-11-03",
+      "n": 7,
+      "paidOn": "2026-11-03",
+      "transferId": "transfers_1793735500532_vw15"
+     },
+     {
+      "amount": 393.56,
+      "due": "2026-12-22",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 8,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 3597.48
+   },
+   {
+    "id": "pl_1791744864408_btco",
+    "account": "Tabby App",
+    "count": 4,
+    "createdAt": 1791744864408,
+    "currency": "AED",
+    "desc": "Haian Flight Ticket",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-07-22",
+    "friendId": "f_haian",
+    "friendTxnId": "friendTxns_1791744864859_mwb2g",
+    "installments": [
+     {
+      "amount": 574.46,
+      "due": "2026-07-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-07-22",
+      "n": 1,
+      "paidOn": "2026-07-22",
+      "transferId": ""
+     },
+     {
+      "amount": 287.23,
+      "due": "2026-08-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-22",
+      "n": 2,
+      "paidOn": "2026-08-22",
+      "transferId": ""
+     },
+     {
+      "amount": 287.23,
+      "due": "2026-09-22",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-22",
+      "n": 3,
+      "paidOn": "2026-09-22",
+      "transferId": ""
+     },
+     {
+      "amount": 287.23,
+      "due": "2026-10-22",
+      "fSettleId": "friendTxns_1791889503857_lt53l",
+      "friendPaidOn": "2026-10-13",
+      "n": 4,
+      "paidOn": "2026-10-13",
+      "transferId": "transfers_1791889500903_2p87"
+     }
+    ],
+    "interval": "month",
+    "total": 1436.15
+   },
+   {
+    "id": "pl_1791745097073_b4l5",
+    "account": "Tabby App",
+    "count": 4,
+    "createdAt": 1791745097075,
+    "currency": "AED",
+    "desc": "Ear Buds",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-09-29",
+    "friendId": "",
+    "friendTxnId": "",
+    "installments": [
+     {
+      "amount": 25.5,
+      "due": "2026-09-29",
+      "external": true,
+      "n": 1,
+      "paidOn": "2026-09-29",
+      "transferId": ""
+     },
+     {
+      "amount": 25.5,
+      "due": "2026-10-29",
+      "n": 2,
+      "paidOn": "2026-10-29",
+      "transferId": "transfers_1793247996968_eu46"
+     },
+     {
+      "amount": 25.5,
+      "due": "2026-11-29",
+      "n": 3,
+      "paidOn": "2026-11-22",
+      "transferId": "transfers_1795339558365_8zus"
+     },
+     {
+      "amount": 25.5,
+      "due": "2026-12-29",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 102
+   },
+   {
+    "id": "pl_1791745634068_vbsd",
+    "account": "Tabby App",
+    "count": 12,
+    "createdAt": 1791745634070,
+    "currency": "AED",
+    "desc": "Jazz Iphone",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-02-06",
+    "friendId": "f_jazz",
+    "friendTxnId": "friendTxns_1791745634634_kmcsh",
+    "installments": [
+     {
+      "amount": 497.16,
+      "due": "2026-02-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-02-06",
+      "n": 1,
+      "paidOn": "2026-02-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-03-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-03-06",
+      "n": 2,
+      "paidOn": "2026-03-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-04-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-04-06",
+      "n": 3,
+      "paidOn": "2026-04-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-05-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-05-06",
+      "n": 4,
+      "paidOn": "2026-05-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-06-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-06-06",
+      "n": 5,
+      "paidOn": "2026-06-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-07-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-07-06",
+      "n": 6,
+      "paidOn": "2026-07-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-08-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-06",
+      "n": 7,
+      "paidOn": "2026-08-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-09-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-06",
+      "n": 8,
+      "paidOn": "2026-09-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-10-06",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-10-06",
+      "n": 9,
+      "paidOn": "2026-10-06",
+      "transferId": ""
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-11-06",
+      "fSettleId": "friendTxns_1793904774030_lic7i",
+      "friendPaidOn": "2026-11-05",
+      "n": 10,
+      "paidOn": "2026-11-05",
+      "transferId": "transfers_1793904763961_6nfn"
+     },
+     {
+      "amount": 497.16,
+      "due": "2026-12-06",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 11,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 497.07,
+      "due": "2027-01-06",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 12,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 5965.83
+   },
+   {
+    "id": "pl_1791745767782_y5lm",
+    "account": "Tabby App",
+    "count": 12,
+    "createdAt": 1791745767783,
+    "currency": "AED",
+    "desc": "Rana Phone 1",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2025-12-14",
+    "friendId": "f_rana",
+    "friendTxnId": "friendTxns_1791745768394_ho4x1",
+    "installments": [
+     {
+      "amount": 341.14,
+      "due": "2025-12-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2025-12-14",
+      "n": 1,
+      "paidOn": "2025-12-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-01-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-01-14",
+      "n": 2,
+      "paidOn": "2026-01-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-02-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-02-14",
+      "n": 3,
+      "paidOn": "2026-02-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-03-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-03-14",
+      "n": 4,
+      "paidOn": "2026-03-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-04-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-04-14",
+      "n": 5,
+      "paidOn": "2026-04-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-05-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-05-14",
+      "n": 6,
+      "paidOn": "2026-05-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-06-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-06-14",
+      "n": 7,
+      "paidOn": "2026-06-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-07-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-07-14",
+      "n": 8,
+      "paidOn": "2026-07-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-08-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-14",
+      "n": 9,
+      "paidOn": "2026-08-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-09-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-14",
+      "n": 10,
+      "paidOn": "2026-09-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.14,
+      "due": "2026-10-14",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-10-14",
+      "n": 11,
+      "paidOn": "2026-10-14",
+      "transferId": ""
+     },
+     {
+      "amount": 341.16,
+      "due": "2026-11-14",
+      "fSettleId": "friendTxns_1793540493934_7gwdy",
+      "friendPaidOn": "2026-11-01",
+      "n": 12,
+      "paidOn": "2026-11-01",
+      "transferId": "transfers_1793540525045_myu6"
+     }
+    ],
+    "interval": "month",
+    "total": 4093.7
+   },
+   {
+    "id": "pl_1791745990253_kycb",
+    "account": "Tabby App",
+    "count": 12,
+    "createdAt": 1791745990255,
+    "currency": "AED",
+    "desc": "Rana Phone 2",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-05-10",
+    "friendId": "f_rana",
+    "friendTxnId": "friendTxns_1791745990903_kukms",
+    "installments": [
+     {
+      "amount": 314.82,
+      "due": "2026-05-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-05-10",
+      "n": 1,
+      "paidOn": "2026-05-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-06-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-06-10",
+      "n": 2,
+      "paidOn": "2026-06-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-07-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-07-10",
+      "n": 3,
+      "paidOn": "2026-07-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-08-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-08-10",
+      "n": 4,
+      "paidOn": "2026-08-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-09-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-09-10",
+      "n": 5,
+      "paidOn": "2026-09-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-10-10",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-10-10",
+      "n": 6,
+      "paidOn": "2026-10-10",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-11-10",
+      "fSettleId": "friendTxns_1793540492326_1fva1",
+      "friendPaidOn": "2026-11-01",
+      "n": 7,
+      "paidOn": "2026-11-01",
+      "transferId": "transfers_1793540533881_5kl9"
+     },
+     {
+      "amount": 314.82,
+      "due": "2026-12-10",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 8,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2027-01-10",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 9,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2027-02-10",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 10,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 314.82,
+      "due": "2027-03-10",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 11,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 314.9,
+      "due": "2027-04-10",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 12,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 3777.92
+   },
+   {
+    "id": "pl_1791746098582_sxpv",
+    "account": "Tabby App",
+    "count": 12,
+    "createdAt": 1791746098583,
+    "currency": "AED",
+    "desc": "Jazz Shein",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-10-11",
+    "friendId": "f_jazz",
+    "friendTxnId": "friendTxns_1791746099227_bmb47",
+    "installments": [
+     {
+      "amount": 46.78,
+      "due": "2026-10-11",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-10-11",
+      "n": 1,
+      "paidOn": "2026-10-11",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2026-11-11",
+      "fSettleId": "friendTxns_1794330709364_i1ayl",
+      "friendPaidOn": "2026-11-10",
+      "n": 2,
+      "paidOn": "2026-11-10",
+      "transferId": "transfers_1794330696969_5xhs"
+     },
+     {
+      "amount": 46.78,
+      "due": "2026-12-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 3,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-01-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-02-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-03-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-04-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 7,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-05-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 8,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-06-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 9,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-07-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 10,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.78,
+      "due": "2027-08-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 11,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 46.72,
+      "due": "2027-09-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 12,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 561.3
+   },
+   {
+    "id": "pl_1791746175273_aa1t",
+    "account": "Tabby App",
+    "count": 6,
+    "createdAt": 1791746175274,
+    "currency": "AED",
+    "desc": "Haian Gold",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-10-11",
+    "friendId": "f_haian",
+    "friendTxnId": "friendTxns_1791746175774_yadhu",
+    "installments": [
+     {
+      "amount": 176.75,
+      "due": "2026-10-11",
+      "external": true,
+      "fSettleId": "",
+      "friendPaidOn": "2026-10-11",
+      "n": 1,
+      "paidOn": "2026-10-11",
+      "transferId": ""
+     },
+     {
+      "amount": 176.75,
+      "due": "2026-11-11",
+      "fSettleId": "friendTxns_1793735338103_mtsi1",
+      "friendPaidOn": "2026-11-03",
+      "n": 2,
+      "paidOn": "2026-11-03",
+      "transferId": "transfers_1793735512132_fbmm"
+     },
+     {
+      "amount": 176.75,
+      "due": "2026-12-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 3,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 176.75,
+      "due": "2027-01-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 176.75,
+      "due": "2027-02-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 176.75,
+      "due": "2027-03-11",
+      "fSettleId": "",
+      "friendPaidOn": "",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 1060.5
+   },
+   {
+    "id": "pl_1791810254455_1bgu",
+    "account": "Tabby App",
+    "count": 4,
+    "createdAt": 1791810254456,
+    "currency": "AED",
+    "desc": "IQOS",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-08-11",
+    "friendId": "",
+    "friendTxnId": "",
+    "installments": [
+     {
+      "amount": 37.5,
+      "due": "2026-08-11",
+      "external": true,
+      "n": 1,
+      "paidOn": "2026-08-11",
+      "transferId": ""
+     },
+     {
+      "amount": 37.5,
+      "due": "2026-09-11",
+      "external": true,
+      "n": 2,
+      "paidOn": "2026-09-11",
+      "transferId": ""
+     },
+     {
+      "amount": 37.5,
+      "due": "2026-10-11",
+      "external": true,
+      "n": 3,
+      "paidOn": "2026-10-11",
+      "transferId": ""
+     },
+     {
+      "amount": 37.5,
+      "due": "2026-11-11",
+      "n": 4,
+      "paidOn": "2026-11-10",
+      "transferId": "transfers_1794330700486_kvlj"
+     }
+    ],
+    "interval": "month",
+    "total": 150
+   },
+   {
+    "id": "pl_1792311807096_45bh",
+    "account": "Tabby Credit Card",
+    "count": 6,
+    "createdAt": 1792311807097,
+    "currency": "AED",
+    "desc": "Udrive Jazz",
+    "expenseId": "",
+    "fee": 0,
+    "feeExpenseId": "",
+    "firstDue": "2026-10-18",
+    "friendId": "",
+    "friendTxnId": "",
+    "installments": [
+     {
+      "amount": 64.91,
+      "due": "2026-10-12",
+      "n": 1,
+      "paidOn": "2026-10-18",
+      "transferId": "transfers_1792315231742_r9jx"
+     },
+     {
+      "amount": 64.91,
+      "due": "2026-11-12",
+      "n": 2,
+      "paidOn": "2026-11-21",
+      "transferId": "transfers_1795251689450_y4yv"
+     },
+     {
+      "amount": 64.91,
+      "due": "2026-12-12",
+      "n": 3,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 64.91,
+      "due": "2027-01-12",
+      "n": 4,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 64.91,
+      "due": "2027-02-12",
+      "n": 5,
+      "paidOn": "",
+      "transferId": ""
+     },
+     {
+      "amount": 64.95,
+      "due": "2027-03-12",
+      "n": 6,
+      "paidOn": "",
+      "transferId": ""
+     }
+    ],
+    "interval": "month",
+    "total": 389.5
+   }
+  ],
+  "recurring": [],
+  "accountBalances": [
+   {
+    "id": "Bank_20_Account",
+    "account": "Bank Account",
+    "opening": 3160.74
+   },
+   {
+    "id": "Cash",
+    "account": "Cash",
+    "opening": -60.01
+   },
+   {
+    "id": "Credit_20_Card",
+    "account": "Credit Card",
+    "opening": -5349.8
+   },
+   {
+    "id": "Tabby_20_Credit_20_Card",
+    "account": "Tabby Credit Card",
+    "opening": 0
+   }
+  ],
+  "budgets": [
+   {
+    "id": "Bills_20__26__20_Utilities",
+    "category": "Bills & Utilities",
+    "limit": 200
+   },
+   {
+    "id": "Debits",
+    "category": "Debits",
+    "limit": 110
+   },
+   {
+    "id": "Entertainment",
+    "category": "Entertainment",
+    "limit": 0
+   },
+   {
+    "id": "Family",
+    "category": "Family",
+    "limit": 0
+   },
+   {
+    "id": "Financial",
+    "category": "Financial",
+    "limit": 150
+   },
+   {
+    "id": "Food_20__26__20_Dining",
+    "category": "Food & Dining",
+    "limit": 1500
+   },
+   {
+    "id": "Groceries",
+    "category": "Groceries",
+    "limit": 270
+   },
+   {
+    "id": "Housing_20__26__20_Living",
+    "category": "Housing & Living",
+    "limit": 2500
+   },
+   {
+    "id": "Jazz",
+    "category": "Jazz",
+    "limit": 500
+   },
+   {
+    "id": "Miscellaneous",
+    "category": "Miscellaneous",
+    "limit": 790
+   },
+   {
+    "id": "Smokes",
+    "category": "Smokes",
+    "limit": 300
+   },
+   {
+    "id": "Transportation",
+    "category": "Transportation",
+    "limit": 600
+   }
+  ],
+  "settings": [
+   {
+    "id": "inst",
+    "account": "Tabby Credit Card",
+    "statementDay": 11,
+    "graceDays": 0,
+    "dueDay": 21,
+    "limit": 8000,
+    "trackFrom": "2026-09-12",
+    "plus": true,
+    "appAccount": "Tabby App"
+   },
+   {
+    "id": "prefs",
+    "defaultAccount": "",
+    "rates": {
+     "USD": 3.68
+    },
+    "rollover": false,
+    "rolloverFrom": ""
+   },
+   {
+    "id": "lists",
+    "categories": [
+     "Food & Dining",
+     "Groceries",
+     "Transportation",
+     "Entertainment",
+     "Financial",
+     "Health / Medical",
+     "Bills & Utilities",
+     "Education & Work",
+     "Personal & Social",
+     "Shopping",
+     "Housing & Living",
+     "Family",
+     "Smokes",
+     "Jazz",
+     "Debits",
+     "Miscellaneous"
+    ],
+    "incomeCats": [
+     "Salary",
+     "Business",
+     "Gift",
+     "Refund",
+     "Investment",
+     "Debit",
+     "Allowance",
+     "Other"
+    ],
+    "currencies": [
+     "AED",
+     "USD"
+    ],
+    "accounts": [
+     "Credit Card",
+     "Tabby Credit Card",
+     "Tabby App",
+     "Bank Account",
+     "Cash"
+    ],
+    "cards": [
+     "Credit Card",
+     "Tabby Credit Card"
+    ]
+   },
+   {
+    "id": "card_Tabby_20_Credit_20_Card",
+    "account": "Tabby Credit Card",
+    "dueDate": "2026-10-12",
+    "status": "unpaid",
+    "paidOn": "",
+    "dueDay": 0,
+    "statementDay": 11
+   },
+   {
+    "id": "creditCard",
+    "account": "Credit Card",
+    "dueDate": "2026-12-06",
+    "status": "unpaid",
+    "paidOn": "",
+    "dueDay": 0,
+    "statementDay": 11
+   }
+  ]
+ }
+}
