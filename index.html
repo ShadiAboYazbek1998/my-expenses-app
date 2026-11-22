@@ -676,7 +676,7 @@ async function init(){
       const data = await res.json();
       if (data && data.collections) {
         expenses = data.collections.expenses || [];
-        incomes = data.collections.incomes || [];
+        incomes = data.collections.income || [];
         transfers = data.collections.transfers || [];
         friends = data.collections.friends || [];
         friendTxns = data.collections.friendTxns || [];
@@ -687,6 +687,10 @@ async function init(){
         goals = data.collections.goals || [];
         trash = data.collections.trash || [];
       }
+      renderTxns();
+      renderDash();
+      renderBudgets();
+      renderFriends();
     }
   } catch (err) {
     console.error('Could not load transactions.json', err);
