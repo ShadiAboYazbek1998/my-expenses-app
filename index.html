@@ -669,7 +669,29 @@ function armConfirm(btn, label, onConfirm){
   }, 2500);
 }
 
-function init(){
+async function init(){
+  try {
+    const res = await fetch('transactions.json');
+    if (res.ok) {
+      const data = await res.json();
+      if (data && data.collections) {
+        expenses = data.collections.expenses || [];
+        incomes = data.collections.incomes || [];
+        transfers = data.collections.transfers || [];
+        friends = data.collections.friends || [];
+        friendTxns = data.collections.friendTxns || [];
+        budgets = data.collections.budgets || {};
+        plans = data.collections.plans || [];
+        prefs = data.collections.prefs || {};
+        recurring = data.collections.recurring || [];
+        goals = data.collections.goals || [];
+        trash = data.collections.trash || [];
+      }
+    }
+  } catch (err) {
+    console.error('Could not load transactions.json', err);
+  }
+
   fillSelect(document.getElementById('f-cat'), CATEGORIES);
   fillSelect(document.getElementById('f-acct'), ACCOUNTS);
   fillSelect(document.getElementById('sp-cat'), CATEGORIES);
